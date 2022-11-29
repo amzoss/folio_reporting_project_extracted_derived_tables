@@ -13,7 +13,7 @@ FROM
         AND columns.table_schema = pg_statio_all_tables.schemaname 
         AND columns.table_name = pg_statio_all_tables.relname
 WHERE 
-	columns.table_schema = 'folio_derived'
+    columns.table_schema = 'folio_derived'
 ORDER BY 
-	columns.table_name,
-	columns.ordinal_position
+    columns.table_name,
+    columns.ordinal_position
