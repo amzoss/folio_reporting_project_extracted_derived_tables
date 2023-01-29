@@ -65,7 +65,7 @@ try:
 		output_table_attributes[counter] = {}
 		output_table_attributes[counter]['table'] = record['table']
 		output_table_attributes[counter]['attributeNumber'] = record['attribute #']
-		output_table_attributes[counter]['attrbuteName'] = record['attribute']
+		output_table_attributes[counter]['attributeName'] = record['attribute']
 		output_table_attributes[counter]['datatype'] = record['datatype']
 		output_table_attributes[counter]['description'] = record['description'] 
 
