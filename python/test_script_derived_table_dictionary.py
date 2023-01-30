@@ -2,7 +2,7 @@
 -------------------------------------------------------------------------------
 test_script_derived_table_dictionary.py
 
-Create Date:    2023-01-29
+Create Date:    2023-01-30
 Author:         Stefan Dombek <dombek@uni-leipzig.de>
 Description:    This script is intended to enable the documentation of derived 
                 tables. To do this, data is taken from the database catalog and 
@@ -26,6 +26,7 @@ Copyright (C) 2018-2023 The Open Library Foundation
 # Import modules
 import psycopg2
 import psycopg2.extras
+import csv
 
 # declare and initialize variables
 # variables for the login credentials to metadb
@@ -38,7 +39,8 @@ port_id = ''
 conn = None
 cur = None
 # dictionaries
-output_table_attributes = {}
+postgres_catalog_information = {}
+csv_information = {}
 
 # Try to connect to database, else print error message
 try:
@@ -56,22 +58,59 @@ try:
 	# configure the database query and execute the database query
 	cur.execute('SELECT columns.table_name AS "table", columns.ordinal_position AS "attribute #", columns.column_name AS "attribute", columns.udt_name AS "datatype", pg_description.description FROM pg_catalog.pg_statio_all_tables INNER JOIN pg_catalog.pg_description ON pg_description.objoid = pg_statio_all_tables.relid INNER JOIN information_schema.columns ON pg_description.objsubid = columns.ordinal_position AND columns.table_schema = pg_statio_all_tables.schemaname AND columns.table_name = pg_statio_all_tables.relname WHERE columns.table_schema = \'folio_derived\' ORDER BY columns.table_name, columns.ordinal_position')
 	
-	# print the results
-	# for the first test only an output in the shell as dictionary with the data from the database. Later it is the section for the html output.
-	# This dictionary will be extended with information from a CSV (required by the community)
+	# read postgres informations
 	counter = 0
 	for record in cur.fetchall():
 		
-		output_table_attributes[counter] = {}
-		output_table_attributes[counter]['table'] = record['table']
-		output_table_attributes[counter]['attributeNumber'] = record['attribute #']
-		output_table_attributes[counter]['attributeName'] = record['attribute']
-		output_table_attributes[counter]['datatype'] = record['datatype']
-		output_table_attributes[counter]['description'] = record['description'] 
+		postgres_catalog_information[counter] = {}
+		postgres_catalog_information[counter]['table'] = record['table']
+		postgres_catalog_information[counter]['attributeNumber'] = record['attribute #']
+		postgres_catalog_information[counter]['attributeName'] = record['attribute']
+		postgres_catalog_information[counter]['datatype'] = record['datatype']
+		postgres_catalog_information[counter]['description'] = record['description'] 
 
 		counter += 1
 
-	print(output_table_attributes)
+	#print(postgres_catalog_information)
+
+	# read csv file informations
+	reader = csv.DictReader(open('../csv/derived_tables_columns_doc.CSV'), delimiter=',')
+
+	counter = 0
+	for row in reader:
+		
+		csv_information[counter] = {}
+		csv_information[counter]['table'] = row['table']
+		csv_information[counter]['attributeName'] = row['attributeName']
+		csv_information[counter]['sourceSchema'] = row['sourceSchema']
+		csv_information[counter]['sourceTable'] = row['sourceTable']
+		csv_information[counter]['sourceAttribute'] = row['sourceAttribute']
+		csv_information[counter]['sourceType'] = row['sourceType']
+		csv_information[counter]['sourceMultipleValues'] = row['sourceMultipleValues']
+		csv_information[counter]['aggregation'] = row['aggregation']
+		csv_information[counter]['notes'] = row['notes']
+
+		counter += 1
+	
+	#print(csv_information)
+
+	# Combine the dictionaries
+	for i in postgres_catalog_information:
+		for j in csv_information:
+			if csv_information[j]['table'] == postgres_catalog_information[i]['table'] and csv_information[j]['attributeName'] == postgres_catalog_information[i]['attributeName']:
+				postgres_catalog_information[i]['sourceSchema'] = csv_information[j]['sourceSchema']
+				postgres_catalog_information[i]['sourceTable'] = csv_information[j]['sourceTable']
+				postgres_catalog_information[i]['sourceAttribute'] = csv_information[j]['sourceAttribute']
+				postgres_catalog_information[i]['sourceType'] = csv_information[j]['sourceType']
+				postgres_catalog_information[i]['sourceMultipleValues'] = csv_information[j]['sourceMultipleValues']
+				postgres_catalog_information[i]['aggregation'] = csv_information[j]['aggregation']
+				postgres_catalog_information[i]['notes'] = csv_information[j]['notes']
+
+	# test: print the results
+	for output in postgres_catalog_information:
+		if postgres_catalog_information[output]['table'] == "agreements_subscription_agreement":
+			print(postgres_catalog_information[output])
+	# html output
 	
 # Error handler for database connection	
 except Exception as error:
