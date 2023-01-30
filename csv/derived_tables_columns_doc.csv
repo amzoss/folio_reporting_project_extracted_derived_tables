@@ -1,0 +1,2 @@
+table,attributeName,sourceSchema,sourceTable,sourceAttribute,sourceType,sourceMultipleValues,aggregation,notes
+agreements_subscription_agreement,sa_id,folio_agreements,subscription_agreement,sa_id,varchar,no,no,wichtige Notiz
