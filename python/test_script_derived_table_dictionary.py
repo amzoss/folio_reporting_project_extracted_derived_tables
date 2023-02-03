@@ -2,7 +2,7 @@
 -------------------------------------------------------------------------------
 test_script_derived_table_dictionary.py
 
-Create Date:    2023-01-30
+Create Date:    2023-02-03
 Author:         Stefan Dombek <dombek@uni-leipzig.de>
 Description:    This script is intended to enable the documentation of derived 
                 tables. To do this, data is taken from the database catalog and 
@@ -39,8 +39,10 @@ port_id = ''
 conn = None
 cur = None
 # dictionaries
-postgres_catalog_information = {}
-csv_information = {}
+table_names = []
+attribute_properties_secound_level = {}
+tables_first_level = {}
+csv_information_thirth_level = {}
 
 # Try to connect to database, else print error message
 try:
@@ -57,61 +59,110 @@ try:
 	
 	# configure the database query and execute the database query
 	cur.execute('SELECT columns.table_name AS "table", columns.ordinal_position AS "attribute #", columns.column_name AS "attribute", columns.udt_name AS "datatype", pg_description.description FROM pg_catalog.pg_statio_all_tables INNER JOIN pg_catalog.pg_description ON pg_description.objoid = pg_statio_all_tables.relid INNER JOIN information_schema.columns ON pg_description.objsubid = columns.ordinal_position AND columns.table_schema = pg_statio_all_tables.schemaname AND columns.table_name = pg_statio_all_tables.relname WHERE columns.table_schema = \'folio_derived\' ORDER BY columns.table_name, columns.ordinal_position')
+	result = cur.fetchall()
+
+	# create first level for dictionary
+	for record in result:
+		# if table name is not in the list, add the table name to the list
+		if record['table'] not in table_names:
+			table_names.append(record['table'])
 	
-	# read postgres informations
 	counter = 0
-	for record in cur.fetchall():
+	for i in table_names:
+		tables_first_level[counter] = {}		
+		tables_first_level[counter]['table'] = table_names[counter]
 		
-		postgres_catalog_information[counter] = {}
-		postgres_catalog_information[counter]['table'] = record['table']
-		postgres_catalog_information[counter]['attributeNumber'] = record['attribute #']
-		postgres_catalog_information[counter]['attributeName'] = record['attribute']
-		postgres_catalog_information[counter]['datatype'] = record['datatype']
-		postgres_catalog_information[counter]['description'] = record['description'] 
+		counter += 1
+		
+	# create the secound level
+	counter = 0
+	for record in result:	
+		# if table not in dictionary set counter 0 --> new enumaration	
+		attribute_properties_secound_level[counter] = {}
+		attribute_properties_secound_level[counter]['table'] = str(record['table']) # for matching
+		attribute_properties_secound_level[counter]['attributeNumber'] = str(record['attribute #'])
+		attribute_properties_secound_level[counter]['attributeName'] = str(record['attribute'])
+		attribute_properties_secound_level[counter]['datatype'] = str(record['datatype'])
+		attribute_properties_secound_level[counter]['description'] = str(record['description'])
 
 		counter += 1
 
-	#print(postgres_catalog_information)
-
-	# read csv file informations
+	# read csv file informations for thirth level 
 	reader = csv.DictReader(open('../csv/derived_tables_columns_doc.CSV'), delimiter=',')
-
+	
 	counter = 0
 	for row in reader:
 		
-		csv_information[counter] = {}
-		csv_information[counter]['table'] = row['table']
-		csv_information[counter]['attributeName'] = row['attributeName']
-		csv_information[counter]['sourceSchema'] = row['sourceSchema']
-		csv_information[counter]['sourceTable'] = row['sourceTable']
-		csv_information[counter]['sourceAttribute'] = row['sourceAttribute']
-		csv_information[counter]['sourceType'] = row['sourceType']
-		csv_information[counter]['sourceMultipleValues'] = row['sourceMultipleValues']
-		csv_information[counter]['aggregation'] = row['aggregation']
-		csv_information[counter]['notes'] = row['notes']
+		csv_information_thirth_level[counter] = {}
+		csv_information_thirth_level[counter]['table'] = str(row['table'])
+		csv_information_thirth_level[counter]['attributeName'] = str(row['attributeName'])
+		csv_information_thirth_level[counter]['sourceSchema'] = str(row['sourceSchema'])
+		csv_information_thirth_level[counter]['sourceTable'] = str(row['sourceTable'])
+		csv_information_thirth_level[counter]['sourceAttribute'] = str(row['sourceAttribute'])
+		csv_information_thirth_level[counter]['sourceType'] = str(row['sourceType'])
+		csv_information_thirth_level[counter]['sourceMultipleValues'] = str(row['sourceMultipleValues'])
+		csv_information_thirth_level[counter]['aggregation'] = str(row['aggregation'])
+		csv_information_thirth_level[counter]['notes'] = str(row['notes'])
 
 		counter += 1
-	
-	#print(csv_information)
 
-	# Combine the dictionaries
-	for i in postgres_catalog_information:
-		for j in csv_information:
-			if csv_information[j]['table'] == postgres_catalog_information[i]['table'] and csv_information[j]['attributeName'] == postgres_catalog_information[i]['attributeName']:
-				postgres_catalog_information[i]['sourceSchema'] = csv_information[j]['sourceSchema']
-				postgres_catalog_information[i]['sourceTable'] = csv_information[j]['sourceTable']
-				postgres_catalog_information[i]['sourceAttribute'] = csv_information[j]['sourceAttribute']
-				postgres_catalog_information[i]['sourceType'] = csv_information[j]['sourceType']
-				postgres_catalog_information[i]['sourceMultipleValues'] = csv_information[j]['sourceMultipleValues']
-				postgres_catalog_information[i]['aggregation'] = csv_information[j]['aggregation']
-				postgres_catalog_information[i]['notes'] = csv_information[j]['notes']
+	# combine the two dictionaries
+	for i in attribute_properties_secound_level:
+		for j in csv_information_thirth_level:
+			if csv_information_thirth_level[j]['table'] == attribute_properties_secound_level[i]['table'] and csv_information_thirth_level[j]['attributeName'] == attribute_properties_secound_level[i]['attributeName']:
+				attribute_properties_secound_level[i].update(csv_information_thirth_level[j])
+			else:
+				no_entry_handler = {'sourceSchema': '', 'sourceTable': '', 'sourceAttribute': '', 'sourceType': '', 'sourceMultipleValues': '', 'aggregation': '', 'notes': ''}
+				attribute_properties_secound_level[i].update(no_entry_handler)
 
-	# test: print the results
-	for output in postgres_catalog_information:
-		if postgres_catalog_information[output]['table'] == "agreements_subscription_agreement":
-			print(postgres_catalog_information[output])
-	# html output
+
+	for i in range(0, len(attribute_properties_secound_level), 1):
+
+		html_output_string = "<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'></head>"\
+				"<title>" + attribute_properties_secound_level[i]['table'] + ".sql</title>"\
+				"<body>"\
+				"<h1>Documentation: " + attribute_properties_secound_level[i]['table'] + ".sql</h1>"\
+				"<hr border='1'>"\
+				"<!-- Table of attributes --><p>"\
+				"<h2>Attributes:</h2>"\
+				"<table border='1'>"\
+				"<th>Attribut #</th>"\
+				"<th>Attribut</th>"\
+				"<th>Type</th>"\
+				"<th>Source - Schema</th>"\
+				"<th>Source - Table</th>"\
+				"<th>Source - Attribut</th>"\
+				"<th>Source - Type</th>"\
+				"<th>Source - Multiple values</th>"\
+				"<th>Aggregation</th>"\
+				"<th>Description</th>"\
+				"<th>Notes</th>"
+
+		for j in range(0, len(attribute_properties_secound_level), 1):
+			if attribute_properties_secound_level[i]['table'] == attribute_properties_secound_level[j]['table']:
+				html_output_string += "<tr>"\
+				"<td>" + attribute_properties_secound_level[j]['attributeNumber'] + "</td>"\
+				"<td>" + attribute_properties_secound_level[j]['attributeName'] + "</td>"\
+				"<td>" + attribute_properties_secound_level[j]['datatype'] + "</td>"\
+				"<td>" + attribute_properties_secound_level[j]['sourceSchema'] + "</td>"\
+				"<td>" + attribute_properties_secound_level[j]['sourceTable'] + "</td>"\
+				"<td>" + attribute_properties_secound_level[j]['sourceAttribute'] + "</td>"\
+				"<td>" + attribute_properties_secound_level[j]['sourceType'] + "</td>"\
+				"<td>" + attribute_properties_secound_level[j]['sourceMultipleValues'] + "</td>"\
+				"<td>" + attribute_properties_secound_level[j]['aggregation'] + "</td>"\
+				"<td>" + attribute_properties_secound_level[j]['description'] + "</td>"\
+				"<td>" + attribute_properties_secound_level[j]['notes'] + "</td>"\
+				"</tr>"
 	
+		html_output_string_end = "</table><hr border='1'></body></html>"
+		html_output_string = html_output_string + html_output_string_end
+		
+		#print(html_output_string)
+		file_name = "../Output/" + attribute_properties_secound_level[i]['table'] + ".html"
+		html_file = open(file_name, "w")
+		html_file.write(html_output_string)
+		html_file.close()	
+
 # Error handler for database connection	
 except Exception as error:
 	print(error)
