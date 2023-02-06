@@ -20,7 +20,7 @@ The Python script is written and tested for metadb. It assumes that derived tabl
 
 1. Download the repository.
 2. Create a new subdirectory with the name "Output".
-3. Fill out the CSV file. In the CSV file, the "table" and "attributeName" columns must be filled out as they are stored in the database. A matching takes place later via these attributes.
+3. Fill out the CSV file in the subdirectory "/csv". The data to be added to the data from the database is stored in the CSV file. In the CSV file, the "table" and "attributeName" columns must be filled out as they are stored in the database. A matching takes place later via these attributes. You can check the information beforehand using the SQL query in the "/sql/derived_tables" subdirectory.
 4. Python script:
    
    4.1. Install Python on your system.
