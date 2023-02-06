@@ -18,4 +18,4 @@ https://wiki.folio.org/display/RPT/Build+a+directory+of+extracted+and+derived+ta
 
 The Python script is written and tested for metadb. It assumes that derived tables exist in metadb.
 
-1. 
+1. Fill out the CSV file. 
