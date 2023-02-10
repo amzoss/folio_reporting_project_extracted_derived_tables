@@ -23,159 +23,258 @@ Copyright (C) 2018-2023 The Open Library Foundation
    limitations under the License.
 -------------------------------------------------------------------------------
 """
-# Import modules
+###############################################################################
+#                                                                             #
+# Load modules                                                                #
+#                                                                             #
+###############################################################################
+
 import psycopg2
 import psycopg2.extras
 import csv
 
-# declare and initialize variables
-# variables for the login credentials to metadb
-hostname = ''
-database = ''
-username = ''
-pwd = ''
-port_id = ''
-# variables for database connection
-conn = None
-cur = None
-# dictionaries
+###############################################################################
+#                                                                             #
+# Set variables                                                               #
+#                                                                             #
+###############################################################################
+
+# login credentials to database
+hostname    = ''
+database    = ''
+username    = ''
+pwd         = ''
+port_id     = ''
+
+# variables for error handling for database connection
+conn        = None
+cur         = None
+
+# dictionaries and lists
 table_names = []
-attribute_properties_secound_level = {}
-tables_first_level = {}
-csv_information_thirth_level = {}
+tables      = {}
+attributes  = {}
+csv_data    = {}
 
-# Try to connect to database, else print error message
+###############################################################################
+#                                                                             #
+# Try to connect to database, else print error message                        #
+#                                                                             #
+###############################################################################
+
 try:
-	# open database connection
-	conn = psycopg2.connect(
-				host = hostname,
-				dbname = database,
-				user = username,
-				password = pwd,
-				port = port_id)
 	
-	# configure cursor for fetching data from database
-	cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
-	
-	# configure the database query and execute the database query
-	cur.execute('SELECT columns.table_name AS "table", columns.ordinal_position AS "attribute #", columns.column_name AS "attribute", columns.udt_name AS "datatype", pg_description.description FROM pg_catalog.pg_statio_all_tables INNER JOIN pg_catalog.pg_description ON pg_description.objoid = pg_statio_all_tables.relid INNER JOIN information_schema.columns ON pg_description.objsubid = columns.ordinal_position AND columns.table_schema = pg_statio_all_tables.schemaname AND columns.table_name = pg_statio_all_tables.relname WHERE columns.table_schema = \'folio_derived\' ORDER BY columns.table_name, columns.ordinal_position')
-	result = cur.fetchall()
+    ###############################################################################
+    #                                                                             #
+    # Read data from postgres catalog                                             #
+    #                                                                             #
+    ###############################################################################
 
-	# create dictionary for tables
-	for record in result:
-		# if table name is not in the list, add the table name to the list
-		if record['table'] not in table_names:
-			table_names.append(record['table'])
+    # open database connection
+    conn = psycopg2.connect(
+                host     = hostname,
+                dbname   = database,
+                user     = username,
+                password = pwd,
+                port     = port_id)
+
+    # configure cursor for fetching data from database
+    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+
+    # configure the database query and execute the database query
+    cur.execute("""
+        SELECT 
+            columns.table_name AS "table", 
+            columns.ordinal_position AS "attribute #", 
+            columns.column_name AS "attribute", 
+            columns.udt_name AS "datatype", 
+            pg_description.description 
+        FROM 
+            pg_catalog.pg_statio_all_tables 
+            INNER JOIN pg_catalog.pg_description ON pg_description.objoid = pg_statio_all_tables.relid 
+            INNER JOIN information_schema.columns ON pg_description.objsubid = columns.ordinal_position 
+                AND columns.table_schema = pg_statio_all_tables.schemaname 
+                AND columns.table_name = pg_statio_all_tables.relname 
+        WHERE 
+            columns.table_schema = 'folio_derived' 
+        ORDER BY 
+            columns.table_name, 
+            columns.ordinal_position
+    """)
+
+    # save the result from the database query
+    result = cur.fetchall()
+
+    ###############################################################################
+    #                                                                             #
+    # create dictionary for tables                                                #
+    #                                                                             #
+    ###############################################################################
+
+    for record in result:
+
+        if record['table'] not in table_names:
+            table_names.append(record['table'])
 	
-	counter = 0
-	for i in table_names:
-		tables_first_level[counter] = {}		
-		tables_first_level[counter]['table'] = table_names[counter]
+    counter = 0
+    for i in table_names:
+
+        tables[counter]          = {}		
+        tables[counter]['table'] = table_names[counter]
+
+        counter += 1
+	
+    ###############################################################################
+    #                                                                             #
+    # create dictionary for attributes                                            #
+    #                                                                             #
+    ###############################################################################
+
+    counter = 0
+
+    for record in result:	
 		
-		counter += 1
+        attributes[counter]                    = {}
+        attributes[counter]['table']           = str(record['table']) # for matching
+        attributes[counter]['attributeNumber'] = str(record['attribute #'])
+        attributes[counter]['attributeName']   = str(record['attribute'])
+        attributes[counter]['datatype']        = str(record['datatype'])
+        attributes[counter]['description']     = str(record['description'])
+
+        counter += 1
+
+    ###############################################################################
+    #                                                                             #
+    # create dictionary for csv data                                              #
+    #                                                                             #
+    ###############################################################################
+
+    reader = csv.DictReader(open('../csv/derived_tables_columns_doc.CSV'), delimiter=',')
+
+    counter = 0
+
+    for row in reader:	
 		
-	# create dictionary for attributes
-	counter = 0
-	for record in result:	
-		# if table not in dictionary set counter 0 --> new enumaration	
-		attribute_properties_secound_level[counter] = {}
-		attribute_properties_secound_level[counter]['table'] = str(record['table']) # for matching
-		attribute_properties_secound_level[counter]['attributeNumber'] = str(record['attribute #'])
-		attribute_properties_secound_level[counter]['attributeName'] = str(record['attribute'])
-		attribute_properties_secound_level[counter]['datatype'] = str(record['datatype'])
-		attribute_properties_secound_level[counter]['description'] = str(record['description'])
+        csv_data[counter]                         = {}
+        csv_data[counter]['table']                = str(row['table'])
+        csv_data[counter]['attributeName']        = str(row['attributeName'])
+        csv_data[counter]['sourceSchema']         = str(row['sourceSchema'])
+        csv_data[counter]['sourceTable']          = str(row['sourceTable'])
+        csv_data[counter]['sourceAttribute']      = str(row['sourceAttribute'])
+        csv_data[counter]['sourceType']           = str(row['sourceType'])
+        csv_data[counter]['sourceMultipleValues'] = str(row['sourceMultipleValues'])
+        csv_data[counter]['aggregation']          = str(row['aggregation'])
+        csv_data[counter]['notes']                = str(row['notes'])
 
-		counter += 1
+        counter += 1
 
-	# read csv file informations
-	reader = csv.DictReader(open('../csv/derived_tables_columns_doc.CSV'), delimiter=',')
+    ###############################################################################
+    #                                                                             #
+    # Add csv_data to attributes dictionary                                       #
+    #                                                                             #
+    ###############################################################################
+
+    # At first, add new attributes with no data to the dictionary attributes
+
+    for i in range(0, len(attributes), 1):
+
+        no_entry_handler = {
+            'sourceSchema': '', 
+            'sourceTable': '', 
+            'sourceAttribute': '', 
+            'sourceType': '', 
+            'sourceMultipleValues': '', 
+            'aggregation': '', 
+            'notes': ''}
+
+        attributes[i].update(no_entry_handler)
+
+    # After that, overwrite the attributes where are data in the csv 
+
+    for i in range(0, len(attributes), 1):
 	
-	counter = 0
-	for row in reader:
-		
-		csv_information_thirth_level[counter] = {}
-		csv_information_thirth_level[counter]['table'] = str(row['table'])
-		csv_information_thirth_level[counter]['attributeName'] = str(row['attributeName'])
-		csv_information_thirth_level[counter]['sourceSchema'] = str(row['sourceSchema'])
-		csv_information_thirth_level[counter]['sourceTable'] = str(row['sourceTable'])
-		csv_information_thirth_level[counter]['sourceAttribute'] = str(row['sourceAttribute'])
-		csv_information_thirth_level[counter]['sourceType'] = str(row['sourceType'])
-		csv_information_thirth_level[counter]['sourceMultipleValues'] = str(row['sourceMultipleValues'])
-		csv_information_thirth_level[counter]['aggregation'] = str(row['aggregation'])
-		csv_information_thirth_level[counter]['notes'] = str(row['notes'])
+        for j in range(0, len(csv_data), 1):
 
-		counter += 1
+            # Overwrite where there is a match between table name and attribute name
 
-	# combine the two dictionaries
-	for i in range(0, len(attribute_properties_secound_level), 1):
-		no_entry_handler = {'sourceSchema': '', 'sourceTable': '', 'sourceAttribute': '', 'sourceType': '', 'sourceMultipleValues': '', 'aggregation': '', 'notes': ''}
-		attribute_properties_secound_level[i].update(no_entry_handler)
-	
-	for i in range(0, len(attribute_properties_secound_level), 1):
-		for j in range(0, len(csv_information_thirth_level), 1):
-			if csv_information_thirth_level[j]['table'] == attribute_properties_secound_level[i]['table'] and csv_information_thirth_level[j]['attributeName'] == attribute_properties_secound_level[i]['attributeName']:
-				attribute_properties_secound_level[i]['sourceSchema'] = csv_information_thirth_level[j]['sourceSchema']
-				attribute_properties_secound_level[i]['sourceTable'] = csv_information_thirth_level[j]['sourceTable']
-				attribute_properties_secound_level[i]['sourceAttribute'] = csv_information_thirth_level[j]['sourceAttribute']
-				attribute_properties_secound_level[i]['sourceType'] = csv_information_thirth_level[j]['sourceType']
-				attribute_properties_secound_level[i]['sourceMultipleValues'] = csv_information_thirth_level[j]['sourceMultipleValues']
-				attribute_properties_secound_level[i]['aggregation'] = csv_information_thirth_level[j]['aggregation']
-				attribute_properties_secound_level[i]['notes'] = csv_information_thirth_level[j]['notes']
+            if csv_data[j]['table'] == attributes[i]['table'] and csv_data[j]['attributeName'] == attributes[i]['attributeName']:
 
-	# html output as file for each table
-	for i in range(0, len(tables_first_level), 1):
+                attributes[i]['sourceSchema']         = csv_data[j]['sourceSchema']
+                attributes[i]['sourceTable']          = csv_data[j]['sourceTable']
+                attributes[i]['sourceAttribute']      = csv_data[j]['sourceAttribute']
+                attributes[i]['sourceType']           = csv_data[j]['sourceType']
+                attributes[i]['sourceMultipleValues'] = csv_data[j]['sourceMultipleValues']
+                attributes[i]['aggregation']          = csv_data[j]['aggregation']
+                attributes[i]['notes']                = csv_data[j]['notes']
 
-		html_output_string = "<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'></head>"\
-				"<title>" + tables_first_level[i]['table'] + ".sql</title>"\
-				"<body>"\
-				"<h1>Documentation: " + tables_first_level[i]['table'] + ".sql</h1>"\
-				"<hr border='1'>"\
-				"<!-- Table of attributes --><p>"\
-				"<h2>Attributes:</h2>"\
-				"<table border='1'>"\
-				"<th>Attribut #</th>"\
-				"<th>Attribut</th>"\
-				"<th>Type</th>"\
-				"<th>Source - Schema</th>"\
-				"<th>Source - Table</th>"\
-				"<th>Source - Attribut</th>"\
-				"<th>Source - Type</th>"\
-				"<th>Source - Multiple values</th>"\
-				"<th>Aggregation</th>"\
-				"<th>Description</th>"\
-				"<th>Notes</th>"
+    ###############################################################################
+    #                                                                             #
+    # html output as file for each table                                          #
+    #                                                                             #
+    ###############################################################################
 
-		for j in range(0, len(attribute_properties_secound_level), 1):
-			if tables_first_level[i]['table'] == attribute_properties_secound_level[j]['table']:
-				html_output_string += "<tr>"\
-				"<td>" + attribute_properties_secound_level[j]['attributeNumber'] + "</td>"\
-				"<td>" + attribute_properties_secound_level[j]['attributeName'] + "</td>"\
-				"<td>" + attribute_properties_secound_level[j]['datatype'] + "</td>"\
-				"<td>" + attribute_properties_secound_level[j]['sourceSchema'] + "</td>"\
-				"<td>" + attribute_properties_secound_level[j]['sourceTable'] + "</td>"\
-				"<td>" + attribute_properties_secound_level[j]['sourceAttribute'] + "</td>"\
-				"<td>" + attribute_properties_secound_level[j]['sourceType'] + "</td>"\
-				"<td>" + attribute_properties_secound_level[j]['sourceMultipleValues'] + "</td>"\
-				"<td>" + attribute_properties_secound_level[j]['aggregation'] + "</td>"\
-				"<td>" + attribute_properties_secound_level[j]['description'] + "</td>"\
-				"<td>" + attribute_properties_secound_level[j]['notes'] + "</td>"\
-				"</tr>"
-	
-		html_output_string_end = "</table><hr border='1'></body></html>"
-		html_output_string = html_output_string + html_output_string_end
-		
-		#print(html_output_string)
-		file_name = "../Output/" + tables_first_level[i]['table'] + ".html"
-		html_file = open(file_name, "w")
-		html_file.write(html_output_string)
-		html_file.close()	
+    for i in range(0, len(tables), 1):
 
-# Error handler for database connection	
+        html_output_string = "<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'></head>"\
+                "<title>" + tables[i]['table'] + ".sql</title>"\
+                "<body>"\
+                "<h1>Documentation: " + tables[i]['table'] + ".sql</h1>"\
+                "<hr border='1'>"\
+                "<!-- Table of attributes --><p>"\
+                "<h2>Attributes:</h2>"\
+                "<table border='1'>"\
+                "<th>Attribut #</th>"\
+                "<th>Attribut</th>"\
+                "<th>Type</th>"\
+                "<th>Source - Schema</th>"\
+                "<th>Source - Table</th>"\
+                "<th>Source - Attribut</th>"\
+                "<th>Source - Type</th>"\
+                "<th>Source - Multiple values</th>"\
+                "<th>Aggregation</th>"\
+                "<th>Description</th>"\
+                "<th>Notes</th>"
+
+        for j in range(0, len(attributes), 1):
+            if tables[i]['table'] == attributes[j]['table']:
+                html_output_string += "<tr>"\
+                "<td>" + attributes[j]['attributeNumber'] + "</td>"\
+                "<td>" + attributes[j]['attributeName'] + "</td>"\
+                "<td>" + attributes[j]['datatype'] + "</td>"\
+                "<td>" + attributes[j]['sourceSchema'] + "</td>"\
+                "<td>" + attributes[j]['sourceTable'] + "</td>"\
+                "<td>" + attributes[j]['sourceAttribute'] + "</td>"\
+                "<td>" + attributes[j]['sourceType'] + "</td>"\
+                "<td>" + attributes[j]['sourceMultipleValues'] + "</td>"\
+                "<td>" + attributes[j]['aggregation'] + "</td>"\
+                "<td>" + attributes[j]['description'] + "</td>"\
+                "<td>" + attributes[j]['notes'] + "</td>"\
+                "</tr>"
+
+        html_output_string += "</table><hr border='1'></body></html>"
+
+        file_name = "../Output/" + tables[i]['table'] + ".html"
+        html_file = open(file_name, "w")
+        html_file.write(html_output_string)
+        html_file.close()	
+
+###############################################################################
+#                                                                             #
+# Error handler for database connection                                       #
+#                                                                             #
+###############################################################################
+
 except Exception as error:
-	print(error)
-# Close the connection in every case	
+    print(error)
+
+###############################################################################
+#                                                                             #
+# Close the connection                                                        #
+#                                                                             #
+###############################################################################
+
 finally:
-	if cur is not None:
-		cur.close()
-	if conn is not None:
-		conn.close()
+    if cur is not None:
+        cur.close()
+    if conn is not None:
+        conn.close()
