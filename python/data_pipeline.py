@@ -245,26 +245,26 @@ try:
         #                                                                             #
         ###############################################################################               
                 
-        html_output_string += "<!-- Table of attributes -->"\
-                "<p>"\
-                "<h2>Attributes:</h2>"\
-                "<table border='1'>"\
-                "<thead>"\
-                "<tr>"\
-                "<th>Attribut #</th>"\
-                "<th>Attribut</th>"\
-                "<th>Type</th>"\
-                "<th>Source - Schema</th>"\
-                "<th>Source - Table</th>"\
-                "<th>Source - Attribut</th>"\
-                "<th>Source - Type</th>"\
-                "<th>Source - Multiple values</th>"\
-                "<th>Aggregation</th>"\
-                "<th>Description</th>"\
-                "<th>Notes</th>"\
-                "</tr>"\
-                "</thead>"\
-                "<tbody>"
+        html_output_string += """<!-- Table of attributes -->
+                <p>
+                <h2>Attributes:</h2>
+                <table border='1'>
+                <thead>
+                <tr>
+                <th>Attribut #</th>
+                <th>Attribut</th>
+                <th>Type</th>
+                <th>Source - Schema</th>
+                <th>Source - Table</th>
+                <th>Source - Attribut</th>
+                <th>Source - Type</th>
+                <th>Source - Multiple values</th>
+                <th>Aggregation</th>
+                <th>Description</th>
+                <th>Notes</th>
+                </tr>
+                </thead>
+                <tbody>"""
 
         for j in range(0, len(attributes), 1):
 
