@@ -117,6 +117,7 @@ try:
             table_names.append(record['table'])
 	
     counter = 0
+
     for i in table_names:
 
         tables[counter]          = {}		
@@ -215,14 +216,41 @@ try:
 
     for i in range(0, len(tables), 1):
 
-        html_output_string = "<!DOCTYPE html><html lang='en'><head><meta charset='utf-8'></head>"\
+        ###############################################################################
+        #                                                                             #
+        # Create html header and meta tags                                            #
+        #                                                                             #
+        ###############################################################################
+
+        html_output_string = "<!DOCTYPE html>"\
+                "<html lang='en'>"\
+                "<head>"\
                 "<title>" + tables[i]['table'] + ".sql</title>"\
-                "<body>"\
-                "<h1>Documentation: " + tables[i]['table'] + ".sql</h1>"\
-                "<hr border='1'>"\
-                "<!-- Table of attributes --><p>"\
+                "<meta charset='utf-8'>"\
+                "</head>"\
+                "<body>"
+
+        ###############################################################################
+        #                                                                             #
+        # Create the header section inside the document                               #
+        #                                                                             #
+        ###############################################################################
+        
+        html_output_string += "<h1>Documentation: " + tables[i]['table'] + ".sql</h1>"\
+                "<hr border='1'>"
+
+        ###############################################################################
+        #                                                                             #
+        # Create section for the table with the attributes                            #
+        #                                                                             #
+        ###############################################################################               
+                
+        html_output_string += "<!-- Table of attributes -->"\
+                "<p>"\
                 "<h2>Attributes:</h2>"\
                 "<table border='1'>"\
+                "<thead>"\
+                "<tr>"\
                 "<th>Attribut #</th>"\
                 "<th>Attribut</th>"\
                 "<th>Type</th>"\
@@ -233,10 +261,15 @@ try:
                 "<th>Source - Multiple values</th>"\
                 "<th>Aggregation</th>"\
                 "<th>Description</th>"\
-                "<th>Notes</th>"
+                "<th>Notes</th>"\
+                "</tr>"\
+                "</thead>"\
+                "<tbody>"
 
         for j in range(0, len(attributes), 1):
+
             if tables[i]['table'] == attributes[j]['table']:
+
                 html_output_string += "<tr>"\
                 "<td>" + attributes[j]['attributeNumber'] + "</td>"\
                 "<td>" + attributes[j]['attributeName'] + "</td>"\
@@ -251,7 +284,29 @@ try:
                 "<td>" + attributes[j]['notes'] + "</td>"\
                 "</tr>"
 
-        html_output_string += "</table><hr border='1'></body></html>"
+        html_output_string += "</tbody></table></p><hr border='1'>"
+
+        ###############################################################################
+        #                                                                             #
+        # Create the section with the mermaid er diagram                              #
+        #                                                                             #
+        ###############################################################################        
+
+        # ToDo
+
+        ###############################################################################
+        #                                                                             #
+        # Create footer section and close tags                                        #
+        #                                                                             #
+        ###############################################################################  
+        
+        html_output_string += "</body></html>"
+
+        ###############################################################################
+        #                                                                             #
+        # Create file on system                                                       #
+        #                                                                             #
+        ############################################################################### 
 
         file_name = "../Output/" + tables[i]['table'] + ".html"
         html_file = open(file_name, "w")
