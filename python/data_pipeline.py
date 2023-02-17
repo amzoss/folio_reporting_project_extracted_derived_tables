@@ -160,13 +160,14 @@ try:
         buffer    = io.StringIO(response.text)
         reader    = csv.DictReader(buffer)
 
-        file_name = "../csv/derived_tables_columns_doc2.CSV"
+        file_name = "../csv/derived_tables_columns_doc.CSV"
         csv_file  = open(file_name, "w")
         csv_file.write(response.text)
         csv_file.close() 
 
     else:
-        print("Oh, somthing wrong! Can not fetch csv file from GitHub")
+        
+	print("Oh, somthing wrong! Can not fetch csv file from GitHub")
         print(response.status_code)
 
         reader = csv.DictReader(open('../csv/derived_tables_columns_doc.CSV'), delimiter=',')
