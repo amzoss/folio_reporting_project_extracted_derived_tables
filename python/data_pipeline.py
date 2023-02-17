@@ -32,6 +32,8 @@ Copyright (C) 2018-2023 The Open Library Foundation
 import psycopg2
 import psycopg2.extras
 import csv
+import io
+import requests
 
 ###############################################################################
 #                                                                             #
@@ -146,11 +148,36 @@ try:
 
     ###############################################################################
     #                                                                             #
-    # create dictionary for csv data                                              #
+    # fetch csv data                                                              #
     #                                                                             #
     ###############################################################################
 
-    reader = csv.DictReader(open('../csv/derived_tables_columns_doc.CSV'), delimiter=',')
+    url      = 'https://raw.githubusercontent.com/stdombek/folio_reporting_project_extracted_derived_tables/main/csv/derived_tables_columns_doc.csv'
+    response = requests.get(url)
+
+    if response.status_code == 200:
+
+        buffer    = io.StringIO(response.text)
+        reader    = csv.DictReader(buffer)
+
+        file_name = "../csv/derived_tables_columns_doc2.CSV"
+        csv_file  = open(file_name, "w")
+        csv_file.write(response.text)
+        csv_file.close() 
+
+    else:
+        print("Oh, somthing wrong! Can not fetch csv file from GitHub")
+        print(response.status_code)
+
+        reader = csv.DictReader(open('../csv/derived_tables_columns_doc.CSV'), delimiter=',')
+
+    response.close()
+
+    ###############################################################################
+    #                                                                             #
+    # create dictionary for csv data                                              #
+    #                                                                             #
+    ###############################################################################
 
     counter = 0
 
