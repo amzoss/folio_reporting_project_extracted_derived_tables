@@ -1,2 +1,4 @@
 table,attributeName,sourceSchema,sourceTable,sourceAttribute,sourceType,sourceMultipleValues,aggregation,notes
 agreements_subscription_agreement,sa_id,folio_agreements,subscription_agreement,sa_id,varchar,no,no,wichtige Notiz
+agreements_subscription_agreement,sa_renewal_priority,folio_agreements,subscription_agreement,sa_renewal_priority,varchar,no,no,notes
+agreements_subscription_agreement,sa_renewal_priority_value,folio_agreements,subscription_agreement,refdata_value_rdv_value,varchar,no,no,notes
