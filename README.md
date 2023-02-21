@@ -1,6 +1,15 @@
 # FOLIO Reporting SIG - Project: Build a directory of extracted and derived tables
 
-Description:
+## Dependencies
+* Python 3
+* Python modules
+  *  psycopg2
+  *  csv
+  *  io
+  *  requests
+  *  cryptography
+
+## Description
 https://wiki.folio.org/display/RPT/Build+a+directory+of+extracted+and+derived+tables
 
 | Type | Description |
@@ -8,15 +17,18 @@ https://wiki.folio.org/display/RPT/Build+a+directory+of+extracted+and+derived+ta
 | Extracted tables | Tables that LDP creates. |
 | Derived tables | Tables created by the community and located in the folio-analytics repository. |
 
-**Directories**
+## Directories
 * /csv: Contains CSV files with additional data for enrichment.
-* /python: Contains the Python script for the data pipeline.
+* /python: Contains the Python scripts for the data pipeline.
+  *  data_pipeline.py: Script for use with plain text login credentials
+  *  data_pipeline_sec.py: Script for use with encrypted login credentials
+  *  key_generator.py: Script to create a key to encrypt the login credentials and encrypt the credentials in a file
 * /sql: Contains the SQL queries used.
   *  /derived_tables: Contains the query for querying information about derived tables from the PostgresSQL database catalog.
 
-**Instructions**
+## Instructions
 
-The Python script is written and tested for metadb. It assumes that derived tables exist in metadb.
+The Python script is written for Python 3 and tested for metadb. It assumes that derived tables exist in metadb.
 
 1. Download the repository.
 2. Create a new subdirectory with the name "Output".
@@ -25,10 +37,14 @@ The Python script is written and tested for metadb. It assumes that derived tabl
    
    4.1. Install Python on your system.
    
-   4.2. Install the Python package "psycopg2" on your system.
+   4.2. Install the Python modules on your system.
    
-   4.3. Open the Python file and fill out your login credentials.
+   4.3. Login credentials
    
+      4.3.1. There are two versions of the script. If you want to use login credentials in plain text, then please use data_pipeline.py. Enter the login credentials in the script there. Then please continue with point 4.4.
+      
+      4.3.2. If you need encrypted login credentials, please use data_pipeline_sec.py and key_generator.py. Use key_generator.py to create a key and an encrypted file with the login credentials. (Description not yet complete.)
+      
    4.4. Run the Python script.
 
 5. The generated HTML pages with the documentation have been created in the "Output" directory.
