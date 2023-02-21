@@ -1,8 +1,8 @@
 """
 -------------------------------------------------------------------------------
-data_pipeline.py
+data_pipeline_sec.py
 
-Create Date:    2023-02-05
+Create Date:    2023-02-21
 Author:         Stefan Dombek <dombek@uni-leipzig.de>
 Description:    This script is intended to enable the documentation of derived 
                 tables. To do this, data is taken from the database catalog and 
