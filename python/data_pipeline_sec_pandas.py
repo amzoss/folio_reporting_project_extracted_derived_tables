@@ -124,7 +124,7 @@ try:
     # save the result from the database query
     result = cur.fetchall()
 
-    attributes = pd.DataFrame(result, columns=["table","attribute #","attribute","datatype","description"]).set_index('table')
+    attributes = pd.DataFrame(result, columns=["table","attribute #","attributeName","datatype","description"]).set_index(['table','attributeName'])
 
     ###############################################################################
     #                                                                             #
@@ -145,7 +145,7 @@ try:
         csv_file.write(response.text)
         csv_file.close() 
 
-        csv_data = pd.read_csv(StringIO(response.text), sep=",").set_index('table')
+        csv_data = pd.read_csv(StringIO(response.text), sep=",").set_index(['table','attributeName'])
 
     else:
         
@@ -153,7 +153,7 @@ try:
         print(response.status_code)
 
         #reader = csv.DictReader(open('../csv/derived_tables_columns_doc.CSV'), delimiter=',')
-        csv_data = pd.read_csv('../csv/derived_tables_columns_doc.CSV').set_index('table')
+        csv_data = pd.read_csv('../csv/derived_tables_columns_doc.CSV').set_index(['table','attributeName'])
 
     response.close()
 
@@ -164,7 +164,7 @@ try:
     #                                                                             #
     ###############################################################################
 
-    column_names = ['table', 'Attribute #', 'Attribute', 'Type', 'Description', 'attributeName', 'Source - Schema', 'Source - Table', 'Source - Attribute', 'Source - Type', 'Source - Multiple values', 'Aggregation', 'Notes']
+    column_names = ['table', 'Attribute', 'Attribute #', 'Type', 'Description', 'Source - Schema', 'Source - Table', 'Source - Attribute', 'Source - Type', 'Source - Multiple values', 'Aggregation', 'Notes']
     desired_columns = ['Attribute #', 'Attribute', 'Type', 'Source - Schema', 'Source - Table', 'Source - Attribute', 'Source - Type', 'Source - Multiple values', 'Aggregation', 'Description', 'Notes']
 
     combined = attributes.join(csv_data).reset_index()
@@ -187,7 +187,7 @@ try:
     for tbl in table_names:
 
         tbl_df = combined[desired_columns][combined.table == tbl]
-        markdown_table = tbl_df.to_markdown()
+        markdown_table = tbl_df.fillna('').to_markdown(index=False)
 
         title = "title: " + tbl + ".sql"
         yaml = "---\n" + title + "\n---\n"
