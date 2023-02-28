@@ -47,4 +47,4 @@ The Python script is written for Python 3 and tested for metadb. It assumes that
       
    4.4. Run the Python script.
 
-5. The generated HTML pages with the documentation have been created in the "Output" directory.
+5. The generated HTML and Markdown files with the documentation have been created in the "Output" directory.
