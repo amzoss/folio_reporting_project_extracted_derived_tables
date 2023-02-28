@@ -167,7 +167,7 @@ try:
 
     else:
         
-	print("Oh, somthing wrong! Can not fetch csv file from GitHub")
+        print("Oh, somthing wrong! Can not fetch csv file from GitHub")
         print(response.status_code)
 
         reader = csv.DictReader(open('../csv/derived_tables_columns_doc.CSV'), delimiter=',')
@@ -340,6 +340,74 @@ try:
         html_file = open(file_name, "w")
         html_file.write(html_output_string)
         html_file.close()	
+
+    ###############################################################################
+    #                                                                             #
+    # Markdown output as file for each table                                      #
+    #                                                                             #
+    ###############################################################################	
+
+    for i in range(0, len(tables), 1):
+
+        ###############################################################################
+        #                                                                             #
+        # Create header section                                                       #
+        #                                                                             #
+        ###############################################################################
+
+        markdown_output_string = ""\
+            "---\n"\
+            "title: " + tables[i]['table'] + ".sql\n"\
+            "---\n"\
+            "# Documentation: " + tables[i]['table'] + ".sql\n"
+        
+        ###############################################################################
+        #                                                                             #
+        # Create section for the table with the attributes                            #
+        #                                                                             #
+        ###############################################################################
+
+        markdown_output_string += ""\
+            "| Attribute # | Attribute | Type | Source - Schema | Source - Table | Source - Attribute | Source - Type | Source - Multiple values | Aggregation | Description | Notes |\n"\
+            "| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
+        
+
+        for j in range(0, len(attributes), 1):
+
+            if tables[i]['table'] == attributes[j]['table']:
+
+                markdown_output_string += ""\
+                "| " + attributes[j]['attributeNumber'] + ""\
+                " | " + attributes[j]['attributeName'] + ""\
+                " | " + attributes[j]['datatype'] + ""\
+                " | " + attributes[j]['sourceSchema'] + ""\
+                " | " + attributes[j]['sourceTable'] + ""\
+                " | " + attributes[j]['sourceAttribute'] + ""\
+                " | " + attributes[j]['sourceType'] + ""\
+                " | " + attributes[j]['sourceMultipleValues'] + ""\
+                " | " + attributes[j]['aggregation'] + ""\
+                " | " + attributes[j]['description'] + ""\
+                " | " + attributes[j]['notes'] + " |"\
+                "\n"
+        
+        ###############################################################################
+        #                                                                             #
+        # Create the section with the mermaid er diagram                              #
+        #                                                                             #
+        ###############################################################################        
+
+        # ToDo
+
+        ###############################################################################
+        #                                                                             #
+        # Create file on system                                                       #
+        #                                                                             #
+        ############################################################################### 
+
+        file_name = "../Output/" + tables[i]['table'] + ".md"
+        html_file = open(file_name, "w")
+        html_file.write(markdown_output_string)
+        html_file.close()
 
 ###############################################################################
 #                                                                             #
