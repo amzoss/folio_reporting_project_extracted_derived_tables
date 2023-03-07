@@ -112,7 +112,7 @@ try:
     cur       = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
     # Prepare the query string; Get the query from SQL file
-    file_name = "../sql/pg_catalog_extraction_derivedTables.sql"
+    file_name = "../sql/derived_tables/pg_catalog_extraction_derivedTables.sql"
     sql_file  = open(file_name, "r")
     query     = ''
     for line in sql_file:
@@ -199,10 +199,10 @@ try:
     #                                                                             #
     ###############################################################################
 
-    # Html
+    # html
     html.create_html_files(table_names, combined, desired_columns)
    
-    # Markdown
+    # markdown
     markdown.create_markdown_files(table_names, combined, desired_columns)
 
 ###############################################################################
