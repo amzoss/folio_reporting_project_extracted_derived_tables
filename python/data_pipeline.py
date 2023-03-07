@@ -2,7 +2,7 @@
 -------------------------------------------------------------------------------
 data_pipeline.py
 
-Create Date:    2023-02-05
+Create Date:    2023-02-21
 Author:         Stefan Dombek <dombek@uni-leipzig.de>
 Description:    This script is intended to enable the documentation of derived 
                 tables. To do this, data is taken from the database catalog and 
@@ -34,6 +34,47 @@ import psycopg2.extras
 import csv
 import io
 import requests
+import pandas as pd
+import tabulate
+from io import StringIO
+from cryptography.fernet import Fernet
+
+# Local packages
+from pkg_output import html, markdown
+
+###############################################################################
+#                                                                             #
+# Login credentials                                                           #
+#                                                                             #
+###############################################################################
+
+# Load key
+key            = open('config.key', 'r')
+key            = key.read()
+f              = Fernet(key)
+
+# Load encrypted file
+encrypted_file = open('enc_credentials.csv', 'rb')
+encrypted      = encrypted_file.read()
+
+# Decrypt the content
+decrypted      = f.decrypt(encrypted)
+credentials    = decrypted.decode('utf-8').split(sep=',')
+
+# Load the login credentials in variables for database connection
+hostname       = credentials[0]
+database       = credentials[1]
+username       = credentials[2]
+pwd            = credentials[3]
+port_id        = credentials[4]
+
+# Alternative: If no KEY file is used
+# login credentials to database
+#hostname      = ''
+#database      = ''
+#username      = ''
+#pwd           = ''
+#port_id       = ''
 
 ###############################################################################
 #                                                                             #
@@ -41,22 +82,9 @@ import requests
 #                                                                             #
 ###############################################################################
 
-# login credentials to database
-hostname    = ''
-database    = ''
-username    = ''
-pwd         = ''
-port_id     = ''
-
-# variables for error handling for database connection
+# Set variables for error handling for database connection
 conn        = None
 cur         = None
-
-# dictionaries and lists
-table_names = []
-tables      = {}
-attributes  = {}
-csv_data    = {}
 
 ###############################################################################
 #                                                                             #
@@ -72,7 +100,7 @@ try:
     #                                                                             #
     ###############################################################################
 
-    # open database connection
+    # Open database connection
     conn = psycopg2.connect(
                 host     = hostname,
                 dbname   = database,
@@ -80,334 +108,102 @@ try:
                 password = pwd,
                 port     = port_id)
 
-    # configure cursor for fetching data from database
-    cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+    # Configure cursor for fetching data from database
+    cur       = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
 
-    # configure the database query and execute the database query
-    cur.execute("""
-        SELECT
-            columns.table_name AS "table",
-            columns.ordinal_position AS "attribute #", 
-            columns.column_name AS "attribute",
-            columns.udt_name AS "datatype",
-            COALESCE(pg_description.description, '') AS description
-        FROM
-            pg_catalog.pg_statio_all_tables
-            LEFT JOIN pg_catalog.pg_description ON pg_description.objoid = pg_statio_all_tables.relid
-            RIGHT JOIN information_schema.columns ON pg_description.objsubid = columns.ordinal_position 
-                AND columns.table_schema = pg_statio_all_tables.schemaname 
-                AND columns.table_name = pg_statio_all_tables.relname
-        WHERE 
-            columns.table_schema = 'folio_derived'
-        ORDER BY 
-            columns.table_name,
-            columns.ordinal_position
-    """)
+    # Prepare the query string; Get the query from SQL file
+    file_name = "../sql/pg_catalog_extraction_derivedTables.sql"
+    sql_file  = open(file_name, "r")
+    query     = ''
+    for line in sql_file:
+        query += line
+    sql_file.close()
+       
+    # Configure the database query and execute the database query
+    cur.execute(query)
 
-    # save the result from the database query
+    # Save the result from the database query
     result = cur.fetchall()
 
     ###############################################################################
     #                                                                             #
-    # create dictionary for tables                                                #
+    # Create DataFrame with pandas                                                #
     #                                                                             #
     ###############################################################################
 
-    for record in result:
-
-        if record['table'] not in table_names:
-            table_names.append(record['table'])
-	
-    counter = 0
-
-    for i in table_names:
-
-        tables[counter]          = {}		
-        tables[counter]['table'] = table_names[counter]
-
-        counter += 1
-	
-    ###############################################################################
-    #                                                                             #
-    # create dictionary for attributes                                            #
-    #                                                                             #
-    ###############################################################################
-
-    counter = 0
-
-    for record in result:	
-		
-        attributes[counter]                    = {}
-        attributes[counter]['table']           = str(record['table']) # for matching
-        attributes[counter]['attributeNumber'] = str(record['attribute #'])
-        attributes[counter]['attributeName']   = str(record['attribute'])
-        attributes[counter]['datatype']        = str(record['datatype'])
-        attributes[counter]['description']     = str(record['description'])
-
-        counter += 1
+    # Create a DataFrame with the result from the query, set the column names and the index for the merging process
+    attributes = pd.DataFrame(result, columns=["table","attribute #","attributeName","datatype","description"]).set_index(['table','attributeName'])
 
     ###############################################################################
     #                                                                             #
-    # fetch csv data                                                              #
+    # Fetch csv data                                                              #
     #                                                                             #
     ###############################################################################
 
+    # Prepare string for the url source
     url      = 'https://raw.githubusercontent.com/stdombek/folio_reporting_project_extracted_derived_tables/main/csv/derived_tables_columns_doc.csv'
+    
+    # Fetch data from the server and save it in the object "response"
     response = requests.get(url)
 
+    # If the connection is etablished
     if response.status_code == 200:
 
-        buffer    = io.StringIO(response.text)
-        reader    = csv.DictReader(buffer)
-
+        # Write the data from the server in the local file
         file_name = "../csv/derived_tables_columns_doc.CSV"
         csv_file  = open(file_name, "w")
         csv_file.write(response.text)
         csv_file.close() 
 
+        # Create a DataFrame with pandas for the data from the server
+        csv_data = pd.read_csv(StringIO(response.text), sep=",").set_index(['table','attributeName'])
+
+    # If the connection is not etablished
     else:
         
-        print("Oh, somthing wrong! Can not fetch csv file from GitHub")
+        # Show the error message for the user
+        print("Oh, something went wrong! Cannot fetch csv file from GitHub")
         print(response.status_code)
 
-        reader = csv.DictReader(open('../csv/derived_tables_columns_doc.CSV'), delimiter=',')
+        # Create a DataFrame with pandas for the data from the local file (fallback)
+        csv_data = pd.read_csv('../csv/derived_tables_columns_doc.CSV').set_index(['table','attributeName'])
 
+    # Close the connection
     response.close()
 
     ###############################################################################
     #                                                                             #
-    # create dictionary for csv data                                              #
+    # Combine the DataFrames                                                      #
     #                                                                             #
     ###############################################################################
 
-    counter = 0
+    column_names     = ['table', 'Attribute', 'Attribute #', 'Type', 'Description', 'Source - Schema', 'Source - Table', 'Source - Attribute', 'Source - Type', 'Source - Multiple values', 'Aggregation', 'Notes']
+    desired_columns  = ['Attribute #', 'Attribute', 'Type', 'Source - Schema', 'Source - Table', 'Source - Attribute', 'Source - Type', 'Source - Multiple values', 'Aggregation', 'Description', 'Notes']
 
-    for row in reader:	
-		
-        csv_data[counter]                         = {}
-        csv_data[counter]['table']                = str(row['table'])
-        csv_data[counter]['attributeName']        = str(row['attributeName'])
-        csv_data[counter]['sourceSchema']         = str(row['sourceSchema'])
-        csv_data[counter]['sourceTable']          = str(row['sourceTable'])
-        csv_data[counter]['sourceAttribute']      = str(row['sourceAttribute'])
-        csv_data[counter]['sourceType']           = str(row['sourceType'])
-        csv_data[counter]['sourceMultipleValues'] = str(row['sourceMultipleValues'])
-        csv_data[counter]['aggregation']          = str(row['aggregation'])
-        csv_data[counter]['notes']                = str(row['notes'])
-
-        counter += 1
+    combined         = attributes.join(csv_data).reset_index()
+    combined.columns = column_names
 
     ###############################################################################
     #                                                                             #
-    # Add csv_data to attributes dictionary                                       #
+    # Create a list for the tables names                                          #
     #                                                                             #
     ###############################################################################
 
-    # At first, add new attributes with no data to the dictionary attributes
-
-    for i in range(0, len(attributes), 1):
-
-        no_entry_handler = {
-            'sourceSchema': '', 
-            'sourceTable': '', 
-            'sourceAttribute': '', 
-            'sourceType': '', 
-            'sourceMultipleValues': '', 
-            'aggregation': '', 
-            'notes': ''}
-
-        attributes[i].update(no_entry_handler)
-
-    # After that, overwrite the attributes where are data in the csv 
-
-    for i in range(0, len(attributes), 1):
-	
-        for j in range(0, len(csv_data), 1):
-
-            # Overwrite where there is a match between table name and attribute name
-
-            if csv_data[j]['table'] == attributes[i]['table'] and csv_data[j]['attributeName'] == attributes[i]['attributeName']:
-
-                attributes[i]['sourceSchema']         = csv_data[j]['sourceSchema']
-                attributes[i]['sourceTable']          = csv_data[j]['sourceTable']
-                attributes[i]['sourceAttribute']      = csv_data[j]['sourceAttribute']
-                attributes[i]['sourceType']           = csv_data[j]['sourceType']
-                attributes[i]['sourceMultipleValues'] = csv_data[j]['sourceMultipleValues']
-                attributes[i]['aggregation']          = csv_data[j]['aggregation']
-                attributes[i]['notes']                = csv_data[j]['notes']
+    # Find all table names in the DataFrame and create a list of table names
+    table_names = combined.table.unique()
 
     ###############################################################################
     #                                                                             #
-    # html output as file for each table                                          #
+    # Output                                                                      #
+    # Create files for each table                                                 #
     #                                                                             #
     ###############################################################################
 
-    for i in range(0, len(tables), 1):
-
-        ###############################################################################
-        #                                                                             #
-        # Create html header and meta tags                                            #
-        #                                                                             #
-        ###############################################################################
-
-        html_output_string = "<!DOCTYPE html>"\
-                "<html lang='en'>"\
-                "<head>"\
-                "<title>" + tables[i]['table'] + ".sql</title>"\
-                "<meta charset='utf-8'>"\
-                "</head>"\
-                "<body>"
-
-        ###############################################################################
-        #                                                                             #
-        # Create the header section inside the document                               #
-        #                                                                             #
-        ###############################################################################
-        
-        html_output_string += "<h1>Documentation: " + tables[i]['table'] + ".sql</h1>"\
-                "<hr border='1'>"
-
-        ###############################################################################
-        #                                                                             #
-        # Create section for the table with the attributes                            #
-        #                                                                             #
-        ###############################################################################               
-                
-        html_output_string += """<!-- Table of attributes -->
-                <p>
-                <h2>Attributes:</h2>
-                <table border='1'>
-                <thead>
-                <tr>
-                <th>Attribut #</th>
-                <th>Attribut</th>
-                <th>Type</th>
-                <th>Source - Schema</th>
-                <th>Source - Table</th>
-                <th>Source - Attribut</th>
-                <th>Source - Type</th>
-                <th>Source - Multiple values</th>
-                <th>Aggregation</th>
-                <th>Description</th>
-                <th>Notes</th>
-                </tr>
-                </thead>
-                <tbody>"""
-
-        for j in range(0, len(attributes), 1):
-
-            if tables[i]['table'] == attributes[j]['table']:
-
-                html_output_string += "<tr>"\
-                "<td>" + attributes[j]['attributeNumber'] + "</td>"\
-                "<td>" + attributes[j]['attributeName'] + "</td>"\
-                "<td>" + attributes[j]['datatype'] + "</td>"\
-                "<td>" + attributes[j]['sourceSchema'] + "</td>"\
-                "<td>" + attributes[j]['sourceTable'] + "</td>"\
-                "<td>" + attributes[j]['sourceAttribute'] + "</td>"\
-                "<td>" + attributes[j]['sourceType'] + "</td>"\
-                "<td>" + attributes[j]['sourceMultipleValues'] + "</td>"\
-                "<td>" + attributes[j]['aggregation'] + "</td>"\
-                "<td>" + attributes[j]['description'] + "</td>"\
-                "<td>" + attributes[j]['notes'] + "</td>"\
-                "</tr>"
-
-        html_output_string += "</tbody></table></p><hr border='1'>"
-
-        ###############################################################################
-        #                                                                             #
-        # Create the section with the mermaid er diagram                              #
-        #                                                                             #
-        ###############################################################################        
-
-        # ToDo
-
-        ###############################################################################
-        #                                                                             #
-        # Create footer section and close tags                                        #
-        #                                                                             #
-        ###############################################################################  
-        
-        html_output_string += "</body></html>"
-
-        ###############################################################################
-        #                                                                             #
-        # Create file on system                                                       #
-        #                                                                             #
-        ############################################################################### 
-
-        file_name = "../Output/" + tables[i]['table'] + ".html"
-        html_file = open(file_name, "w")
-        html_file.write(html_output_string)
-        html_file.close()	
-
-    ###############################################################################
-    #                                                                             #
-    # Markdown output as file for each table                                      #
-    #                                                                             #
-    ###############################################################################	
-
-    for i in range(0, len(tables), 1):
-
-        ###############################################################################
-        #                                                                             #
-        # Create header section                                                       #
-        #                                                                             #
-        ###############################################################################
-
-        markdown_output_string = ""\
-            "---\n"\
-            "title: " + tables[i]['table'] + ".sql\n"\
-            "---\n"\
-            "# Documentation: " + tables[i]['table'] + ".sql\n"
-        
-        ###############################################################################
-        #                                                                             #
-        # Create section for the table with the attributes                            #
-        #                                                                             #
-        ###############################################################################
-
-        markdown_output_string += ""\
-            "| Attribute # | Attribute | Type | Source - Schema | Source - Table | Source - Attribute | Source - Type | Source - Multiple values | Aggregation | Description | Notes |\n"\
-            "| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
-        
-
-        for j in range(0, len(attributes), 1):
-
-            if tables[i]['table'] == attributes[j]['table']:
-
-                markdown_output_string += ""\
-                "| " + attributes[j]['attributeNumber'] + ""\
-                " | " + attributes[j]['attributeName'] + ""\
-                " | " + attributes[j]['datatype'] + ""\
-                " | " + attributes[j]['sourceSchema'] + ""\
-                " | " + attributes[j]['sourceTable'] + ""\
-                " | " + attributes[j]['sourceAttribute'] + ""\
-                " | " + attributes[j]['sourceType'] + ""\
-                " | " + attributes[j]['sourceMultipleValues'] + ""\
-                " | " + attributes[j]['aggregation'] + ""\
-                " | " + attributes[j]['description'] + ""\
-                " | " + attributes[j]['notes'] + " |"\
-                "\n"
-        
-        ###############################################################################
-        #                                                                             #
-        # Create the section with the mermaid er diagram                              #
-        #                                                                             #
-        ###############################################################################        
-
-        # ToDo
-
-        ###############################################################################
-        #                                                                             #
-        # Create file on system                                                       #
-        #                                                                             #
-        ############################################################################### 
-
-        file_name = "../Output/" + tables[i]['table'] + ".md"
-        html_file = open(file_name, "w")
-        html_file.write(markdown_output_string)
-        html_file.close()
+    # Html
+    html.create_html_files(table_names, combined, desired_columns)
+   
+    # Markdown
+    markdown.create_markdown_files(table_names, combined, desired_columns)
 
 ###############################################################################
 #                                                                             #
