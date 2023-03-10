@@ -1,5 +1,7 @@
-def create_html_files(table_names, combined, desired_columns):
+from pkg_output import mermaid
 
+def create_html_files(table_names, combined, desired_columns):
+    
     ###############################################################################
     #                                                                             #
     # html output as file for each table                                          #
@@ -39,9 +41,26 @@ def create_html_files(table_names, combined, desired_columns):
         # Section table   
         html_table      = tbl_df.fillna('').to_html(index=False)
 
-        # Section mermaid er diagram
-        # ToDo
-        mermaid_diagram = ''
+        # Section mermaid er diagram        
+        if mermaid.getMermaid_text(tbl) != '':
+        
+            mermaid_diagram = """
+            <!-- ER-diagramm with mermaid -->
+            <h2>ER-diagram:</h2>
+            <div class="mermaid">
+            """
+            mermaid_diagram += mermaid.getMermaid_text(tbl)
+
+            mermaid_diagram += """
+           </div>
+           <!-- Script to generate the diagram -->
+           <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+           <script>mermaid.initialize({startOnLoad:true});</script>
+           """
+        
+        else:
+
+            mermaid_diagram = ''
 
         # Section Footer
         footer          =  "</body></html>"
