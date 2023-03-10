@@ -1,3 +1,5 @@
+from pkg_output import mermaid
+
 def create_markdown_files(table_names, combined, desired_columns):
 
     ###############################################################################
@@ -34,8 +36,21 @@ def create_markdown_files(table_names, combined, desired_columns):
         markdown_table  = tbl_df.fillna('').to_markdown(index=False)
 
         # Section mermaid er diagram
-        # ToDo
-        mermaid_diagram = ''
+        if mermaid.getMermaid_text(tbl) != '':
+
+            mermaid_diagram = """\n\n## ER diagram\n\n
+            ```mermaid
+            """
+
+            mermaid_diagram += mermaid.getMermaid_text(tbl)
+
+            mermaid_diagram += """
+            ```
+            """
+        
+        else:
+
+            mermaid_diagram = ''
 
         ###############################################################################
         #                                                                             #
