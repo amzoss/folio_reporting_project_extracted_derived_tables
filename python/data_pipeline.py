@@ -150,7 +150,7 @@ try:
     if response.status_code == 200:
 
         # Write the data from the server in the local file
-        file_name = "../csv/derived_tables_columns_doc.CSV"
+        file_name = "../data/csv/derived_tables_columns_doc.CSV"
         csv_file  = open(file_name, "w")
         csv_file.write(response.text)
         csv_file.close() 
@@ -166,7 +166,7 @@ try:
         print(response.status_code)
 
         # Create a DataFrame with pandas for the data from the local file (fallback)
-        csv_data = pd.read_csv('../csv/derived_tables_columns_doc.CSV').set_index(['table','attributeName'])
+        csv_data = pd.read_csv('../data/csv/derived_tables_columns_doc.CSV').set_index(['table','attributeName'])
 
     # Close the connection
     response.close()
