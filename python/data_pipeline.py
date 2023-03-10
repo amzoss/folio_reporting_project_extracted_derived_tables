@@ -141,7 +141,7 @@ try:
     ###############################################################################
 
     # Prepare string for the url source
-    url      = 'https://raw.githubusercontent.com/stdombek/folio_reporting_project_extracted_derived_tables/main/csv/derived_tables_columns_doc.csv'
+    url      = 'https://raw.githubusercontent.com/stdombek/folio_reporting_project_extracted_derived_tables/main/data/csv/derived_tables_columns_doc.csv'
     
     # Fetch data from the server and save it in the object "response"
     response = requests.get(url)
