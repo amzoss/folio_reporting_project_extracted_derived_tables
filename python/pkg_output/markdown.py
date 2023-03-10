@@ -38,15 +38,11 @@ def create_markdown_files(table_names, combined, desired_columns):
         # Section mermaid er diagram
         if mermaid.getMermaid_text(tbl) != '':
 
-            mermaid_diagram = """\n\n## ER diagram\n\n
-            ```mermaid
-            """
+            mermaid_diagram = """\n\n## ER diagram\n\n```mermaid\n"""
 
             mermaid_diagram += mermaid.getMermaid_text(tbl)
 
-            mermaid_diagram += """
-            ```
-            """
+            mermaid_diagram += """\n```"""
         
         else:
 
