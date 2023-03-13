@@ -34,7 +34,7 @@ https://wiki.folio.org/display/RPT/Build+a+directory+of+extracted+and+derived+ta
 ## Usage
 
 * The Python script is written for Python 3 and tested for metadb. 
-* It can be nessesarry to install additional modules (see [Dependencies](#Dependencies)). 
+* It can be necessary to install additional modules (see [Dependencies](#Dependencies)). 
 * It assumes that derived tables exist in metadb.
 
 ### Preparation
