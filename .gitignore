@@ -1,0 +1,16 @@
+# ignore the gitignore file
+/.gitignore
+
+# ignore CONTRIBUTING.md
+/CONTRIBUTING.md
+
+# ignore 
+/LICENSE.md
+
+# ignore the directory Output
+/Output
+
+# ignore the login credential files
+/python/credentials.csv
+/python/enc_credentials.csv
+/python/config.key
