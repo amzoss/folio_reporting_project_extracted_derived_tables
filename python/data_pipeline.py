@@ -2,11 +2,10 @@
 -------------------------------------------------------------------------------
 data_pipeline.py
 
-Create Date:    2023-02-21
 Author:         Stefan Dombek <dombek@uni-leipzig.de>
 Description:    This script is intended to enable the documentation of derived 
                 tables. To do this, data is taken from the database catalog and 
-                combined with manually created data. An HTML page is output.
+                combined with manually created data.
 -------------------------------------------------------------------------------
 Copyright (C) 2018-2023 The Open Library Foundation
 
@@ -29,15 +28,16 @@ Copyright (C) 2018-2023 The Open Library Foundation
 #                                                                             #
 ###############################################################################
 
-import psycopg2
-import psycopg2.extras
+from cryptography.fernet import Fernet
 import csv
 import io
-import requests
-import pandas as pd
-import tabulate
 from io import StringIO
-from cryptography.fernet import Fernet
+import os.path
+import pandas as pd
+import psycopg2
+import psycopg2.extras
+import requests
+import tabulate
 
 # Local packages
 from pkg_output import html, markdown
@@ -48,33 +48,50 @@ from pkg_output import html, markdown
 #                                                                             #
 ###############################################################################
 
-# Load key
-key            = open('config.key', 'r')
-key            = key.read()
-f              = Fernet(key)
+# Check if the KEY FILE exists
+if os.path.isfile("config.key"):
+    
+    # Try to decrypt the content with the given KEY FILE
+    try:
+        # Load key
+        key            = open('config.key', 'r')
+        key            = key.read()
+        f              = Fernet(key)
 
-# Load encrypted file
-encrypted_file = open('enc_credentials.csv', 'rb')
-encrypted      = encrypted_file.read()
+        # Load encrypted file
+        encrypted_file = open('enc_credentials.csv', 'rb')
+        encrypted      = encrypted_file.read()
 
-# Decrypt the content
-decrypted      = f.decrypt(encrypted)
-credentials    = decrypted.decode('utf-8').split(sep=',')
+        # Decrypt the content
+        decrypted      = f.decrypt(encrypted)
+        credentials    = decrypted.decode('utf-8').split(sep=',')
 
-# Load the login credentials in variables for database connection
-hostname       = credentials[0]
-database       = credentials[1]
-username       = credentials[2]
-pwd            = credentials[3]
-port_id        = credentials[4]
+        # Load the login credentials in variables for database connection
+        hostname       = credentials[0]
+        database       = credentials[1]
+        username       = credentials[2]
+        pwd            = credentials[3]
+        port_id        = credentials[4]
+    
+    # If the file cannot be decrypted with the KEY FILE
+    except:
+        
+	# Show an error message for the user
+        print("Error: Can not decrypt the credentials. Please check your KEY FILE.")
+	
+	# Stop and exit the program
+        exit()
 
-# Alternative: If no KEY file is used
-# login credentials to database
-#hostname      = ''
-#database      = ''
-#username      = ''
-#pwd           = ''
-#port_id       = ''
+# If the KEY FILE does not exists
+else:
+
+    # Alternative: If no KEY file is used
+    # login credentials to database
+    hostname          = ''
+    database          = ''
+    username          = ''
+    pwd               = ''
+    port_id           = ''
 
 ###############################################################################
 #                                                                             #
