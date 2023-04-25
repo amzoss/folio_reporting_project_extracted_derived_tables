@@ -9,16 +9,13 @@ https://wiki.folio.org/display/RPT/Build+a+directory+of+extracted+and+derived+ta
 | Derived tables | Tables created by the community and located in the folio-analytics repository. |
 
 ## Dependencies
-* Python 3
-* Python modules
-  *  cryptography
-  *  csv
-  *  io
-  *  os
-  *  pandas
-  *  psycopg2
-  *  requests
-  *  tabulate
+Python 3 is required.
+
+Install required modules through pip:
+
+```
+python -m pip install -r requirements.txt
+```
 
 ## Directories
 * ```/data```
