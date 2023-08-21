@@ -28,7 +28,8 @@ Copyright (C) 2018-2023 The Open Library Foundation
 #                                                                             #
 ###############################################################################
 
-from cryptography.fernet import Fernet
+#from binascii import Error
+from cryptography.fernet import Fernet #,InvalidToken
 import csv
 import io
 from io import StringIO
@@ -40,7 +41,7 @@ import requests
 import tabulate
 
 # Local packages
-from pkg_output import html, markdown
+from pkg_output import html, markdown, markdown_index
 
 ###############################################################################
 #                                                                             #
@@ -74,12 +75,15 @@ if os.path.isfile("config.key"):
         port_id        = credentials[4]
     
     # If the file cannot be decrypted with the KEY FILE
-    except:
+    except: #(InvalidToken, TypeError, Error):
+
+        # TypeError = This exception is raised if token is not bytes.
+        # Error     = Decoding error
         
-	# Show an error message for the user
+        # Show an error message for the user
         print("Error: Can not decrypt the credentials. Please check your KEY FILE.")
 	
-	# Stop and exit the program
+        # Stop and exit the program
         exit()
 
 # If the KEY FILE does not exists
@@ -221,6 +225,9 @@ try:
    
     # markdown
     markdown.create_markdown_files(table_names, combined, desired_columns)
+
+    # markdown index file
+    markdown_index.create_markdown_index_file(table_names, combined, desired_columns)
 
 ###############################################################################
 #                                                                             #
