@@ -64,7 +64,7 @@ def create_markdown_index_file(table_names, combined, desired_columns):
     #                                                                             #
     ############################################################################### 
 
-    file_name = "../Output/index.md"
+    file_name = "../docs/derived/index.md"
     md_file   = open(file_name, "w")
     md_file.write(content)
     md_file.close()

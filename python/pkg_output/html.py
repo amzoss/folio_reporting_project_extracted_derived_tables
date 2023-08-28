@@ -79,7 +79,7 @@ def create_html_files(table_names, combined, desired_columns):
         #                                                                             #
         ############################################################################### 
 
-        file_name = "../Output/" + tbl + ".html"
+        file_name = "../docs/derived/" + tbl + ".html"
         html_file = open(file_name, "w")
         html_file.write(html_output_string)
         html_file.close()

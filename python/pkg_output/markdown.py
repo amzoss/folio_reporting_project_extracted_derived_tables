@@ -62,7 +62,7 @@ def create_markdown_files(table_names, combined, desired_columns):
         #                                                                             #
         ############################################################################### 
 
-        file_name = "../Output/" + tbl + ".md"
+        file_name = "../docs/derived/" + tbl + ".md"
         md_file   = open(file_name, "w")
         md_file.write(markdown_output_string)
         md_file.close()
