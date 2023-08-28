@@ -19,11 +19,14 @@ python -m pip install -r requirements.txt
 
 ## Directories
 * ```/data```
-  * ```/csv```: Contains a CSV file that can used to create additional data for each derived table for enrichment.
+  * ```/csv```: Contains CSV files related to the different documentation processes:
+    * ```derived_tables_columns_doc.csv```: a file that can used to create additional data for each derived table for enrichment.
+    * ```RAMLdirectory.csv```: a listing of the URLs needed for the extracted table documentation.
   * ```/mermaid```: Here you can create text files for each derived table. In these text files you can type in mermaid syntax. The content is used to generate an er diagram in the output.
-* ```/Output```: Contains the output files. In this repository you can find sample outputs.
+* ```/docs```: Contains the output files that drive the public website.
 * ```/python```
-  *  ```data_pipeline.py```: The main script wich has to be used.
+  *  ```data_pipeline.py```: The main script for creating derived table documentation.
+  *  ```extracted_table_docs.py```: The main script for creating extracted table documentation. It combines CSV data with public RAML files and generates public documentation of extracted tables.
   *  ```key_generator.py```: Script to create a KEY-FILE and an encrypted file with login credentials.
   *  ```/pkg_output```: Contains local modules to create different outputs.
 * ```/sql```
