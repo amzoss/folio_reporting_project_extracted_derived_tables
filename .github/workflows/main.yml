@@ -34,8 +34,9 @@ jobs:
         with:
           path: "requirements.txt"
       - name: Run extracted tables python script
+        run: python python/extracted_table_docs.py
+      - name: Run derived tables python script
         run: |
-          python python/extracted_table_docs.py
           cd python
           python data_pipeline.py
       - name: Check for modified files
