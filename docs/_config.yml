@@ -1,3 +1,4 @@
 theme: minima
 header_pages:
   - extracted/index.md
+  - derived/index.md
