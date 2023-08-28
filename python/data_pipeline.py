@@ -91,11 +91,11 @@ else:
 
     # Alternative: If no KEY file is used
     # login credentials to database
-    hostname          = ''
-    database          = ''
-    username          = ''
-    pwd               = ''
-    port_id           = ''
+    hostname          = os.getenv('METADB_HOSTNAME')
+    database          = os.getenv('METADB_DATABASE')
+    username          = os.getenv('METADB_USERNAME')
+    pwd               = os.getenv('METADB_PW')
+    port_id           = os.getenv('METADB_PORT')
 
 ###############################################################################
 #                                                                             #
