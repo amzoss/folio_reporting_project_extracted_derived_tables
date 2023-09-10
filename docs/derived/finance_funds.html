@@ -1,0 +1,292 @@
+<!DOCTYPE html><html lang='en'><head><title>finance_funds.sql</title><meta charset='utf-8'></head><body><h1>Documentation: finance_funds.sql</h1><hr border='1'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Attribute #</th>
+      <th>Attribute</th>
+      <th>Type</th>
+      <th>Source - Schema</th>
+      <th>Source - Table</th>
+      <th>Source - Attribute</th>
+      <th>Source - Type</th>
+      <th>Source - Multiple values</th>
+      <th>Aggregation</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>fiscal_year_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of the fiscal year record</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>fiscal_year_code</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The code of the fiscal year</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>fiscal_year_name</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The name of the fiscal year</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>fiscal_year_period_start</td>
+      <td>timestamptz</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The start date of the fiscal year</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>fiscal_year_period_end</td>
+      <td>timestamptz</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The end date of the fiscal year</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>fiscal_year_description</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The description of the fiscal year</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>budget_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of this budget</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>budget_name</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The name of the budget</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>budget_status</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The status of the budget</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>fund_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of this fund</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>fund_code</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>A unique code associated with the fund</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>fund_name</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The name of this fund</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>fund_status</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The current status of this fund</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>fund_description</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The description of this fund</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>fund_type_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of the fund type associated with this fund</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>fund_type_name</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Name of fund type</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>ledger_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of this ledger</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>ledger_code</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The code for the ledger</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>ledger_name</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The name of the ledger</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>ledger_status</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The status of the ledger</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>ledger_description</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The description of the ledger</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table></body></html>

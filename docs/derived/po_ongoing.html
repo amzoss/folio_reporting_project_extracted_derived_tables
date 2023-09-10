@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang='en'><head><title>po_ongoing.sql</title><meta charset='utf-8'></head><body><h1>Documentation: po_ongoing.sql</h1><hr border='1'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Attribute #</th>
+      <th>Attribute</th>
+      <th>Type</th>
+      <th>Source - Schema</th>
+      <th>Source - Table</th>
+      <th>Source - Attribute</th>
+      <th>Source - Type</th>
+      <th>Source - Multiple values</th>
+      <th>Aggregation</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>po_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of this purchase order</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>po_ongoing_interval</td>
+      <td>int4</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The subscription interval in days</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>po_ongoing_is_subscription</td>
+      <td>bool</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Whether or not this is a subscription</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>po_ongoing_manual_renewal</td>
+      <td>bool</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Whether or not this is a manual renewal</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>po_ongoing_renewal_date</td>
+      <td>timestamptz</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The date this Ongoing PO's order lines were renewed</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>po_ongoing_review_period</td>
+      <td>int4</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Time prior to renewal where changes can be made to subscription</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table></body></html>

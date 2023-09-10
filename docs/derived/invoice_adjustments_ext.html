@@ -1,0 +1,175 @@
+<!DOCTYPE html><html lang='en'><head><title>invoice_adjustments_ext.sql</title><meta charset='utf-8'></head><body><h1>Documentation: invoice_adjustments_ext.sql</h1><hr border='1'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Attribute #</th>
+      <th>Attribute</th>
+      <th>Type</th>
+      <th>Source - Schema</th>
+      <th>Source - Table</th>
+      <th>Source - Attribute</th>
+      <th>Source - Type</th>
+      <th>Source - Multiple values</th>
+      <th>Aggregation</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>invoice_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of this invoice</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>invl_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of the invoice line associated with this fund distribution</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>invoice_line_value</td>
+      <td>numeric</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The percentage of the cost to be applied to this fund</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>transaction_invoice_line_value</td>
+      <td>numeric</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>This is invoice_line_value in system currency</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>inv_adjust_total_value</td>
+      <td>numeric</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Total adjustment amount</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>transaction_invoice_adj_value</td>
+      <td>numeric</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>This is inv_adjust_total_value in system currency</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>invls_total</td>
+      <td>numeric</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Invoice line total amount which is sum of subTotal and adjustmentsTotal. This amount is always calculated by system.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>inv_adj_prorate</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Displayed in invoice line per adjustment in toggled on in settings</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>inv_adj_relationtototal</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Relationship of this adjustment to the total;In addition to: added to subtotal;Included in: reported as subtotal portion;Separate from:calculated from subtotal</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>ratio_of_inv_adj_per_invoice_line</td>
+      <td>numeric</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>This is the ratio of the invoice adjustment per invoice line</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>inv_adj_total</td>
+      <td>numeric</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>This is the adjustment at the invoice line level, taking into consideration the total ratio per invoice line.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>transactions_inv_adj_total</td>
+      <td>numeric</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>This is the adjustment at the invoice line level, taking into consideration the total ratio per invoice line. IN SYSTEM CURRENCY</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table></body></html>

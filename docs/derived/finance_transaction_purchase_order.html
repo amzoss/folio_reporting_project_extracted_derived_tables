@@ -1,0 +1,331 @@
+<!DOCTYPE html><html lang='en'><head><title>finance_transaction_purchase_order.sql</title><meta charset='utf-8'></head><body><h1>Documentation: finance_transaction_purchase_order.sql</h1><hr border='1'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Attribute #</th>
+      <th>Attribute</th>
+      <th>Type</th>
+      <th>Source - Schema</th>
+      <th>Source - Table</th>
+      <th>Source - Attribute</th>
+      <th>Source - Type</th>
+      <th>Source - Multiple values</th>
+      <th>Aggregation</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>transaction_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of this transaction</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>transaction_amount</td>
+      <td>numeric</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The amount of this transaction. For encumbrances: This is initialAmountEncumbered - (amountAwaitingPayment + amountExpended)</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>transaction_currency</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Currency code for this transaction - from the system currency</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>transaction_expense_class_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of the associated expense class</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>transaction_fiscal_year_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of the fiscal year that the transaction is taking place in</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>transaction_from_fund_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of the fund money is moving from</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>transaction_from_fund_name</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The name of this fund</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>transaction_from_fund_code</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>A unique code associated with the fund</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>transaction_from_budget_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of this budget</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>transaction_from_budget_name</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The name of the budget</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>transaction_encumbrance_amount_awaiting_payment</td>
+      <td>numeric</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Deprecated! Going to be removed in next release. The amount of awaiting for payment</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>transaction_encumbrance_amount_expended</td>
+      <td>numeric</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The amount currently expended by this encumbrance</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>transaction_encumbrance_initial_amount</td>
+      <td>numeric</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The initial amount of this encumbrance. Should not change once create</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>transaction_encumbrance_order_type</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Taken from the purchase order</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>transaction_encumbrance_subscription</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Taken from the purchase Order,for fiscal year rollover</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>transaction_encumbrance_status</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The status of this encumbrance</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>po_line_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID referencing the poLine that represents the package that this POLs title belongs to</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>po_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID identifying this purchase order line</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>pol_number</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>A human readable number assigned to this PO line</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>pol_description</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>purchase order line description</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>pol_acquisition_method</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of the acquisition method for this purchase order line</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>po_order_type</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>the purchase order type</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>po_vendor_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of the vendor record</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>po_vendor_name</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The name of vendor</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table></body></html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html><html lang='en'><head><title>po_instance.sql</title><meta charset='utf-8'></head><body><h1>Documentation: po_instance.sql</h1><hr border='1'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Attribute #</th>
+      <th>Attribute</th>
+      <th>Type</th>
+      <th>Source - Schema</th>
+      <th>Source - Table</th>
+      <th>Source - Attribute</th>
+      <th>Source - Type</th>
+      <th>Source - Multiple values</th>
+      <th>Aggregation</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>manual_po</td>
+      <td>bool</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>If true, order cannot be sent automatically, e.g. via EDI</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>rush</td>
+      <td>bool</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Whether or not this is a rush order</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>requester</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Who requested this material and needs to be notified on arrival</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>selector</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Who selected this material</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>po_number</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>A human readable number assigned to PO</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>po_number_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID identifying this PO</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>po_line_number</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>A human readable number assigned to PO line</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>po_line_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID identifying this purchase order line</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>vendor_code</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>The code of the vendor</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>created_by_username</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Username of the user who created the record (when available)</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>po_workflow_status</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Workflow status of purchase order</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>status_approved</td>
+      <td>bool</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Wether purchase order is approved or not</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>created_date</td>
+      <td>timestamptz</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Date when the purchase order was created</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>bill_to</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Name of the bill_to location of the purchase order</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>ship_to</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Name of the ship_to location of the purchase order</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>pol_instance_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of the instance record this purchase order line is related to</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>pol_instance_hrid</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>A human readable number of the instance record this purchase order line is related to</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>pol_holding_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of the holdings this purchase order line is related to</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>pol_location_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of the location created for this purcase order line</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>pol_location_name</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Name of the purchase order line location</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>pol_location_source</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Wether location is a holdings location or permanent location of the purchase order line</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>title</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Title of the material</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>publication_date</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Date (year) of the material's publication</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>publisher</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Publisher of the material</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table></body></html>

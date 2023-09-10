@@ -1,0 +1,149 @@
+<!DOCTYPE html><html lang='en'><head><title>po_lines_physical.sql</title><meta charset='utf-8'></head><body><h1>Documentation: po_lines_physical.sql</h1><hr border='1'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Attribute #</th>
+      <th>Attribute</th>
+      <th>Type</th>
+      <th>Source - Schema</th>
+      <th>Source - Table</th>
+      <th>Source - Attribute</th>
+      <th>Source - Type</th>
+      <th>Source - Multiple values</th>
+      <th>Aggregation</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>pol_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID identifying this purchase order line</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>pol_phys_create_inventory</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Shows what inventory objects need to be created for electronic resource</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>pol_phys_mat_type_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of the material Type</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>pol_phys_mat_type_name</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Label for the material type</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>pol_phys_mat_supplier_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of the material supplier record</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>supplier_org_name</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of this purchase order</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>pol_phys_expected_receipt_date</td>
+      <td>timestamptz</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Vendor agreed date prior to the Receipt Due date item is expected to be received by</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>pol_phys_receipt_due</td>
+      <td>timestamptz</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Date item should be received by</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>pol_volumes</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>List of volumes included to the physical material</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>pol_volumes_ordinality</td>
+      <td>int8</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Volumes ordinality</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table></body></html>

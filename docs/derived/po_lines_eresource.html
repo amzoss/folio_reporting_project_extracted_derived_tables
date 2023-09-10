@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang='en'><head><title>po_lines_eresource.sql</title><meta charset='utf-8'></head><body><h1>Documentation: po_lines_eresource.sql</h1><hr border='1'><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Attribute #</th>
+      <th>Attribute</th>
+      <th>Type</th>
+      <th>Source - Schema</th>
+      <th>Source - Table</th>
+      <th>Source - Attribute</th>
+      <th>Source - Type</th>
+      <th>Source - Multiple values</th>
+      <th>Aggregation</th>
+      <th>Description</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>pol_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID identifying this purchase order line</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>pol_holding_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Holding UUID associated with order line</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>pol_holding_hrid</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>the human readable ID, also called eye readable ID. A system-assigned sequential ID which maps to the Holding ID</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>pol_location_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of the (inventory) location record</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>location_name</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Displayed location name</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>pol_location_source</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Shows if the displayed location is sourced from the pol_location_id or pol_holding_id</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>pol_access_provider</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of the access provider</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>provider_org_name</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Displayed access provider name</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>pol_activated</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>whether or not this resource is activated</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>pol_activation_due</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>number of days until activation, from date of order placement</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>pol_create_inventory</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Shows what inventory objects need to be created for electronic resource</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>pol_expected_activation</td>
+      <td>timestamptz</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>expected date the resource will be activated</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>pol_license_code</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>license code</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>pol_license_desc</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>license description</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>pol_license_reference</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>license reference</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>pol_material_type_id</td>
+      <td>uuid</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>UUID of the material Type</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>pol_er_mat_type_name</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Material Type name</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>pol_trial</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>whether or not this is a trial</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>pol_user_limit</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>the concurrent user-limit</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>pol_resource_url</td>
+      <td>text</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>Electronic resource can be access via this URL</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table></body></html>
