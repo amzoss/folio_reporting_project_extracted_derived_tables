@@ -1,0 +1,1828 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="folio" schema="folio_derived" type="PostgreSQL - 14.2">
+   <tables>
+      <table name="agreements_subscription_agreement" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="sa_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="sa_renewal_priority" nullable="true" remarks="" size="32" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="sa_renewal_priority_value" nullable="true" remarks="" size="41" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="sa_renewal_priority_label" nullable="true" remarks="" size="41" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="sa_is_perpetual" nullable="true" remarks="" size="32" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="sa_is_perpetual_value" nullable="true" remarks="" size="41" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="sa_is_perpetual_label" nullable="true" remarks="" size="41" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="sa_name" nullable="true" remarks="" size="81" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="sa_local_reference" nullable="true" remarks="" size="1" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="sa_agreement_status" nullable="true" remarks="" size="32" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="sa_agreement_status_value" nullable="true" remarks="" size="41" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="sa_agreement_status_label" nullable="true" remarks="" size="41" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="sa_description" nullable="true" remarks="" size="538" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="sa_license_note" nullable="true" remarks="" size="1" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="sa_reason_for_closure" nullable="true" remarks="" size="1" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="sa_reason_for_closure_value" nullable="true" remarks="" size="41" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="sa_reason_for_closure_label" nullable="true" remarks="" size="41" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="sa_custom_properties_id" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <index name="agreements_subscription_agreeme_sa_reason_for_closure_label_idx" unique="false">
+            <column ascending="true" name="sa_reason_for_closure_label"/>
+         </index>
+         <index name="agreements_subscription_agreeme_sa_reason_for_closure_value_idx" unique="false">
+            <column ascending="true" name="sa_reason_for_closure_value"/>
+         </index>
+         <index name="agreements_subscription_agreement_sa_agreement_status_idx" unique="false">
+            <column ascending="true" name="sa_agreement_status"/>
+         </index>
+         <index name="agreements_subscription_agreement_sa_agreement_status_label_idx" unique="false">
+            <column ascending="true" name="sa_agreement_status_label"/>
+         </index>
+         <index name="agreements_subscription_agreement_sa_agreement_status_value_idx" unique="false">
+            <column ascending="true" name="sa_agreement_status_value"/>
+         </index>
+         <index name="agreements_subscription_agreement_sa_custom_properties_id_idx" unique="false">
+            <column ascending="true" name="sa_custom_properties_id"/>
+         </index>
+         <index name="agreements_subscription_agreement_sa_description_idx" unique="false">
+            <column ascending="true" name="sa_description"/>
+         </index>
+         <index name="agreements_subscription_agreement_sa_id_idx" unique="false">
+            <column ascending="true" name="sa_id"/>
+         </index>
+         <index name="agreements_subscription_agreement_sa_is_perpetual_idx" unique="false">
+            <column ascending="true" name="sa_is_perpetual"/>
+         </index>
+         <index name="agreements_subscription_agreement_sa_is_perpetual_label_idx" unique="false">
+            <column ascending="true" name="sa_is_perpetual_label"/>
+         </index>
+         <index name="agreements_subscription_agreement_sa_is_perpetual_value_idx" unique="false">
+            <column ascending="true" name="sa_is_perpetual_value"/>
+         </index>
+         <index name="agreements_subscription_agreement_sa_license_note_idx" unique="false">
+            <column ascending="true" name="sa_license_note"/>
+         </index>
+         <index name="agreements_subscription_agreement_sa_local_reference_idx" unique="false">
+            <column ascending="true" name="sa_local_reference"/>
+         </index>
+         <index name="agreements_subscription_agreement_sa_name_idx" unique="false">
+            <column ascending="true" name="sa_name"/>
+         </index>
+         <index name="agreements_subscription_agreement_sa_reason_for_closure_idx" unique="false">
+            <column ascending="true" name="sa_reason_for_closure"/>
+         </index>
+         <index name="agreements_subscription_agreement_sa_renewal_priority_idx" unique="false">
+            <column ascending="true" name="sa_renewal_priority"/>
+         </index>
+         <index name="agreements_subscription_agreement_sa_renewal_priority_label_idx" unique="false">
+            <column ascending="true" name="sa_renewal_priority_label"/>
+         </index>
+         <index name="agreements_subscription_agreement_sa_renewal_priority_value_idx" unique="false">
+            <column ascending="true" name="sa_renewal_priority_value"/>
+         </index>
+      </table>
+      <table name="agreements_subscription_agreement_entitlement" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="subscription_agreement_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="subscription_agreement_name" nullable="true" remarks="" size="81" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="subscription_agreement_local_reference" nullable="true" remarks="" size="1" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="subscription_agreement_type" nullable="true" remarks="" size="1" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="subscription_agreement_type_value" nullable="true" remarks="" size="41" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="subscription_agreement_type_label" nullable="true" remarks="" size="41" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="subscription_agreement_status" nullable="true" remarks="" size="32" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="subscription_agreement_status_value" nullable="true" remarks="" size="41" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="subscription_agreement_status_label" nullable="true" remarks="" size="41" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="entitlement_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="entitlement_active_to" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="entitlement_active_from" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="entitlement_subscription_agreement_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="entitlement_resource_fk" nullable="true" remarks="" size="1" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="entitlement_authority" nullable="true" remarks="" size="1" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="entitlement_reference" nullable="true" remarks="" size="1" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="po_line_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <index name="agreements_subscription_agree_entitlement_subscription_agre_idx" unique="false">
+            <column ascending="true" name="entitlement_subscription_agreement_id"/>
+         </index>
+         <index name="agreements_subscription_agree_subscription_agreement_local__idx" unique="false">
+            <column ascending="true" name="subscription_agreement_local_reference"/>
+         </index>
+         <index name="agreements_subscription_agree_subscription_agreement_statu_idx1" unique="false">
+            <column ascending="true" name="subscription_agreement_status_value"/>
+         </index>
+         <index name="agreements_subscription_agree_subscription_agreement_statu_idx2" unique="false">
+            <column ascending="true" name="subscription_agreement_status_label"/>
+         </index>
+         <index name="agreements_subscription_agree_subscription_agreement_status_idx" unique="false">
+            <column ascending="true" name="subscription_agreement_status"/>
+         </index>
+         <index name="agreements_subscription_agree_subscription_agreement_type_l_idx" unique="false">
+            <column ascending="true" name="subscription_agreement_type_label"/>
+         </index>
+         <index name="agreements_subscription_agree_subscription_agreement_type_v_idx" unique="false">
+            <column ascending="true" name="subscription_agreement_type_value"/>
+         </index>
+         <index name="agreements_subscription_agreeme_subscription_agreement_name_idx" unique="false">
+            <column ascending="true" name="subscription_agreement_name"/>
+         </index>
+         <index name="agreements_subscription_agreeme_subscription_agreement_type_idx" unique="false">
+            <column ascending="true" name="subscription_agreement_type"/>
+         </index>
+         <index name="agreements_subscription_agreement_e_entitlement_active_from_idx" unique="false">
+            <column ascending="true" name="entitlement_active_from"/>
+         </index>
+         <index name="agreements_subscription_agreement_e_entitlement_resource_fk_idx" unique="false">
+            <column ascending="true" name="entitlement_resource_fk"/>
+         </index>
+         <index name="agreements_subscription_agreement_ent_entitlement_active_to_idx" unique="false">
+            <column ascending="true" name="entitlement_active_to"/>
+         </index>
+         <index name="agreements_subscription_agreement_ent_entitlement_authority_idx" unique="false">
+            <column ascending="true" name="entitlement_authority"/>
+         </index>
+         <index name="agreements_subscription_agreement_ent_entitlement_reference_idx" unique="false">
+            <column ascending="true" name="entitlement_reference"/>
+         </index>
+         <index name="agreements_subscription_agreement_entitlemen_entitlement_id_idx" unique="false">
+            <column ascending="true" name="entitlement_id"/>
+         </index>
+         <index name="agreements_subscription_agreement_entitlement_po_line_id_idx" unique="false">
+            <column ascending="true" name="po_line_id"/>
+         </index>
+         <index name="agreements_subscription_agreement_subscription_agreement_id_idx" unique="false">
+            <column ascending="true" name="subscription_agreement_id"/>
+         </index>
+      </table>
+      <table name="finance_transaction_invoices" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="transaction_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="1" name="transaction_amount" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="transaction_currency" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="transaction_created_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="transaction_updated_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="transaction_description" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="transaction_expense_class_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="transaction_fiscal_year_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="transaction_from_fund_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="transaction_from_fund_name" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="transaction_from_fund_code" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="transaction_to_fund_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="transaction_to_fund_name" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="transaction_to_fund_code" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="effective_fund_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="effective_fund_name" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="effective_fund_code" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="transaction_from_budget_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="transaction_from_budget_name" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="invoice_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="invoice_line_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="transaction_type" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="invoice_date" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="invoice_payment_date" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="14" id="24" name="invoice_exchange_rate" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="25" name="invoice_line_total" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="26" name="invoice_currency" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="po_line_id" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="28" name="invoice_vendor_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="29" name="invoice_vendor_name" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="finance_transaction_invoices_effective_fund_code_idx" unique="false">
+            <column ascending="true" name="effective_fund_code"/>
+         </index>
+         <index name="finance_transaction_invoices_effective_fund_id_idx" unique="false">
+            <column ascending="true" name="effective_fund_id"/>
+         </index>
+         <index name="finance_transaction_invoices_effective_fund_name_idx" unique="false">
+            <column ascending="true" name="effective_fund_name"/>
+         </index>
+         <index name="finance_transaction_invoices_invoice_currency_idx" unique="false">
+            <column ascending="true" name="invoice_currency"/>
+         </index>
+         <index name="finance_transaction_invoices_invoice_date_idx" unique="false">
+            <column ascending="true" name="invoice_date"/>
+         </index>
+         <index name="finance_transaction_invoices_invoice_exchange_rate_idx" unique="false">
+            <column ascending="true" name="invoice_exchange_rate"/>
+         </index>
+         <index name="finance_transaction_invoices_invoice_id_idx" unique="false">
+            <column ascending="true" name="invoice_id"/>
+         </index>
+         <index name="finance_transaction_invoices_invoice_line_id_idx" unique="false">
+            <column ascending="true" name="invoice_line_id"/>
+         </index>
+         <index name="finance_transaction_invoices_invoice_line_total_idx" unique="false">
+            <column ascending="true" name="invoice_line_total"/>
+         </index>
+         <index name="finance_transaction_invoices_invoice_payment_date_idx" unique="false">
+            <column ascending="true" name="invoice_payment_date"/>
+         </index>
+         <index name="finance_transaction_invoices_invoice_vendor_id_idx" unique="false">
+            <column ascending="true" name="invoice_vendor_id"/>
+         </index>
+         <index name="finance_transaction_invoices_invoice_vendor_name_idx" unique="false">
+            <column ascending="true" name="invoice_vendor_name"/>
+         </index>
+         <index name="finance_transaction_invoices_po_line_id_idx" unique="false">
+            <column ascending="true" name="po_line_id"/>
+         </index>
+         <index name="finance_transaction_invoices_transaction_amount_idx" unique="false">
+            <column ascending="true" name="transaction_amount"/>
+         </index>
+         <index name="finance_transaction_invoices_transaction_created_date_idx" unique="false">
+            <column ascending="true" name="transaction_created_date"/>
+         </index>
+         <index name="finance_transaction_invoices_transaction_currency_idx" unique="false">
+            <column ascending="true" name="transaction_currency"/>
+         </index>
+         <index name="finance_transaction_invoices_transaction_description_idx" unique="false">
+            <column ascending="true" name="transaction_description"/>
+         </index>
+         <index name="finance_transaction_invoices_transaction_expense_class_id_idx" unique="false">
+            <column ascending="true" name="transaction_expense_class_id"/>
+         </index>
+         <index name="finance_transaction_invoices_transaction_fiscal_year_id_idx" unique="false">
+            <column ascending="true" name="transaction_fiscal_year_id"/>
+         </index>
+         <index name="finance_transaction_invoices_transaction_from_budget_id_idx" unique="false">
+            <column ascending="true" name="transaction_from_budget_id"/>
+         </index>
+         <index name="finance_transaction_invoices_transaction_from_budget_name_idx" unique="false">
+            <column ascending="true" name="transaction_from_budget_name"/>
+         </index>
+         <index name="finance_transaction_invoices_transaction_from_fund_code_idx" unique="false">
+            <column ascending="true" name="transaction_from_fund_code"/>
+         </index>
+         <index name="finance_transaction_invoices_transaction_from_fund_id_idx" unique="false">
+            <column ascending="true" name="transaction_from_fund_id"/>
+         </index>
+         <index name="finance_transaction_invoices_transaction_from_fund_name_idx" unique="false">
+            <column ascending="true" name="transaction_from_fund_name"/>
+         </index>
+         <index name="finance_transaction_invoices_transaction_id_idx" unique="false">
+            <column ascending="true" name="transaction_id"/>
+         </index>
+         <index name="finance_transaction_invoices_transaction_to_fund_code_idx" unique="false">
+            <column ascending="true" name="transaction_to_fund_code"/>
+         </index>
+         <index name="finance_transaction_invoices_transaction_to_fund_id_idx" unique="false">
+            <column ascending="true" name="transaction_to_fund_id"/>
+         </index>
+         <index name="finance_transaction_invoices_transaction_to_fund_name_idx" unique="false">
+            <column ascending="true" name="transaction_to_fund_name"/>
+         </index>
+         <index name="finance_transaction_invoices_transaction_type_idx" unique="false">
+            <column ascending="true" name="transaction_type"/>
+         </index>
+         <index name="finance_transaction_invoices_transaction_updated_date_idx" unique="false">
+            <column ascending="true" name="transaction_updated_date"/>
+         </index>
+      </table>
+      <table name="finance_transaction_purchase_order" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="transaction_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="1" name="transaction_amount" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="transaction_currency" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="transaction_expense_class_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="transaction_fiscal_year_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="transaction_from_fund_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="transaction_from_fund_name" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="transaction_from_fund_code" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="transaction_from_budget_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="transaction_from_budget_name" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="10" name="transaction_encumbrance_amount_awaiting_payment" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="11" name="transaction_encumbrance_amount_expended" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="12" name="transaction_encumbrance_initial_amount" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="transaction_encumbrance_order_type" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="transaction_encumbrance_subscription" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="po_line_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="po_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="pol_number" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="pol_description" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="pol_acquisition_method" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="po_order_type" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="po_vendor_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="po_vendor_name" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="finance_transaction_purchase__transaction_encumbrance_amou_idx1" unique="false">
+            <column ascending="true" name="transaction_encumbrance_amount_expended"/>
+         </index>
+         <index name="finance_transaction_purchase__transaction_encumbrance_amoun_idx" unique="false">
+            <column ascending="true" name="transaction_encumbrance_amount_awaiting_payment"/>
+         </index>
+         <index name="finance_transaction_purchase__transaction_encumbrance_initi_idx" unique="false">
+            <column ascending="true" name="transaction_encumbrance_initial_amount"/>
+         </index>
+         <index name="finance_transaction_purchase__transaction_encumbrance_order_idx" unique="false">
+            <column ascending="true" name="transaction_encumbrance_order_type"/>
+         </index>
+         <index name="finance_transaction_purchase__transaction_encumbrance_subsc_idx" unique="false">
+            <column ascending="true" name="transaction_encumbrance_subscription"/>
+         </index>
+         <index name="finance_transaction_purchase_o_transaction_expense_class_id_idx" unique="false">
+            <column ascending="true" name="transaction_expense_class_id"/>
+         </index>
+         <index name="finance_transaction_purchase_o_transaction_from_budget_name_idx" unique="false">
+            <column ascending="true" name="transaction_from_budget_name"/>
+         </index>
+         <index name="finance_transaction_purchase_ord_transaction_fiscal_year_id_idx" unique="false">
+            <column ascending="true" name="transaction_fiscal_year_id"/>
+         </index>
+         <index name="finance_transaction_purchase_ord_transaction_from_budget_id_idx" unique="false">
+            <column ascending="true" name="transaction_from_budget_id"/>
+         </index>
+         <index name="finance_transaction_purchase_ord_transaction_from_fund_code_idx" unique="false">
+            <column ascending="true" name="transaction_from_fund_code"/>
+         </index>
+         <index name="finance_transaction_purchase_ord_transaction_from_fund_name_idx" unique="false">
+            <column ascending="true" name="transaction_from_fund_name"/>
+         </index>
+         <index name="finance_transaction_purchase_order_po_id_idx" unique="false">
+            <column ascending="true" name="po_id"/>
+         </index>
+         <index name="finance_transaction_purchase_order_po_line_id_idx" unique="false">
+            <column ascending="true" name="po_line_id"/>
+         </index>
+         <index name="finance_transaction_purchase_order_po_order_type_idx" unique="false">
+            <column ascending="true" name="po_order_type"/>
+         </index>
+         <index name="finance_transaction_purchase_order_po_vendor_id_idx" unique="false">
+            <column ascending="true" name="po_vendor_id"/>
+         </index>
+         <index name="finance_transaction_purchase_order_po_vendor_name_idx" unique="false">
+            <column ascending="true" name="po_vendor_name"/>
+         </index>
+         <index name="finance_transaction_purchase_order_pol_acquisition_method_idx" unique="false">
+            <column ascending="true" name="pol_acquisition_method"/>
+         </index>
+         <index name="finance_transaction_purchase_order_pol_description_idx" unique="false">
+            <column ascending="true" name="pol_description"/>
+         </index>
+         <index name="finance_transaction_purchase_order_pol_number_idx" unique="false">
+            <column ascending="true" name="pol_number"/>
+         </index>
+         <index name="finance_transaction_purchase_order_transaction_amount_idx" unique="false">
+            <column ascending="true" name="transaction_amount"/>
+         </index>
+         <index name="finance_transaction_purchase_order_transaction_currency_idx" unique="false">
+            <column ascending="true" name="transaction_currency"/>
+         </index>
+         <index name="finance_transaction_purchase_order_transaction_from_fund_id_idx" unique="false">
+            <column ascending="true" name="transaction_from_fund_id"/>
+         </index>
+         <index name="finance_transaction_purchase_order_transaction_id_idx" unique="false">
+            <column ascending="true" name="transaction_id"/>
+         </index>
+      </table>
+      <table name="holdings_electronic_access" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="instance_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="instance_hrid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="holdings_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="holdings_hrid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="relationship_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="relationship_name" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="uri" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="link_text" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="material_specification" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="public_note" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="eaccess_ordinality" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <index name="holdings_electronic_access_eaccess_ordinality_idx" unique="false">
+            <column ascending="true" name="eaccess_ordinality"/>
+         </index>
+         <index name="holdings_electronic_access_holdings_hrid_idx" unique="false">
+            <column ascending="true" name="holdings_hrid"/>
+         </index>
+         <index name="holdings_electronic_access_holdings_id_idx" unique="false">
+            <column ascending="true" name="holdings_id"/>
+         </index>
+         <index name="holdings_electronic_access_instance_hrid_idx" unique="false">
+            <column ascending="true" name="instance_hrid"/>
+         </index>
+         <index name="holdings_electronic_access_instance_id_idx" unique="false">
+            <column ascending="true" name="instance_id"/>
+         </index>
+         <index name="holdings_electronic_access_link_text_idx" unique="false">
+            <column ascending="true" name="link_text"/>
+         </index>
+         <index name="holdings_electronic_access_material_specification_idx" unique="false">
+            <column ascending="true" name="material_specification"/>
+         </index>
+         <index name="holdings_electronic_access_public_note_idx" unique="false">
+            <column ascending="true" name="public_note"/>
+         </index>
+         <index name="holdings_electronic_access_relationship_id_idx" unique="false">
+            <column ascending="true" name="relationship_id"/>
+         </index>
+         <index name="holdings_electronic_access_relationship_name_idx" unique="false">
+            <column ascending="true" name="relationship_name"/>
+         </index>
+         <index name="holdings_electronic_access_uri_idx" unique="false">
+            <column ascending="true" name="uri"/>
+         </index>
+      </table>
+      <table name="holdings_notes" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="instance_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="instance_hrid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="holding_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="holding_hrid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="note" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="note_type_name" nullable="true" remarks="" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="note_type_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="note_ordinality" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="8" name="note_date_created" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="note_created_by_user_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="note_date_updated" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="note_updated_by_user_id" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="holdings_notes_holding_hrid_idx" unique="false">
+            <column ascending="true" name="holding_hrid"/>
+         </index>
+         <index name="holdings_notes_holding_id_idx" unique="false">
+            <column ascending="true" name="holding_id"/>
+         </index>
+         <index name="holdings_notes_instance_hrid_idx" unique="false">
+            <column ascending="true" name="instance_hrid"/>
+         </index>
+         <index name="holdings_notes_instance_id_idx" unique="false">
+            <column ascending="true" name="instance_id"/>
+         </index>
+         <index name="holdings_notes_note_created_by_user_id_idx" unique="false">
+            <column ascending="true" name="note_created_by_user_id"/>
+         </index>
+         <index name="holdings_notes_note_date_created_idx" unique="false">
+            <column ascending="true" name="note_date_created"/>
+         </index>
+         <index name="holdings_notes_note_date_updated_idx" unique="false">
+            <column ascending="true" name="note_date_updated"/>
+         </index>
+         <index name="holdings_notes_note_idx" unique="false">
+            <column ascending="true" name="note"/>
+         </index>
+         <index name="holdings_notes_note_ordinality_idx" unique="false">
+            <column ascending="true" name="note_ordinality"/>
+         </index>
+         <index name="holdings_notes_note_type_id_idx" unique="false">
+            <column ascending="true" name="note_type_id"/>
+         </index>
+         <index name="holdings_notes_note_type_name_idx" unique="false">
+            <column ascending="true" name="note_type_name"/>
+         </index>
+         <index name="holdings_notes_note_updated_by_user_id_idx" unique="false">
+            <column ascending="true" name="note_updated_by_user_id"/>
+         </index>
+      </table>
+      <table name="holdings_statements" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="instance_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="instance_hrid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="holdings_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="holdings_hrid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="holdings_statement" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="public_note" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="staff_note" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="statement_ordinality" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <index name="holdings_statements_holdings_hrid_idx" unique="false">
+            <column ascending="true" name="holdings_hrid"/>
+         </index>
+         <index name="holdings_statements_holdings_id_idx" unique="false">
+            <column ascending="true" name="holdings_id"/>
+         </index>
+         <index name="holdings_statements_holdings_statement_idx" unique="false">
+            <column ascending="true" name="holdings_statement"/>
+         </index>
+         <index name="holdings_statements_instance_hrid_idx" unique="false">
+            <column ascending="true" name="instance_hrid"/>
+         </index>
+         <index name="holdings_statements_instance_id_idx" unique="false">
+            <column ascending="true" name="instance_id"/>
+         </index>
+         <index name="holdings_statements_public_note_idx" unique="false">
+            <column ascending="true" name="public_note"/>
+         </index>
+         <index name="holdings_statements_staff_note_idx" unique="false">
+            <column ascending="true" name="staff_note"/>
+         </index>
+         <index name="holdings_statements_statement_ordinality_idx" unique="false">
+            <column ascending="true" name="statement_ordinality"/>
+         </index>
+      </table>
+      <table name="holdings_statements_indexes" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="instance_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="instance_hrid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="holdings_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="holdings_hrid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="holdings_statement" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="public_note" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="staff_note" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="statement_ordinality" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <index name="holdings_statements_indexes_holdings_hrid_idx" unique="false">
+            <column ascending="true" name="holdings_hrid"/>
+         </index>
+         <index name="holdings_statements_indexes_holdings_id_idx" unique="false">
+            <column ascending="true" name="holdings_id"/>
+         </index>
+         <index name="holdings_statements_indexes_holdings_statement_idx" unique="false">
+            <column ascending="true" name="holdings_statement"/>
+         </index>
+         <index name="holdings_statements_indexes_instance_hrid_idx" unique="false">
+            <column ascending="true" name="instance_hrid"/>
+         </index>
+         <index name="holdings_statements_indexes_instance_id_idx" unique="false">
+            <column ascending="true" name="instance_id"/>
+         </index>
+         <index name="holdings_statements_indexes_public_note_idx" unique="false">
+            <column ascending="true" name="public_note"/>
+         </index>
+         <index name="holdings_statements_indexes_staff_note_idx" unique="false">
+            <column ascending="true" name="staff_note"/>
+         </index>
+         <index name="holdings_statements_indexes_statement_ordinality_idx" unique="false">
+            <column ascending="true" name="statement_ordinality"/>
+         </index>
+      </table>
+      <table name="holdings_statements_supplements" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="instance_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="instance_hrid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="holdings_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="holdings_hrid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="holdings_statement" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="public_note" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="staff_note" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="statement_ordinality" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <index name="holdings_statements_supplements_holdings_hrid_idx" unique="false">
+            <column ascending="true" name="holdings_hrid"/>
+         </index>
+         <index name="holdings_statements_supplements_holdings_id_idx" unique="false">
+            <column ascending="true" name="holdings_id"/>
+         </index>
+         <index name="holdings_statements_supplements_holdings_statement_idx" unique="false">
+            <column ascending="true" name="holdings_statement"/>
+         </index>
+         <index name="holdings_statements_supplements_instance_hrid_idx" unique="false">
+            <column ascending="true" name="instance_hrid"/>
+         </index>
+         <index name="holdings_statements_supplements_instance_id_idx" unique="false">
+            <column ascending="true" name="instance_id"/>
+         </index>
+         <index name="holdings_statements_supplements_public_note_idx" unique="false">
+            <column ascending="true" name="public_note"/>
+         </index>
+         <index name="holdings_statements_supplements_staff_note_idx" unique="false">
+            <column ascending="true" name="staff_note"/>
+         </index>
+         <index name="holdings_statements_supplements_statement_ordinality_idx" unique="false">
+            <column ascending="true" name="statement_ordinality"/>
+         </index>
+      </table>
+      <table name="holdings_statistical_codes" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="instance_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="instance_hrid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="holdings_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="holdings_hrid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="statistical_code_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="statistical_code_type_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="statistical_code_type_name" nullable="true" remarks="" size="24" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="statistical_code" nullable="true" remarks="" size="13" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="statistical_code_name" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="statistical_code_ordinality" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <index name="holdings_statistical_codes_holdings_hrid_idx" unique="false">
+            <column ascending="true" name="holdings_hrid"/>
+         </index>
+         <index name="holdings_statistical_codes_holdings_id_idx" unique="false">
+            <column ascending="true" name="holdings_id"/>
+         </index>
+         <index name="holdings_statistical_codes_instance_hrid_idx" unique="false">
+            <column ascending="true" name="instance_hrid"/>
+         </index>
+         <index name="holdings_statistical_codes_instance_id_idx" unique="false">
+            <column ascending="true" name="instance_id"/>
+         </index>
+         <index name="holdings_statistical_codes_statistical_code_id_idx" unique="false">
+            <column ascending="true" name="statistical_code_id"/>
+         </index>
+         <index name="holdings_statistical_codes_statistical_code_idx" unique="false">
+            <column ascending="true" name="statistical_code"/>
+         </index>
+         <index name="holdings_statistical_codes_statistical_code_name_idx" unique="false">
+            <column ascending="true" name="statistical_code_name"/>
+         </index>
+         <index name="holdings_statistical_codes_statistical_code_ordinality_idx" unique="false">
+            <column ascending="true" name="statistical_code_ordinality"/>
+         </index>
+         <index name="holdings_statistical_codes_statistical_code_type_id_idx" unique="false">
+            <column ascending="true" name="statistical_code_type_id"/>
+         </index>
+         <index name="holdings_statistical_codes_statistical_code_type_name_idx" unique="false">
+            <column ascending="true" name="statistical_code_type_name"/>
+         </index>
+      </table>
+      <table name="instance_alternative_titles" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="instance_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="instance_hrid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="alternative_title" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="alternative_title_type_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="alternative_title_ordinality" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="alternative_title_type_name" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="instance_alternative_titles_alternative_title_idx" unique="false">
+            <column ascending="true" name="alternative_title"/>
+         </index>
+         <index name="instance_alternative_titles_alternative_title_ordinality_idx" unique="false">
+            <column ascending="true" name="alternative_title_ordinality"/>
+         </index>
+         <index name="instance_alternative_titles_alternative_title_type_id_idx" unique="false">
+            <column ascending="true" name="alternative_title_type_id"/>
+         </index>
+         <index name="instance_alternative_titles_alternative_title_type_name_idx" unique="false">
+            <column ascending="true" name="alternative_title_type_name"/>
+         </index>
+         <index name="instance_alternative_titles_instance_hrid_idx" unique="false">
+            <column ascending="true" name="instance_hrid"/>
+         </index>
+         <index name="instance_alternative_titles_instance_id_idx" unique="false">
+            <column ascending="true" name="instance_id"/>
+         </index>
+      </table>
+      <table name="instance_contributors" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="instance_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="instance_hrid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="contributor_name" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="contributor_is_primary" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="contributor_type_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="contributor_type_name" nullable="true" remarks="" size="39" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="contributor_type_text" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="contributor_name_type_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="contributor_name_type_name" nullable="true" remarks="" size="14" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="contributor_ordinality" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <index name="instance_contributors_contributor_is_primary_idx" unique="false">
+            <column ascending="true" name="contributor_is_primary"/>
+         </index>
+         <index name="instance_contributors_contributor_name_idx" unique="false">
+            <column ascending="true" name="contributor_name"/>
+         </index>
+         <index name="instance_contributors_contributor_name_type_id_idx" unique="false">
+            <column ascending="true" name="contributor_name_type_id"/>
+         </index>
+         <index name="instance_contributors_contributor_name_type_name_idx" unique="false">
+            <column ascending="true" name="contributor_name_type_name"/>
+         </index>
+         <index name="instance_contributors_contributor_ordinality_idx" unique="false">
+            <column ascending="true" name="contributor_ordinality"/>
+         </index>
+         <index name="instance_contributors_contributor_type_id_idx" unique="false">
+            <column ascending="true" name="contributor_type_id"/>
+         </index>
+         <index name="instance_contributors_contributor_type_name_idx" unique="false">
+            <column ascending="true" name="contributor_type_name"/>
+         </index>
+         <index name="instance_contributors_contributor_type_text_idx" unique="false">
+            <column ascending="true" name="contributor_type_text"/>
+         </index>
+         <index name="instance_contributors_instance_hrid_idx" unique="false">
+            <column ascending="true" name="instance_hrid"/>
+         </index>
+         <index name="instance_contributors_instance_id_idx" unique="false">
+            <column ascending="true" name="instance_id"/>
+         </index>
+      </table>
+      <table name="instance_editions" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="instance_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="instance_hrid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="edition" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="edition_ordinality" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <index name="instance_editions_edition_idx" unique="false">
+            <column ascending="true" name="edition"/>
+         </index>
+         <index name="instance_editions_edition_ordinality_idx" unique="false">
+            <column ascending="true" name="edition_ordinality"/>
+         </index>
+         <index name="instance_editions_instance_hrid_idx" unique="false">
+            <column ascending="true" name="instance_hrid"/>
+         </index>
+         <index name="instance_editions_instance_id_idx" unique="false">
+            <column ascending="true" name="instance_id"/>
+         </index>
+      </table>
+      <table name="instance_electronic_access" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="instance_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="instance_hrid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="uri" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="link_text" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="materials_specification" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="public_note" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="relationship_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="relationship_name" nullable="true" remarks="" size="29" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="electronic_access_ordinality" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <index name="instance_electronic_access_electronic_access_ordinality_idx" unique="false">
+            <column ascending="true" name="electronic_access_ordinality"/>
+         </index>
+         <index name="instance_electronic_access_instance_hrid_idx" unique="false">
+            <column ascending="true" name="instance_hrid"/>
+         </index>
+         <index name="instance_electronic_access_instance_id_idx" unique="false">
+            <column ascending="true" name="instance_id"/>
+         </index>
+         <index name="instance_electronic_access_link_text_idx" unique="false">
+            <column ascending="true" name="link_text"/>
+         </index>
+         <index name="instance_electronic_access_materials_specification_idx" unique="false">
+            <column ascending="true" name="materials_specification"/>
+         </index>
+         <index name="instance_electronic_access_public_note_idx" unique="false">
+            <column ascending="true" name="public_note"/>
+         </index>
+         <index name="instance_electronic_access_relationship_id_idx" unique="false">
+            <column ascending="true" name="relationship_id"/>
+         </index>
+         <index name="instance_electronic_access_relationship_name_idx" unique="false">
+            <column ascending="true" name="relationship_name"/>
+         </index>
+         <index name="instance_electronic_access_uri_idx" unique="false">
+            <column ascending="true" name="uri"/>
+         </index>
+      </table>
+      <table name="instance_ext" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="instance_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="instance_hrid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="match_key" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="record_source" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="discovery_suppress" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="staff_suppress" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="previously_held" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="is_bound_with" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="instance_type_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="instance_type_name" nullable="true" remarks="" size="43" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="title" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="index_title" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="mode_of_issuance_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="mode_of_issuance_name" nullable="true" remarks="" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="cataloged_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="created_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="updated_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <index name="instance_ext_cataloged_date_idx" unique="false">
+            <column ascending="true" name="cataloged_date"/>
+         </index>
+         <index name="instance_ext_created_date_idx" unique="false">
+            <column ascending="true" name="created_date"/>
+         </index>
+         <index name="instance_ext_discovery_suppress_idx" unique="false">
+            <column ascending="true" name="discovery_suppress"/>
+         </index>
+         <index name="instance_ext_instance_hrid_idx" unique="false">
+            <column ascending="true" name="instance_hrid"/>
+         </index>
+         <index name="instance_ext_instance_id_idx" unique="false">
+            <column ascending="true" name="instance_id"/>
+         </index>
+         <index name="instance_ext_instance_type_id_idx" unique="false">
+            <column ascending="true" name="instance_type_id"/>
+         </index>
+         <index name="instance_ext_instance_type_name_idx" unique="false">
+            <column ascending="true" name="instance_type_name"/>
+         </index>
+         <index name="instance_ext_is_bound_with_idx" unique="false">
+            <column ascending="true" name="is_bound_with"/>
+         </index>
+         <index name="instance_ext_match_key_idx" unique="false">
+            <column ascending="true" name="match_key"/>
+         </index>
+         <index name="instance_ext_mode_of_issuance_id_idx" unique="false">
+            <column ascending="true" name="mode_of_issuance_id"/>
+         </index>
+         <index name="instance_ext_mode_of_issuance_name_idx" unique="false">
+            <column ascending="true" name="mode_of_issuance_name"/>
+         </index>
+         <index name="instance_ext_previously_held_idx" unique="false">
+            <column ascending="true" name="previously_held"/>
+         </index>
+         <index name="instance_ext_record_source_idx" unique="false">
+            <column ascending="true" name="record_source"/>
+         </index>
+         <index name="instance_ext_staff_suppress_idx" unique="false">
+            <column ascending="true" name="staff_suppress"/>
+         </index>
+         <index name="instance_ext_updated_date_idx" unique="false">
+            <column ascending="true" name="updated_date"/>
+         </index>
+      </table>
+      <table name="instance_formats" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="instance_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="instance_hrid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="instance_format_id" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="instance_format_ordinality" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="instance_format_code" nullable="true" remarks="" size="2" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="instance_format_name" nullable="true" remarks="" size="40" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="instance_format_source" nullable="true" remarks="" size="10" type="varchar" typeCode="12"/>
+         <index name="instance_formats_instance_format_code_idx" unique="false">
+            <column ascending="true" name="instance_format_code"/>
+         </index>
+         <index name="instance_formats_instance_format_id_idx" unique="false">
+            <column ascending="true" name="instance_format_id"/>
+         </index>
+         <index name="instance_formats_instance_format_name_idx" unique="false">
+            <column ascending="true" name="instance_format_name"/>
+         </index>
+         <index name="instance_formats_instance_format_ordinality_idx" unique="false">
+            <column ascending="true" name="instance_format_ordinality"/>
+         </index>
+         <index name="instance_formats_instance_format_source_idx" unique="false">
+            <column ascending="true" name="instance_format_source"/>
+         </index>
+         <index name="instance_formats_instance_hrid_idx" unique="false">
+            <column ascending="true" name="instance_hrid"/>
+         </index>
+         <index name="instance_formats_instance_id_idx" unique="false">
+            <column ascending="true" name="instance_id"/>
+         </index>
+      </table>
+      <table name="instance_languages" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="instance_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="instance_hrid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="instance_language" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="language_ordinality" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <index name="instance_languages_instance_hrid_idx" unique="false">
+            <column ascending="true" name="instance_hrid"/>
+         </index>
+         <index name="instance_languages_instance_id_idx" unique="false">
+            <column ascending="true" name="instance_id"/>
+         </index>
+         <index name="instance_languages_instance_language_idx" unique="false">
+            <column ascending="true" name="instance_language"/>
+         </index>
+         <index name="instance_languages_language_ordinality_idx" unique="false">
+            <column ascending="true" name="language_ordinality"/>
+         </index>
+      </table>
+      <table name="instance_nature_content" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="instance_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="instance_hrid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="nature_of_content_term_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="nature_of_content_term_name" nullable="true" remarks="" size="31" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="nature_of_content_term_source" nullable="true" remarks="" size="5" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="nature_of_content_ordinality" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <index name="instance_nature_content_instance_hrid_idx" unique="false">
+            <column ascending="true" name="instance_hrid"/>
+         </index>
+         <index name="instance_nature_content_instance_id_idx" unique="false">
+            <column ascending="true" name="instance_id"/>
+         </index>
+         <index name="instance_nature_content_nature_of_content_ordinality_idx" unique="false">
+            <column ascending="true" name="nature_of_content_ordinality"/>
+         </index>
+         <index name="instance_nature_content_nature_of_content_term_id_idx" unique="false">
+            <column ascending="true" name="nature_of_content_term_id"/>
+         </index>
+         <index name="instance_nature_content_nature_of_content_term_name_idx" unique="false">
+            <column ascending="true" name="nature_of_content_term_name"/>
+         </index>
+         <index name="instance_nature_content_nature_of_content_term_source_idx" unique="false">
+            <column ascending="true" name="nature_of_content_term_source"/>
+         </index>
+      </table>
+      <table name="instance_statistical_codes" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="instance_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="instance_hrid" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="statistical_code_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="statistical_code_type_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="statistical_code_type_name" nullable="true" remarks="" size="24" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="statistical_code" nullable="true" remarks="" size="13" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="statistical_code_name" nullable="true" remarks="" size="50" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="stat_code_ordinality" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <index name="instance_statistical_codes_instance_hrid_idx" unique="false">
+            <column ascending="true" name="instance_hrid"/>
+         </index>
+         <index name="instance_statistical_codes_instance_id_idx" unique="false">
+            <column ascending="true" name="instance_id"/>
+         </index>
+         <index name="instance_statistical_codes_stat_code_ordinality_idx" unique="false">
+            <column ascending="true" name="stat_code_ordinality"/>
+         </index>
+         <index name="instance_statistical_codes_statistical_code_id_idx" unique="false">
+            <column ascending="true" name="statistical_code_id"/>
+         </index>
+         <index name="instance_statistical_codes_statistical_code_idx" unique="false">
+            <column ascending="true" name="statistical_code"/>
+         </index>
+         <index name="instance_statistical_codes_statistical_code_name_idx" unique="false">
+            <column ascending="true" name="statistical_code_name"/>
+         </index>
+         <index name="instance_statistical_codes_statistical_code_type_id_idx" unique="false">
+            <column ascending="true" name="statistical_code_type_id"/>
+         </index>
+         <index name="instance_statistical_codes_statistical_code_type_name_idx" unique="false">
+            <column ascending="true" name="statistical_code_type_name"/>
+         </index>
+      </table>
+      <table name="invoice_adjustments_ext" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="invoice_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="invl_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="invoice_line_value" nullable="true" remarks="" size="131089" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="3" name="transaction_invoice_line_value" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="4" name="inv_adjust_total_value" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="5" name="transaction_invoice_adj_value" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="6" name="invls_total" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="inv_adj_prorate" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="inv_adj_relationtototal" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="ratio_of_inv_adj_per_invoice_line" nullable="true" remarks="" size="131089" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="inv_adj_total" nullable="true" remarks="" size="131089" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="transactions_inv_adj_total" nullable="true" remarks="" size="131089" type="numeric" typeCode="2"/>
+         <index name="invoice_adjustments_ext_inv_adj_prorate_idx" unique="false">
+            <column ascending="true" name="inv_adj_prorate"/>
+         </index>
+         <index name="invoice_adjustments_ext_inv_adj_relationtototal_idx" unique="false">
+            <column ascending="true" name="inv_adj_relationtototal"/>
+         </index>
+         <index name="invoice_adjustments_ext_inv_adj_total_idx" unique="false">
+            <column ascending="true" name="inv_adj_total"/>
+         </index>
+         <index name="invoice_adjustments_ext_inv_adjust_total_value_idx" unique="false">
+            <column ascending="true" name="inv_adjust_total_value"/>
+         </index>
+         <index name="invoice_adjustments_ext_invl_id_idx" unique="false">
+            <column ascending="true" name="invl_id"/>
+         </index>
+         <index name="invoice_adjustments_ext_invls_total_idx" unique="false">
+            <column ascending="true" name="invls_total"/>
+         </index>
+         <index name="invoice_adjustments_ext_invoice_id_idx" unique="false">
+            <column ascending="true" name="invoice_id"/>
+         </index>
+         <index name="invoice_adjustments_ext_invoice_line_value_idx" unique="false">
+            <column ascending="true" name="invoice_line_value"/>
+         </index>
+         <index name="invoice_adjustments_ext_ratio_of_inv_adj_per_invoice_line_idx" unique="false">
+            <column ascending="true" name="ratio_of_inv_adj_per_invoice_line"/>
+         </index>
+      </table>
+      <table name="invoice_adjustments_in_addition_to" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="invoice_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="adjustment_description" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="adjustment_prorate" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="adjustment_relationtototal" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="adjustment_type" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="5" name="adjustment_value" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <index name="invoice_adjustments_in_addition__adjustment_relationtototal_idx" unique="false">
+            <column ascending="true" name="adjustment_relationtototal"/>
+         </index>
+         <index name="invoice_adjustments_in_addition_to_adjustment_description_idx" unique="false">
+            <column ascending="true" name="adjustment_description"/>
+         </index>
+         <index name="invoice_adjustments_in_addition_to_adjustment_prorate_idx" unique="false">
+            <column ascending="true" name="adjustment_prorate"/>
+         </index>
+         <index name="invoice_adjustments_in_addition_to_adjustment_type_idx" unique="false">
+            <column ascending="true" name="adjustment_type"/>
+         </index>
+         <index name="invoice_adjustments_in_addition_to_adjustment_value_idx" unique="false">
+            <column ascending="true" name="adjustment_value"/>
+         </index>
+         <index name="invoice_adjustments_in_addition_to_invoice_id_idx" unique="false">
+            <column ascending="true" name="invoice_id"/>
+         </index>
+      </table>
+      <table name="invoice_voucher_lines_fund_distributions" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="invoice_voucher_line_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="voucher_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="voucher_number" nullable="true" remarks="" size="17" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="3" name="invoice_voucher_lines_amount" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="fund_distribution_type" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="fund_distribution_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="fund_distribution_code" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="fund_name" nullable="true" remarks="" size="39" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="fund_distribution_invl_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="fund_distribution_expense_class_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="expense_class_name" nullable="true" remarks="" size="19" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="11" name="fund_distribution_value" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="fund_status" nullable="true" remarks="" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="fund_type_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="fund_type_name" nullable="true" remarks="" size="35" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="invoice_voucher_lines_external_account_number" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="invoice_voucher_lines_fund_di_fund_distribution_expense_cla_idx" unique="false">
+            <column ascending="true" name="fund_distribution_expense_class_id"/>
+         </index>
+         <index name="invoice_voucher_lines_fund_di_invoice_voucher_lines_externa_idx" unique="false">
+            <column ascending="true" name="invoice_voucher_lines_external_account_number"/>
+         </index>
+         <index name="invoice_voucher_lines_fund_dis_invoice_voucher_lines_amount_idx" unique="false">
+            <column ascending="true" name="invoice_voucher_lines_amount"/>
+         </index>
+         <index name="invoice_voucher_lines_fund_distri_fund_distribution_invl_id_idx" unique="false">
+            <column ascending="true" name="fund_distribution_invl_id"/>
+         </index>
+         <index name="invoice_voucher_lines_fund_distribu_fund_distribution_value_idx" unique="false">
+            <column ascending="true" name="fund_distribution_value"/>
+         </index>
+         <index name="invoice_voucher_lines_fund_distribu_invoice_voucher_line_id_idx" unique="false">
+            <column ascending="true" name="invoice_voucher_line_id"/>
+         </index>
+         <index name="invoice_voucher_lines_fund_distribut_fund_distribution_code_idx" unique="false">
+            <column ascending="true" name="fund_distribution_code"/>
+         </index>
+         <index name="invoice_voucher_lines_fund_distribut_fund_distribution_type_idx" unique="false">
+            <column ascending="true" name="fund_distribution_type"/>
+         </index>
+         <index name="invoice_voucher_lines_fund_distributio_fund_distribution_id_idx" unique="false">
+            <column ascending="true" name="fund_distribution_id"/>
+         </index>
+         <index name="invoice_voucher_lines_fund_distributions_expense_class_name_idx" unique="false">
+            <column ascending="true" name="expense_class_name"/>
+         </index>
+         <index name="invoice_voucher_lines_fund_distributions_fund_name_idx" unique="false">
+            <column ascending="true" name="fund_name"/>
+         </index>
+         <index name="invoice_voucher_lines_fund_distributions_fund_status_idx" unique="false">
+            <column ascending="true" name="fund_status"/>
+         </index>
+         <index name="invoice_voucher_lines_fund_distributions_fund_type_id_idx" unique="false">
+            <column ascending="true" name="fund_type_id"/>
+         </index>
+         <index name="invoice_voucher_lines_fund_distributions_fund_type_name_idx" unique="false">
+            <column ascending="true" name="fund_type_name"/>
+         </index>
+         <index name="invoice_voucher_lines_fund_distributions_voucher_id_idx" unique="false">
+            <column ascending="true" name="voucher_id"/>
+         </index>
+         <index name="invoice_voucher_lines_fund_distributions_voucher_number_idx" unique="false">
+            <column ascending="true" name="voucher_number"/>
+         </index>
+      </table>
+      <table name="item_ext" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="item_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="item_hrid" nullable="true" remarks="" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="accession_number" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="barcode" nullable="true" remarks="" size="105" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="chronology" nullable="true" remarks="" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="copy_number" nullable="true" remarks="" size="20" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="enumeration" nullable="true" remarks="" size="80" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="volume" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="in_transit_destination_service_point_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="in_transit_destination_service_point_name" nullable="true" remarks="" size="22" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="identifier" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="call_number" nullable="true" remarks="" size="51" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="call_number_type_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="call_number_type_name" nullable="true" remarks="" size="43" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="effective_call_number_prefix" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="effective_call_number" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="effective_call_number_suffix" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="effective_call_number_type_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="effective_call_number_type_name" nullable="true" remarks="" size="43" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="damaged_status_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="damaged_status_name" nullable="true" remarks="" size="11" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="material_type_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="material_type_name" nullable="true" remarks="" size="19" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="number_of_pieces" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="number_of_missing_pieces" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="permanent_loan_type_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="26" name="permanent_loan_type_name" nullable="true" remarks="" size="41" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="temporary_loan_type_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="28" name="temporary_loan_type_name" nullable="true" remarks="" size="41" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="29" name="permanent_location_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="30" name="permanent_location_name" nullable="true" remarks="" size="79" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="31" name="temporary_location_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="32" name="temporary_location_name" nullable="true" remarks="" size="79" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="33" name="effective_location_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="34" name="effective_location_name" nullable="true" remarks="" size="79" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="35" name="description_of_pieces" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="36" name="status_date" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="37" name="status_name" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="38" name="holdings_record_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="39" name="discovery_suppress" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="40" name="created_date" nullable="true" remarks="" size="29" type="timestamp" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="41" name="updated_by_user_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="42" name="updated_date" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="item_ext_accession_number_idx" unique="false">
+            <column ascending="true" name="accession_number"/>
+         </index>
+         <index name="item_ext_barcode_idx" unique="false">
+            <column ascending="true" name="barcode"/>
+         </index>
+         <index name="item_ext_call_number_idx" unique="false">
+            <column ascending="true" name="call_number"/>
+         </index>
+         <index name="item_ext_call_number_type_id_idx" unique="false">
+            <column ascending="true" name="call_number_type_id"/>
+         </index>
+         <index name="item_ext_call_number_type_name_idx" unique="false">
+            <column ascending="true" name="call_number_type_name"/>
+         </index>
+         <index name="item_ext_chronology_idx" unique="false">
+            <column ascending="true" name="chronology"/>
+         </index>
+         <index name="item_ext_copy_number_idx" unique="false">
+            <column ascending="true" name="copy_number"/>
+         </index>
+         <index name="item_ext_created_date_idx" unique="false">
+            <column ascending="true" name="created_date"/>
+         </index>
+         <index name="item_ext_damaged_status_id_idx" unique="false">
+            <column ascending="true" name="damaged_status_id"/>
+         </index>
+         <index name="item_ext_damaged_status_name_idx" unique="false">
+            <column ascending="true" name="damaged_status_name"/>
+         </index>
+         <index name="item_ext_description_of_pieces_idx" unique="false">
+            <column ascending="true" name="description_of_pieces"/>
+         </index>
+         <index name="item_ext_discovery_suppress_idx" unique="false">
+            <column ascending="true" name="discovery_suppress"/>
+         </index>
+         <index name="item_ext_effective_call_number_idx" unique="false">
+            <column ascending="true" name="effective_call_number"/>
+         </index>
+         <index name="item_ext_effective_call_number_prefix_idx" unique="false">
+            <column ascending="true" name="effective_call_number_prefix"/>
+         </index>
+         <index name="item_ext_effective_call_number_suffix_idx" unique="false">
+            <column ascending="true" name="effective_call_number_suffix"/>
+         </index>
+         <index name="item_ext_effective_call_number_type_id_idx" unique="false">
+            <column ascending="true" name="effective_call_number_type_id"/>
+         </index>
+         <index name="item_ext_effective_call_number_type_name_idx" unique="false">
+            <column ascending="true" name="effective_call_number_type_name"/>
+         </index>
+         <index name="item_ext_effective_location_id_idx" unique="false">
+            <column ascending="true" name="effective_location_id"/>
+         </index>
+         <index name="item_ext_effective_location_name_idx" unique="false">
+            <column ascending="true" name="effective_location_name"/>
+         </index>
+         <index name="item_ext_enumeration_idx" unique="false">
+            <column ascending="true" name="enumeration"/>
+         </index>
+         <index name="item_ext_holdings_record_id_idx" unique="false">
+            <column ascending="true" name="holdings_record_id"/>
+         </index>
+         <index name="item_ext_identifier_idx" unique="false">
+            <column ascending="true" name="identifier"/>
+         </index>
+         <index name="item_ext_in_transit_destination_service_point_id_idx" unique="false">
+            <column ascending="true" name="in_transit_destination_service_point_id"/>
+         </index>
+         <index name="item_ext_in_transit_destination_service_point_name_idx" unique="false">
+            <column ascending="true" name="in_transit_destination_service_point_name"/>
+         </index>
+         <index name="item_ext_item_hrid_idx" unique="false">
+            <column ascending="true" name="item_hrid"/>
+         </index>
+         <index name="item_ext_item_id_idx" unique="false">
+            <column ascending="true" name="item_id"/>
+         </index>
+         <index name="item_ext_material_type_id_idx" unique="false">
+            <column ascending="true" name="material_type_id"/>
+         </index>
+         <index name="item_ext_material_type_name_idx" unique="false">
+            <column ascending="true" name="material_type_name"/>
+         </index>
+         <index name="item_ext_number_of_missing_pieces_idx" unique="false">
+            <column ascending="true" name="number_of_missing_pieces"/>
+         </index>
+         <index name="item_ext_number_of_pieces_idx" unique="false">
+            <column ascending="true" name="number_of_pieces"/>
+         </index>
+         <index name="item_ext_permanent_loan_type_id_idx" unique="false">
+            <column ascending="true" name="permanent_loan_type_id"/>
+         </index>
+         <index name="item_ext_permanent_loan_type_name_idx" unique="false">
+            <column ascending="true" name="permanent_loan_type_name"/>
+         </index>
+         <index name="item_ext_permanent_location_id_idx" unique="false">
+            <column ascending="true" name="permanent_location_id"/>
+         </index>
+         <index name="item_ext_permanent_location_name_idx" unique="false">
+            <column ascending="true" name="permanent_location_name"/>
+         </index>
+         <index name="item_ext_status_date_idx" unique="false">
+            <column ascending="true" name="status_date"/>
+         </index>
+         <index name="item_ext_status_name_idx" unique="false">
+            <column ascending="true" name="status_name"/>
+         </index>
+         <index name="item_ext_temporary_loan_type_id_idx" unique="false">
+            <column ascending="true" name="temporary_loan_type_id"/>
+         </index>
+         <index name="item_ext_temporary_loan_type_name_idx" unique="false">
+            <column ascending="true" name="temporary_loan_type_name"/>
+         </index>
+         <index name="item_ext_temporary_location_id_idx" unique="false">
+            <column ascending="true" name="temporary_location_id"/>
+         </index>
+         <index name="item_ext_temporary_location_name_idx" unique="false">
+            <column ascending="true" name="temporary_location_name"/>
+         </index>
+         <index name="item_ext_updated_by_user_id_idx" unique="false">
+            <column ascending="true" name="updated_by_user_id"/>
+         </index>
+         <index name="item_ext_updated_date_idx" unique="false">
+            <column ascending="true" name="updated_date"/>
+         </index>
+         <index name="item_ext_volume_idx" unique="false">
+            <column ascending="true" name="volume"/>
+         </index>
+      </table>
+      <table name="loans_items" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="loan_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="item_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="item_status" nullable="true" remarks="" size="16" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="loan_status" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="loan_date" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="5" name="loan_due_date" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="6" name="loan_return_date" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="7" name="system_return_date" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="checkin_service_point_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="checkin_service_point_name" nullable="true" remarks="" size="22" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="checkout_service_point_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="checkout_service_point_name" nullable="true" remarks="" size="22" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="item_effective_location_id_at_check_out" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="item_effective_location_name_at_check_out" nullable="true" remarks="" size="79" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="in_transit_destination_service_point_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="in_transit_destination_service_point_name" nullable="true" remarks="" size="22" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="current_item_effective_location_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="current_item_effective_location_name" nullable="true" remarks="" size="79" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="current_item_temporary_location_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="current_item_temporary_location_name" nullable="true" remarks="" size="79" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="current_item_permanent_location_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="current_item_permanent_location_name" nullable="true" remarks="" size="79" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="current_item_permanent_location_library_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="current_item_permanent_location_library_name" nullable="true" remarks="" size="29" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="current_item_permanent_location_campus_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="current_item_permanent_location_campus_name" nullable="true" remarks="" size="9" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="26" name="current_item_permanent_location_institution_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="current_item_permanent_location_institution_name" nullable="true" remarks="" size="21" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="28" name="loan_policy_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="29" name="loan_policy_name" nullable="true" remarks="" size="19" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="30" name="lost_item_policy_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="31" name="lost_item_policy_name" nullable="true" remarks="" size="23" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="32" name="overdue_fine_policy_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="33" name="overdue_fine_policy_name" nullable="true" remarks="" size="19" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="34" name="patron_group_id_at_checkout" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="35" name="patron_group_name" nullable="true" remarks="" size="26" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="36" name="user_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="37" name="proxy_user_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="38" name="barcode" nullable="true" remarks="" size="105" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="39" name="chronology" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="40" name="copy_number" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="41" name="enumeration" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="42" name="holdings_record_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="43" name="hrid" nullable="true" remarks="" size="8" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="44" name="item_level_call_number" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="45" name="material_type_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="46" name="material_type_name" nullable="true" remarks="" size="19" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="47" name="number_of_pieces" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="48" name="permanent_loan_type_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="49" name="permanent_loan_type_name" nullable="true" remarks="" size="41" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="50" name="temporary_loan_type_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="51" name="temporary_loan_type_name" nullable="true" remarks="" size="41" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="52" name="renewal_count" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <index name="loans_items_barcode_idx" unique="false">
+            <column ascending="true" name="barcode"/>
+         </index>
+         <index name="loans_items_checkin_service_point_id_idx" unique="false">
+            <column ascending="true" name="checkin_service_point_id"/>
+         </index>
+         <index name="loans_items_checkin_service_point_name_idx" unique="false">
+            <column ascending="true" name="checkin_service_point_name"/>
+         </index>
+         <index name="loans_items_checkout_service_point_id_idx" unique="false">
+            <column ascending="true" name="checkout_service_point_id"/>
+         </index>
+         <index name="loans_items_checkout_service_point_name_idx" unique="false">
+            <column ascending="true" name="checkout_service_point_name"/>
+         </index>
+         <index name="loans_items_chronology_idx" unique="false">
+            <column ascending="true" name="chronology"/>
+         </index>
+         <index name="loans_items_copy_number_idx" unique="false">
+            <column ascending="true" name="copy_number"/>
+         </index>
+         <index name="loans_items_current_item_effective_location_id_idx" unique="false">
+            <column ascending="true" name="current_item_effective_location_id"/>
+         </index>
+         <index name="loans_items_current_item_effective_location_name_idx" unique="false">
+            <column ascending="true" name="current_item_effective_location_name"/>
+         </index>
+         <index name="loans_items_current_item_permanent_location_campus_id_idx" unique="false">
+            <column ascending="true" name="current_item_permanent_location_campus_id"/>
+         </index>
+         <index name="loans_items_current_item_permanent_location_campus_name_idx" unique="false">
+            <column ascending="true" name="current_item_permanent_location_campus_name"/>
+         </index>
+         <index name="loans_items_current_item_permanent_location_id_idx" unique="false">
+            <column ascending="true" name="current_item_permanent_location_id"/>
+         </index>
+         <index name="loans_items_current_item_permanent_location_institution_id_idx" unique="false">
+            <column ascending="true" name="current_item_permanent_location_institution_id"/>
+         </index>
+         <index name="loans_items_current_item_permanent_location_institution_nam_idx" unique="false">
+            <column ascending="true" name="current_item_permanent_location_institution_name"/>
+         </index>
+         <index name="loans_items_current_item_permanent_location_library_id_idx" unique="false">
+            <column ascending="true" name="current_item_permanent_location_library_id"/>
+         </index>
+         <index name="loans_items_current_item_permanent_location_library_name_idx" unique="false">
+            <column ascending="true" name="current_item_permanent_location_library_name"/>
+         </index>
+         <index name="loans_items_current_item_permanent_location_name_idx" unique="false">
+            <column ascending="true" name="current_item_permanent_location_name"/>
+         </index>
+         <index name="loans_items_current_item_temporary_location_id_idx" unique="false">
+            <column ascending="true" name="current_item_temporary_location_id"/>
+         </index>
+         <index name="loans_items_current_item_temporary_location_name_idx" unique="false">
+            <column ascending="true" name="current_item_temporary_location_name"/>
+         </index>
+         <index name="loans_items_enumeration_idx" unique="false">
+            <column ascending="true" name="enumeration"/>
+         </index>
+         <index name="loans_items_holdings_record_id_idx" unique="false">
+            <column ascending="true" name="holdings_record_id"/>
+         </index>
+         <index name="loans_items_hrid_idx" unique="false">
+            <column ascending="true" name="hrid"/>
+         </index>
+         <index name="loans_items_in_transit_destination_service_point_id_idx" unique="false">
+            <column ascending="true" name="in_transit_destination_service_point_id"/>
+         </index>
+         <index name="loans_items_in_transit_destination_service_point_name_idx" unique="false">
+            <column ascending="true" name="in_transit_destination_service_point_name"/>
+         </index>
+         <index name="loans_items_item_effective_location_id_at_check_out_idx" unique="false">
+            <column ascending="true" name="item_effective_location_id_at_check_out"/>
+         </index>
+         <index name="loans_items_item_effective_location_name_at_check_out_idx" unique="false">
+            <column ascending="true" name="item_effective_location_name_at_check_out"/>
+         </index>
+         <index name="loans_items_item_id_idx" unique="false">
+            <column ascending="true" name="item_id"/>
+         </index>
+         <index name="loans_items_item_level_call_number_idx" unique="false">
+            <column ascending="true" name="item_level_call_number"/>
+         </index>
+         <index name="loans_items_item_status_idx" unique="false">
+            <column ascending="true" name="item_status"/>
+         </index>
+         <index name="loans_items_loan_date_idx" unique="false">
+            <column ascending="true" name="loan_date"/>
+         </index>
+         <index name="loans_items_loan_due_date_idx" unique="false">
+            <column ascending="true" name="loan_due_date"/>
+         </index>
+         <index name="loans_items_loan_id_idx" unique="false">
+            <column ascending="true" name="loan_id"/>
+         </index>
+         <index name="loans_items_loan_policy_id_idx" unique="false">
+            <column ascending="true" name="loan_policy_id"/>
+         </index>
+         <index name="loans_items_loan_policy_name_idx" unique="false">
+            <column ascending="true" name="loan_policy_name"/>
+         </index>
+         <index name="loans_items_loan_return_date_idx" unique="false">
+            <column ascending="true" name="loan_return_date"/>
+         </index>
+         <index name="loans_items_loan_status_idx" unique="false">
+            <column ascending="true" name="loan_status"/>
+         </index>
+         <index name="loans_items_lost_item_policy_id_idx" unique="false">
+            <column ascending="true" name="lost_item_policy_id"/>
+         </index>
+         <index name="loans_items_lost_item_policy_name_idx" unique="false">
+            <column ascending="true" name="lost_item_policy_name"/>
+         </index>
+         <index name="loans_items_material_type_id_idx" unique="false">
+            <column ascending="true" name="material_type_id"/>
+         </index>
+         <index name="loans_items_material_type_name_idx" unique="false">
+            <column ascending="true" name="material_type_name"/>
+         </index>
+         <index name="loans_items_number_of_pieces_idx" unique="false">
+            <column ascending="true" name="number_of_pieces"/>
+         </index>
+         <index name="loans_items_overdue_fine_policy_id_idx" unique="false">
+            <column ascending="true" name="overdue_fine_policy_id"/>
+         </index>
+         <index name="loans_items_overdue_fine_policy_name_idx" unique="false">
+            <column ascending="true" name="overdue_fine_policy_name"/>
+         </index>
+         <index name="loans_items_patron_group_id_at_checkout_idx" unique="false">
+            <column ascending="true" name="patron_group_id_at_checkout"/>
+         </index>
+         <index name="loans_items_patron_group_name_idx" unique="false">
+            <column ascending="true" name="patron_group_name"/>
+         </index>
+         <index name="loans_items_permanent_loan_type_id_idx" unique="false">
+            <column ascending="true" name="permanent_loan_type_id"/>
+         </index>
+         <index name="loans_items_permanent_loan_type_name_idx" unique="false">
+            <column ascending="true" name="permanent_loan_type_name"/>
+         </index>
+         <index name="loans_items_proxy_user_id_idx" unique="false">
+            <column ascending="true" name="proxy_user_id"/>
+         </index>
+         <index name="loans_items_renewal_count_idx" unique="false">
+            <column ascending="true" name="renewal_count"/>
+         </index>
+         <index name="loans_items_system_return_date_idx" unique="false">
+            <column ascending="true" name="system_return_date"/>
+         </index>
+         <index name="loans_items_temporary_loan_type_id_idx" unique="false">
+            <column ascending="true" name="temporary_loan_type_id"/>
+         </index>
+         <index name="loans_items_temporary_loan_type_name_idx" unique="false">
+            <column ascending="true" name="temporary_loan_type_name"/>
+         </index>
+         <index name="loans_items_user_id_idx" unique="false">
+            <column ascending="true" name="user_id"/>
+         </index>
+      </table>
+      <table name="loans_renewal_count" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="current_as_of_date" nullable="true" remarks="" size="13" type="date" typeCode="91"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="item_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="num_loans" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="num_renewals" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <index name="loans_renewal_count_current_as_of_date_idx" unique="false">
+            <column ascending="true" name="current_as_of_date"/>
+         </index>
+         <index name="loans_renewal_count_item_id_idx" unique="false">
+            <column ascending="true" name="item_id"/>
+         </index>
+         <index name="loans_renewal_count_num_loans_idx" unique="false">
+            <column ascending="true" name="num_loans"/>
+         </index>
+         <index name="loans_renewal_count_num_renewals_idx" unique="false">
+            <column ascending="true" name="num_renewals"/>
+         </index>
+      </table>
+      <table name="loans_renewal_dates" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="6" id="0" name="loan_action_date" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="loan_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="item_id" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="loan_action" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="loan_renewal_count" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="loan_status" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="loans_renewal_dates_item_id_idx" unique="false">
+            <column ascending="true" name="item_id"/>
+         </index>
+         <index name="loans_renewal_dates_loan_action_date_idx" unique="false">
+            <column ascending="true" name="loan_action_date"/>
+         </index>
+         <index name="loans_renewal_dates_loan_action_idx" unique="false">
+            <column ascending="true" name="loan_action"/>
+         </index>
+         <index name="loans_renewal_dates_loan_id_idx" unique="false">
+            <column ascending="true" name="loan_id"/>
+         </index>
+         <index name="loans_renewal_dates_loan_renewal_count_idx" unique="false">
+            <column ascending="true" name="loan_renewal_count"/>
+         </index>
+         <index name="loans_renewal_dates_loan_status_idx" unique="false">
+            <column ascending="true" name="loan_status"/>
+         </index>
+      </table>
+      <table name="locations_libraries" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="campus_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="campus_name" nullable="true" remarks="" size="9" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="location_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="location_name" nullable="true" remarks="" size="79" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="discovery_display_name" nullable="true" remarks="" size="84" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="library_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="library_name" nullable="true" remarks="" size="29" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="institution_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="institution_name" nullable="true" remarks="" size="21" type="varchar" typeCode="12"/>
+         <index name="locations_libraries_campus_id_idx" unique="false">
+            <column ascending="true" name="campus_id"/>
+         </index>
+         <index name="locations_libraries_campus_name_idx" unique="false">
+            <column ascending="true" name="campus_name"/>
+         </index>
+         <index name="locations_libraries_discovery_display_name_idx" unique="false">
+            <column ascending="true" name="discovery_display_name"/>
+         </index>
+         <index name="locations_libraries_institution_id_idx" unique="false">
+            <column ascending="true" name="institution_id"/>
+         </index>
+         <index name="locations_libraries_institution_name_idx" unique="false">
+            <column ascending="true" name="institution_name"/>
+         </index>
+         <index name="locations_libraries_library_id_idx" unique="false">
+            <column ascending="true" name="library_id"/>
+         </index>
+         <index name="locations_libraries_library_name_idx" unique="false">
+            <column ascending="true" name="library_name"/>
+         </index>
+         <index name="locations_libraries_location_id_idx" unique="false">
+            <column ascending="true" name="location_id"/>
+         </index>
+         <index name="locations_libraries_location_name_idx" unique="false">
+            <column ascending="true" name="location_name"/>
+         </index>
+      </table>
+      <table name="po_line_fund_distribution_transactions" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="po_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="po_number" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="po_workflowstatus" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="po_line_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="poline_number" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="poline_title_or_package" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="6" name="poline_listunitprice" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="poline_quantityphysical" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="8" name="poline_listunitpriceelectronic" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="poline_quantityelectronic" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="poline_currency" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="poline_discount" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="poline_discounttype" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="13" name="poline_additionalcost" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="14" name="poline_estimated_price" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="15" name="po_line_fyroadjustmentamount" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="16" name="fund_distribution_value" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="fund_distribution_type" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="budget_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="budget_name" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="fund_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="fund_code" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="fiscal_year_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="fiscal_year" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="transaction_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="transaction_currency" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="26" name="transaction_amount" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="27" name="transaction_encumbrance_initial_amount" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="4" id="28" name="transaction_encumbrance_amount_expended" nullable="true" remarks="" size="19" type="numeric" typeCode="2"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="29" name="transaction_encumbrance_order_type" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="30" name="transaction_encumbrance_subscription" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <index name="po_line_fund_distribution_tra_poline_listunitpriceelectroni_idx" unique="false">
+            <column ascending="true" name="poline_listunitpriceelectronic"/>
+         </index>
+         <index name="po_line_fund_distribution_tra_transaction_encumbrance_amoun_idx" unique="false">
+            <column ascending="true" name="transaction_encumbrance_amount_expended"/>
+         </index>
+         <index name="po_line_fund_distribution_tra_transaction_encumbrance_initi_idx" unique="false">
+            <column ascending="true" name="transaction_encumbrance_initial_amount"/>
+         </index>
+         <index name="po_line_fund_distribution_tra_transaction_encumbrance_order_idx" unique="false">
+            <column ascending="true" name="transaction_encumbrance_order_type"/>
+         </index>
+         <index name="po_line_fund_distribution_tra_transaction_encumbrance_subsc_idx" unique="false">
+            <column ascending="true" name="transaction_encumbrance_subscription"/>
+         </index>
+         <index name="po_line_fund_distribution_tran_po_line_fyroadjustmentamount_idx" unique="false">
+            <column ascending="true" name="po_line_fyroadjustmentamount"/>
+         </index>
+         <index name="po_line_fund_distribution_transac_poline_quantityelectronic_idx" unique="false">
+            <column ascending="true" name="poline_quantityelectronic"/>
+         </index>
+         <index name="po_line_fund_distribution_transacti_fund_distribution_value_idx" unique="false">
+            <column ascending="true" name="fund_distribution_value"/>
+         </index>
+         <index name="po_line_fund_distribution_transacti_poline_quantityphysical_idx" unique="false">
+            <column ascending="true" name="poline_quantityphysical"/>
+         </index>
+         <index name="po_line_fund_distribution_transacti_poline_title_or_package_idx" unique="false">
+            <column ascending="true" name="poline_title_or_package"/>
+         </index>
+         <index name="po_line_fund_distribution_transactio_fund_distribution_type_idx" unique="false">
+            <column ascending="true" name="fund_distribution_type"/>
+         </index>
+         <index name="po_line_fund_distribution_transactio_poline_estimated_price_idx" unique="false">
+            <column ascending="true" name="poline_estimated_price"/>
+         </index>
+         <index name="po_line_fund_distribution_transaction_poline_additionalcost_idx" unique="false">
+            <column ascending="true" name="poline_additionalcost"/>
+         </index>
+         <index name="po_line_fund_distribution_transactions_budget_id_idx" unique="false">
+            <column ascending="true" name="budget_id"/>
+         </index>
+         <index name="po_line_fund_distribution_transactions_budget_name_idx" unique="false">
+            <column ascending="true" name="budget_name"/>
+         </index>
+         <index name="po_line_fund_distribution_transactions_fiscal_year_id_idx" unique="false">
+            <column ascending="true" name="fiscal_year_id"/>
+         </index>
+         <index name="po_line_fund_distribution_transactions_fiscal_year_idx" unique="false">
+            <column ascending="true" name="fiscal_year"/>
+         </index>
+         <index name="po_line_fund_distribution_transactions_fund_code_idx" unique="false">
+            <column ascending="true" name="fund_code"/>
+         </index>
+         <index name="po_line_fund_distribution_transactions_fund_id_idx" unique="false">
+            <column ascending="true" name="fund_id"/>
+         </index>
+         <index name="po_line_fund_distribution_transactions_po_id_idx" unique="false">
+            <column ascending="true" name="po_id"/>
+         </index>
+         <index name="po_line_fund_distribution_transactions_po_line_id_idx" unique="false">
+            <column ascending="true" name="po_line_id"/>
+         </index>
+         <index name="po_line_fund_distribution_transactions_po_number_idx" unique="false">
+            <column ascending="true" name="po_number"/>
+         </index>
+         <index name="po_line_fund_distribution_transactions_po_workflowstatus_idx" unique="false">
+            <column ascending="true" name="po_workflowstatus"/>
+         </index>
+         <index name="po_line_fund_distribution_transactions_poline_currency_idx" unique="false">
+            <column ascending="true" name="poline_currency"/>
+         </index>
+         <index name="po_line_fund_distribution_transactions_poline_discount_idx" unique="false">
+            <column ascending="true" name="poline_discount"/>
+         </index>
+         <index name="po_line_fund_distribution_transactions_poline_discounttype_idx" unique="false">
+            <column ascending="true" name="poline_discounttype"/>
+         </index>
+         <index name="po_line_fund_distribution_transactions_poline_listunitprice_idx" unique="false">
+            <column ascending="true" name="poline_listunitprice"/>
+         </index>
+         <index name="po_line_fund_distribution_transactions_poline_number_idx" unique="false">
+            <column ascending="true" name="poline_number"/>
+         </index>
+         <index name="po_line_fund_distribution_transactions_transaction_amount_idx" unique="false">
+            <column ascending="true" name="transaction_amount"/>
+         </index>
+         <index name="po_line_fund_distribution_transactions_transaction_currency_idx" unique="false">
+            <column ascending="true" name="transaction_currency"/>
+         </index>
+         <index name="po_line_fund_distribution_transactions_transaction_id_idx" unique="false">
+            <column ascending="true" name="transaction_id"/>
+         </index>
+      </table>
+      <table name="po_lines_details_subscription" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="pol_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="1" name="pol_subscription_from" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="2" name="pol_subscription_to" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="pol_subscription_interval" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <index name="po_lines_details_subscription_pol_id_idx" unique="false">
+            <column ascending="true" name="pol_id"/>
+         </index>
+         <index name="po_lines_details_subscription_pol_subscription_from_idx" unique="false">
+            <column ascending="true" name="pol_subscription_from"/>
+         </index>
+         <index name="po_lines_details_subscription_pol_subscription_interval_idx" unique="false">
+            <column ascending="true" name="pol_subscription_interval"/>
+         </index>
+         <index name="po_lines_details_subscription_pol_subscription_to_idx" unique="false">
+            <column ascending="true" name="pol_subscription_to"/>
+         </index>
+      </table>
+      <table name="po_lines_er_mat_type" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="pol_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="pol_er_mat_type_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="pol_er_mat_type_name" nullable="true" remarks="" size="19" type="varchar" typeCode="12"/>
+         <index name="po_lines_er_mat_type_pol_er_mat_type_id_idx" unique="false">
+            <column ascending="true" name="pol_er_mat_type_id"/>
+         </index>
+         <index name="po_lines_er_mat_type_pol_er_mat_type_name_idx" unique="false">
+            <column ascending="true" name="pol_er_mat_type_name"/>
+         </index>
+         <index name="po_lines_er_mat_type_pol_id_idx" unique="false">
+            <column ascending="true" name="pol_id"/>
+         </index>
+      </table>
+      <table name="po_lines_eresource" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="pol_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="pol_location_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="location_name" nullable="true" remarks="" size="79" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="pol_access_provider" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="provider_org_name" nullable="true" remarks="" size="60" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="pol_activated" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="pol_activation_due" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="pol_create_inventory" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="8" name="pol_expected_activation" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="pol_license" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="pol_license_desc" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="pol_material_type_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="pol_er_mat_type_name" nullable="true" remarks="" size="19" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="pol_trial" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="pol_user_limit" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="pol_resource_url" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="po_lines_eresource_location_name_idx" unique="false">
+            <column ascending="true" name="location_name"/>
+         </index>
+         <index name="po_lines_eresource_pol_access_provider_idx" unique="false">
+            <column ascending="true" name="pol_access_provider"/>
+         </index>
+         <index name="po_lines_eresource_pol_activated_idx" unique="false">
+            <column ascending="true" name="pol_activated"/>
+         </index>
+         <index name="po_lines_eresource_pol_activation_due_idx" unique="false">
+            <column ascending="true" name="pol_activation_due"/>
+         </index>
+         <index name="po_lines_eresource_pol_create_inventory_idx" unique="false">
+            <column ascending="true" name="pol_create_inventory"/>
+         </index>
+         <index name="po_lines_eresource_pol_er_mat_type_name_idx" unique="false">
+            <column ascending="true" name="pol_er_mat_type_name"/>
+         </index>
+         <index name="po_lines_eresource_pol_expected_activation_idx" unique="false">
+            <column ascending="true" name="pol_expected_activation"/>
+         </index>
+         <index name="po_lines_eresource_pol_id_idx" unique="false">
+            <column ascending="true" name="pol_id"/>
+         </index>
+         <index name="po_lines_eresource_pol_license_desc_idx" unique="false">
+            <column ascending="true" name="pol_license_desc"/>
+         </index>
+         <index name="po_lines_eresource_pol_license_idx" unique="false">
+            <column ascending="true" name="pol_license"/>
+         </index>
+         <index name="po_lines_eresource_pol_location_id_idx" unique="false">
+            <column ascending="true" name="pol_location_id"/>
+         </index>
+         <index name="po_lines_eresource_pol_material_type_id_idx" unique="false">
+            <column ascending="true" name="pol_material_type_id"/>
+         </index>
+         <index name="po_lines_eresource_pol_resource_url_idx" unique="false">
+            <column ascending="true" name="pol_resource_url"/>
+         </index>
+         <index name="po_lines_eresource_pol_trial_idx" unique="false">
+            <column ascending="true" name="pol_trial"/>
+         </index>
+         <index name="po_lines_eresource_pol_user_limit_idx" unique="false">
+            <column ascending="true" name="pol_user_limit"/>
+         </index>
+         <index name="po_lines_eresource_provider_org_name_idx" unique="false">
+            <column ascending="true" name="provider_org_name"/>
+         </index>
+      </table>
+      <table name="po_lines_phys_mat_type" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="pol_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="pol_phys_mat_type_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="pol_mat_type_name" nullable="true" remarks="" size="19" type="varchar" typeCode="12"/>
+         <index name="po_lines_phys_mat_type_pol_id_idx" unique="false">
+            <column ascending="true" name="pol_id"/>
+         </index>
+         <index name="po_lines_phys_mat_type_pol_mat_type_name_idx" unique="false">
+            <column ascending="true" name="pol_mat_type_name"/>
+         </index>
+         <index name="po_lines_phys_mat_type_pol_phys_mat_type_id_idx" unique="false">
+            <column ascending="true" name="pol_phys_mat_type_id"/>
+         </index>
+      </table>
+      <table name="po_lines_physical" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="pol_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="pol_phys_create_inventory" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="pol_phys_mat_type_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="pol_phys_mat_type_name" nullable="true" remarks="" size="19" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="pol_phys_mat_supplier_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="supplier_org_name" nullable="true" remarks="" size="60" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="6" name="pol_phys_expected_receipt_date" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="7" name="pol_phys_receipt_due" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="pol_volumes" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="pol_volumes_ordinality" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="pol_phys_volumes_description" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <index name="po_lines_physical_pol_id_idx" unique="false">
+            <column ascending="true" name="pol_id"/>
+         </index>
+         <index name="po_lines_physical_pol_phys_create_inventory_idx" unique="false">
+            <column ascending="true" name="pol_phys_create_inventory"/>
+         </index>
+         <index name="po_lines_physical_pol_phys_expected_receipt_date_idx" unique="false">
+            <column ascending="true" name="pol_phys_expected_receipt_date"/>
+         </index>
+         <index name="po_lines_physical_pol_phys_mat_supplier_id_idx" unique="false">
+            <column ascending="true" name="pol_phys_mat_supplier_id"/>
+         </index>
+         <index name="po_lines_physical_pol_phys_mat_type_id_idx" unique="false">
+            <column ascending="true" name="pol_phys_mat_type_id"/>
+         </index>
+         <index name="po_lines_physical_pol_phys_mat_type_name_idx" unique="false">
+            <column ascending="true" name="pol_phys_mat_type_name"/>
+         </index>
+         <index name="po_lines_physical_pol_phys_receipt_due_idx" unique="false">
+            <column ascending="true" name="pol_phys_receipt_due"/>
+         </index>
+         <index name="po_lines_physical_pol_phys_volumes_description_idx" unique="false">
+            <column ascending="true" name="pol_phys_volumes_description"/>
+         </index>
+         <index name="po_lines_physical_pol_volumes_idx" unique="false">
+            <column ascending="true" name="pol_volumes"/>
+         </index>
+         <index name="po_lines_physical_pol_volumes_ordinality_idx" unique="false">
+            <column ascending="true" name="pol_volumes_ordinality"/>
+         </index>
+         <index name="po_lines_physical_supplier_org_name_idx" unique="false">
+            <column ascending="true" name="supplier_org_name"/>
+         </index>
+      </table>
+      <table name="po_lines_tags" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="pol_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="pol_tag" nullable="true" remarks="" size="2147483647" type="text" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="pol_tag_ordinality" nullable="true" remarks="" size="19" type="int8" typeCode="-5"/>
+         <index name="po_lines_tags_pol_id_idx" unique="false">
+            <column ascending="true" name="pol_id"/>
+         </index>
+         <index name="po_lines_tags_pol_tag_idx" unique="false">
+            <column ascending="true" name="pol_tag"/>
+         </index>
+         <index name="po_lines_tags_pol_tag_ordinality_idx" unique="false">
+            <column ascending="true" name="pol_tag_ordinality"/>
+         </index>
+      </table>
+      <table name="po_ongoing" remarks="" schema="folio_derived" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="po_id" nullable="true" remarks="" size="2147483647" type="uuid" typeCode="1111"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="po_ongoing_interval" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="po_ongoing_is_subscription" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="po_ongoing_manual_renewal" nullable="true" remarks="" size="1" type="bool" typeCode="-7"/>
+         <column autoUpdated="false" defaultValue="null" digits="6" id="4" name="po_ongoing_renewal_date" nullable="true" remarks="" size="35" type="timestamptz" typeCode="93"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="po_ongoing_review_period" nullable="true" remarks="" size="10" type="int4" typeCode="4"/>
+         <index name="po_ongoing_po_id_idx" unique="false">
+            <column ascending="true" name="po_id"/>
+         </index>
+         <index name="po_ongoing_po_ongoing_interval_idx" unique="false">
+            <column ascending="true" name="po_ongoing_interval"/>
+         </index>
+         <index name="po_ongoing_po_ongoing_is_subscription_idx" unique="false">
+            <column ascending="true" name="po_ongoing_is_subscription"/>
+         </index>
+         <index name="po_ongoing_po_ongoing_manual_renewal_idx" unique="false">
+            <column ascending="true" name="po_ongoing_manual_renewal"/>
+         </index>
+         <index name="po_ongoing_po_ongoing_renewal_date_idx" unique="false">
+            <column ascending="true" name="po_ongoing_renewal_date"/>
+         </index>
+         <index name="po_ongoing_po_ongoing_review_period_idx" unique="false">
+            <column ascending="true" name="po_ongoing_review_period"/>
+         </index>
+      </table>
+   </tables>
+</database>
