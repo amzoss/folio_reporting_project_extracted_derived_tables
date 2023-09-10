@@ -3,4 +3,3 @@ pandas
 psycopg2
 requests
 tabulate
-mermaid
