@@ -29,7 +29,6 @@ def create_markdown_files(table_names, combined, desired_columns):
 
         # Section header
         title           = "---\n" + "title: " + tbl   + ".sql" + "\n---\n"
-        h1              = "# Documentation: " + tbl   + ".sql\n\n"
         
         # Section table
         h2              = "## Attributes:\n\n"
@@ -54,7 +53,7 @@ def create_markdown_files(table_names, combined, desired_columns):
         #                                                                             #
         ###############################################################################        
 
-        markdown_output_string = title + h1 + h2 + markdown_table + mermaid_diagram
+        markdown_output_string = title + h2 + markdown_table + mermaid_diagram
 
         ###############################################################################
         #                                                                             #

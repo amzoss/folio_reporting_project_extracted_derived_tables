@@ -9,7 +9,8 @@ def create_markdown_index_file(table_names, combined, desired_columns):
     ###############################################################################
 
     # Content of the file
-    content =   '---\nDerived Table Documentation\n---\n\n'
+    
+    content =   "---\n" + "title: Derived Table Documentation" + "\n---\n\n"
 
     # Create the files for each table inside the table list
     for tbl in table_names:
