@@ -75,10 +75,10 @@ def create_html_index_file(table_names, combined, desired_columns):
         ###############################################################################     
 
         # Section header
-        h2              = "## Documentation: " + "[" + tbl + "]" + "(" + tbl + ".html)" + "\n\n"
+        h2              = "<h2>Documentation: " + "[" + tbl + "]" + "(" + tbl + ".html)" + "</h2>\n\n"
         
         # Section table
-        h3              = "### Attributes:\n\n"
+        h3              = "<h3>Attributes:</h3>\n\n"
         html_table  = tbl_df.fillna('').to_html(index=False)
 
         # Section mermaid er diagram
