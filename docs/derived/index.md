@@ -99,7 +99,7 @@ title: Derived Table Documentation
 
 
             <!-- ER-diagram with mermaid -->
-            <div class="mermaid">
+            <pre class="mermaid">
             erDiagram
     folio_agreements_subscription_agreement |o..o| folio_agreements_refdata_value : "renewal_priority"
     folio_agreements_subscription_agreement |o..o| folio_agreements_refdata_value : "is_perpetual"
@@ -128,10 +128,11 @@ title: Derived Table Documentation
         varchar sa_reason_for_closure_label
     }
 
-           </div>
+           </pre>
            <!-- Script to generate the diagram -->
-           <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-           <script>mermaid.initialize({startOnLoad:true});</script>
+           <script type="module">
+            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+            </script>
            
 
 ## Documentation: [agreements_subscription_agreement_entitlement](agreements_subscription_agreement_entitlement.html)

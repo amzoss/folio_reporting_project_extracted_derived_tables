@@ -45,15 +45,16 @@ def create_markdown_index_file(table_names, combined, desired_columns):
 
             mermaid_diagram += """
             <!-- ER-diagram with mermaid -->
-            <div class="mermaid">
+            <pre class="mermaid">
             """
             mermaid_diagram += mermaid.getMermaid_text(tbl)
 
             mermaid_diagram += """
-           </div>
+           </pre>
            <!-- Script to generate the diagram -->
-           <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-           <script>mermaid.initialize({startOnLoad:true});</script>
+           <script type="module">
+            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+            </script>
            """
         
         else:
