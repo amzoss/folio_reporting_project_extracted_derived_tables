@@ -1,8 +1,6 @@
 ---
 title: agreements_custom_property.sql
 ---
-# Documentation: agreements_custom_property.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                                 | Type   | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description                                                                                                                                          | Notes   |

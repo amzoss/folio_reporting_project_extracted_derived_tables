@@ -1,8 +1,6 @@
 ---
 title: instance_ext.sql
 ---
-# Documentation: instance_ext.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute             | Type        | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description   | Notes   |

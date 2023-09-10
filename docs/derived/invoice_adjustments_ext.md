@@ -1,8 +1,6 @@
 ---
 title: invoice_adjustments_ext.sql
 ---
-# Documentation: invoice_adjustments_ext.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                         | Type    | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description                                                                                                                                                     | Notes   |

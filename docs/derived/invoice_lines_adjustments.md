@@ -1,8 +1,6 @@
 ---
 title: invoice_lines_adjustments.sql
 ---
-# Documentation: invoice_lines_adjustments.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                    | Type    | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description                                                                                                                                                                                                                                                                                              | Notes   |

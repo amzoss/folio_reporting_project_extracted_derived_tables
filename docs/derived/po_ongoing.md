@@ -1,8 +1,6 @@
 ---
 title: po_ongoing.sql
 ---
-# Documentation: po_ongoing.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                  | Type        | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description                                                     | Notes   |

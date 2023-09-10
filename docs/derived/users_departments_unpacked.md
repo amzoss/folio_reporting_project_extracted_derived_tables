@@ -1,8 +1,6 @@
 ---
 title: users_departments_unpacked.sql
 ---
-# Documentation: users_departments_unpacked.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute             | Type   | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description                                                            | Notes   |

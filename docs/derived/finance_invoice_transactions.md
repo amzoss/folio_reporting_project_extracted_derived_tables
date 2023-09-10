@@ -1,8 +1,6 @@
 ---
 title: finance_invoice_transactions.sql
 ---
-# Documentation: finance_invoice_transactions.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                         | Type        | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description   | Notes   |

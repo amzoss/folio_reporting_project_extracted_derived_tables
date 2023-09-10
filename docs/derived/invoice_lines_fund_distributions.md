@@ -1,8 +1,6 @@
 ---
 title: invoice_lines_fund_distributions.sql
 ---
-# Documentation: invoice_lines_fund_distributions.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute               | Type    | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description                                                                                                          | Notes   |

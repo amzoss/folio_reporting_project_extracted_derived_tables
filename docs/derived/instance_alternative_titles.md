@@ -1,8 +1,6 @@
 ---
 title: instance_alternative_titles.sql
 ---
-# Documentation: instance_alternative_titles.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                    | Type   | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description   | Notes   |

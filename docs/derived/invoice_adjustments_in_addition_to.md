@@ -1,8 +1,6 @@
 ---
 title: invoice_adjustments_in_addition_to.sql
 ---
-# Documentation: invoice_adjustments_in_addition_to.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                  | Type    | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description                                                                                                                                                                                                                                                                                              | Notes   |

@@ -1,8 +1,6 @@
 ---
 title: po_lines_details_subscription.sql
 ---
-# Documentation: po_lines_details_subscription.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                 | Type        | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description                               | Notes   |

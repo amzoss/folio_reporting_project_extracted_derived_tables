@@ -1,8 +1,6 @@
 ---
 title: requests_items.sql
 ---
-# Documentation: requests_items.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                                 | Type   | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description   | Notes   |

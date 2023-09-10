@@ -1,8 +1,6 @@
 ---
 title: instance_electronic_access.sql
 ---
-# Documentation: instance_electronic_access.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                    | Type   | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description   | Notes   |

@@ -1,8 +1,6 @@
 ---
 title: instance_physical_descriptions.sql
 ---
-# Documentation: instance_physical_descriptions.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                       | Type   | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description   | Notes   |

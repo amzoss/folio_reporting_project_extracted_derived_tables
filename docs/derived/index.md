@@ -1,5 +1,5 @@
 ---
-Derived Table Documentation
+title: Derived Table Documentation
 ---
 
 ## Documentation: [agreements_custom_property](agreements_custom_property.md)

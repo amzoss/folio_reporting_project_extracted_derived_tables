@@ -1,8 +1,6 @@
 ---
 title: item_administrative_notes.sql
 ---
-# Documentation: item_administrative_notes.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                      | Type   | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description   | Notes   |

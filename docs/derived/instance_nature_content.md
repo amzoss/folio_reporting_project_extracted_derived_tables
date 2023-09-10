@@ -1,8 +1,6 @@
 ---
 title: instance_nature_content.sql
 ---
-# Documentation: instance_nature_content.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                     | Type   | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description   | Notes   |

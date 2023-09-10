@@ -1,8 +1,6 @@
 ---
 title: loans_renewal_count.sql
 ---
-# Documentation: loans_renewal_count.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute          | Type   | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description   | Notes   |

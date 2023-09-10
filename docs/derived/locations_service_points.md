@@ -1,8 +1,6 @@
 ---
 title: locations_service_points.sql
 ---
-# Documentation: locations_service_points.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                            | Type   | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description   | Notes   |

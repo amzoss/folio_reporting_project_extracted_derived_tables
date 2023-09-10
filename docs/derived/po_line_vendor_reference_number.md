@@ -1,8 +1,6 @@
 ---
 title: po_line_vendor_reference_number.sql
 ---
-# Documentation: po_line_vendor_reference_number.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                    | Type   | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description                                      | Notes   |

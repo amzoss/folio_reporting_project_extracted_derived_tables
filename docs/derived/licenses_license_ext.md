@@ -1,8 +1,6 @@
 ---
 title: licenses_license_ext.sql
 ---
-# Documentation: licenses_license_ext.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute           | Type   | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description                                           | Notes   |

@@ -1,8 +1,6 @@
 ---
 title: agreements_subscription_agreement_entitlement.sql
 ---
-# Documentation: agreements_subscription_agreement_entitlement.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                              | Type   | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description                                                                                                                                                                                                                                              | Notes   |

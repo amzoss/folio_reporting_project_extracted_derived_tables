@@ -1,8 +1,6 @@
 ---
 title: po_lines_cost.sql
 ---
-# Documentation: po_lines_cost.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                    | Type    | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description                                                                                                                                 | Notes   |

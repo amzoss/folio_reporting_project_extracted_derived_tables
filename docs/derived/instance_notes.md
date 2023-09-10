@@ -1,8 +1,6 @@
 ---
 title: instance_notes.sql
 ---
-# Documentation: instance_notes.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                 | Type   | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description   | Notes   |

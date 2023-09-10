@@ -1,8 +1,6 @@
 ---
 title: loans_items.sql
 ---
-# Documentation: loans_items.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                                        | Type        | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description   | Notes   |

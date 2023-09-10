@@ -1,8 +1,6 @@
 ---
 title: loans_renewal_dates.sql
 ---
-# Documentation: loans_renewal_dates.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute          | Type        | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description   | Notes   |

@@ -1,8 +1,6 @@
 ---
 title: holdings_statements.sql
 ---
-# Documentation: holdings_statements.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute            | Type   | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description   | Notes   |

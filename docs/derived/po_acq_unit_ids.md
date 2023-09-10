@@ -1,8 +1,6 @@
 ---
 title: po_acq_unit_ids.sql
 ---
-# Documentation: po_acq_unit_ids.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                | Type   | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description                                       | Notes   |

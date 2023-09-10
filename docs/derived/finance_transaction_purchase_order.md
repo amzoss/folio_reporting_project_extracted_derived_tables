@@ -1,8 +1,6 @@
 ---
 title: finance_transaction_purchase_order.sql
 ---
-# Documentation: finance_transaction_purchase_order.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                                       | Type    | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description                                                                                                                  | Notes   |

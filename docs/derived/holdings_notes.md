@@ -1,8 +1,6 @@
 ---
 title: holdings_notes.sql
 ---
-# Documentation: holdings_notes.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute               | Type      | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description   | Notes   |

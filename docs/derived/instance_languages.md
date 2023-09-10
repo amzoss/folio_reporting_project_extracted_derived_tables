@@ -1,8 +1,6 @@
 ---
 title: instance_languages.sql
 ---
-# Documentation: instance_languages.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute           | Type   | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description   | Notes   |

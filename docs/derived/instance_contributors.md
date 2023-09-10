@@ -1,8 +1,6 @@
 ---
 title: instance_contributors.sql
 ---
-# Documentation: instance_contributors.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                  | Type   | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description   | Notes   |

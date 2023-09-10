@@ -1,8 +1,6 @@
 ---
 title: finance_funds.sql
 ---
-# Documentation: finance_funds.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                | Type        | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description                                     | Notes   |

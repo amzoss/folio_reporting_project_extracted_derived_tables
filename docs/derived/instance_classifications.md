@@ -1,8 +1,6 @@
 ---
 title: instance_classifications.sql
 ---
-# Documentation: instance_classifications.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                 | Type   | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description   | Notes   |

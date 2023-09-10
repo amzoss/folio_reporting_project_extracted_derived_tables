@@ -1,8 +1,6 @@
 ---
 title: users_groups.sql
 ---
-# Documentation: users_groups.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                      | Type        | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description                                                                                                                                                                                 | Notes   |

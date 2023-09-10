@@ -1,8 +1,6 @@
 ---
 title: item_statistical_codes.sql
 ---
-# Documentation: item_statistical_codes.sql
-
 ## Attributes:
 
 |   Attribute # | Attribute                  | Type   | Source - Schema   | Source - Table   | Source - Attribute   | Source - Type   | Source - Multiple values   | Aggregation   | Description   | Notes   |
