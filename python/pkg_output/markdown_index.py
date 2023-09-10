@@ -32,7 +32,7 @@ def create_markdown_index_file(table_names, combined, desired_columns):
         ###############################################################################     
 
         # Section header
-        h2              = "## Documentation: " + "[" + tbl + "]" + "(" + tbl + ".html)" + "\n\n"
+        h2              = "## Documentation: " + "[" + tbl + "]" + "(" + tbl + ".md)" + "\n\n"
         
         # Section table
         h3              = "### Attributes:\n\n"
@@ -41,21 +41,11 @@ def create_markdown_index_file(table_names, combined, desired_columns):
         # Section mermaid er diagram
         if mermaid.getMermaid_text(tbl) != '':
 
-            mermaid_diagram = """\n\n### ER-diagram:\n\n"""
+            mermaid_diagram = """\n\n### ER diagram\n\n```mermaid\n"""
 
-            mermaid_diagram += """
-            <!-- ER-diagram with mermaid -->
-            <pre class="mermaid">
-            """
             mermaid_diagram += mermaid.getMermaid_text(tbl)
 
-            mermaid_diagram += """
-           </pre>
-           <!-- Script to generate the diagram -->
-           <script type="module">
-            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-            </script>
-           """
+            mermaid_diagram += """\n```"""
         
         else:
 

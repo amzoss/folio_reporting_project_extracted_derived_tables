@@ -41,7 +41,7 @@ import requests
 import tabulate
 
 # Local packages
-from pkg_output import html, markdown, markdown_index
+from pkg_output import html, html_index, markdown, markdown_index
 
 ###############################################################################
 #                                                                             #
@@ -222,12 +222,15 @@ try:
 
     # html
     html.create_html_files(table_names, combined, desired_columns)
+
+    # html index file
+    html_index.create_html_index_file(table_names, combined, desired_columns)
    
     # markdown
     #markdown.create_markdown_files(table_names, combined, desired_columns)
 
     # markdown index file
-    markdown_index.create_markdown_index_file(table_names, combined, desired_columns)
+    #markdown_index.create_markdown_index_file(table_names, combined, desired_columns)
 
 ###############################################################################
 #                                                                             #
