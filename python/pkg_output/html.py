@@ -47,7 +47,7 @@ def create_html_files(table_names, combined, desired_columns):
                            "<script type='application/ld+json'>"\
                            "{'@context':'https://schema.org','@type':'WebPage','description':'Project to document extracted and derived tables','headline':'"+ tbl + "'}</script>"\
                            "<!-- End Jekyll SEO tag -->"\
-                           "<link rel='stylesheet' href='../assets/css/style.css'>"\
+                           "<link rel='stylesheet' href='../assets/main.css'>"\
                            "</head>"\
                            "<body>"\
                            "<header class='site-header' role='banner'>"\
@@ -63,9 +63,11 @@ def create_html_files(table_names, combined, desired_columns):
                             "<div class='trigger'><a class='page-link' href='../extracted/'>Extracted Table Documentation</a><a class='page-link' href='../derived/'>Derived Table Documentation</a></div>"\
                             "</nav></div>"\
                         "</header>"\
+                        "<div style='margin: 0 2em 0 2em;'>"\
                         "<main class='page-content' aria-label='Content'>"
         header          =  "<h1 class='post-title'>Documentation: " + tbl + ".sql</h1>"\
                            "<hr border='1'>"
+                    
         
         # Section table   
         html_table      = tbl_df.fillna('').to_html(index=False)
@@ -92,7 +94,7 @@ def create_html_files(table_names, combined, desired_columns):
             mermaid_diagram = ''
 
         # Section Footer
-        footer          =   "</main>"\
+        footer          =   "</main></div>"\
                             "<footer class='site-footer h-card'>"\
                             "<data class='u-url' href='/folio_reporting_project_extracted_derived_tables/'></data>"\
                             "<div class='wrapper'>"\

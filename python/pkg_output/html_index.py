@@ -32,7 +32,7 @@ def create_html_index_file(table_names, combined, desired_columns):
                     "<script type='application/ld+json'>"\
                     "{'@context':'https://schema.org','@type':'WebPage','description':'Project to document extracted and derived tables','headline':'"+ title + "'}</script>"\
                     "<!-- End Jekyll SEO tag -->"\
-                    "<link rel='stylesheet' href='../assets/css/style.css'>"\
+                    "<link rel='stylesheet' href='../assets/main.css'>"\
                     "</head>"\
                     "<body>"\
                     "<header class='site-header' role='banner'>"\
@@ -50,7 +50,8 @@ def create_html_index_file(table_names, combined, desired_columns):
                 "</header>"\
                 "<main class='page-content' aria-label='Content'>"
     header          =  "<h1 class='post-title'>" + title + "</h1>"\
-                    "<hr border='1'>"
+                    "<hr border='1'>"\
+                    "<div style='margin: 0 2em 0 2em;'>"
     
     content =   html_header + header
 
@@ -103,7 +104,7 @@ def create_html_index_file(table_names, combined, desired_columns):
             mermaid_diagram = ''
 
         # Section Footer
-        footer          =   "</main>"\
+        footer          =   "</div></main>"\
                             "<footer class='site-footer h-card'>"\
                             "<data class='u-url' href='/folio_reporting_project_extracted_derived_tables/'></data>"\
                             "<div class='wrapper'>"\
