@@ -75,7 +75,7 @@ def create_html_index_file(table_names, combined, desired_columns):
         ###############################################################################     
 
         # Section header
-        h2              = "<h2>Documentation: " + "[" + tbl + "]" + "(" + tbl + ".html)" + "</h2>\n\n"
+        h2              = "<h2>Documentation: " + "<a href='" + tbl + ".html'>" + tbl + "</a>" + "</h2>\n\n"
         
         # Section table
         h3              = "<h3>Attributes:</h3>\n\n"
@@ -103,34 +103,36 @@ def create_html_index_file(table_names, combined, desired_columns):
 
             mermaid_diagram = ''
 
-        # Section Footer
-        footer          =   "</div></main>"\
-                            "<footer class='site-footer h-card'>"\
-                            "<data class='u-url' href='/folio_reporting_project_extracted_derived_tables/'></data>"\
-                            "<div class='wrapper'>"\
-                                "<h2 class='footer-heading'>folio_reporting_project_extracted_derived_tables</h2>"\
-                                "<div class='footer-col-wrapper'>"\
-                                "<div class='footer-col footer-col-1'>"\
-                                    "<ul class='contact-list'>"\
-                                    "<li class='p-name'>folio_reporting_project_extracted_derived_tables</li></ul>"\
-                                "</div>"\
-                                "<div class='footer-col footer-col-2'><ul class='social-media-list'></ul>"\
-                            "</div>"\
-                                "<div class='footer-col footer-col-3'>"\
-                                    "<p>Project to document extracted and derived tables</p>"\
-                                "</div>"\
-                                "</div>"\
-                            "</div>"\
-                            "</footer>"\
-                            "</body></html>"
-
         ###############################################################################
         #                                                                             #
         # Combine all components from template                                        #
         #                                                                             #
         ###############################################################################        
 
-        content += h2 + h3 + html_table + mermaid_diagram + "\n\n" + footer
+        content += h2 + h3 + html_table + mermaid_diagram + "\n\n"
+
+    # Section Footer
+    footer          =   "</div></main>"\
+                        "<footer class='site-footer h-card'>"\
+                        "<data class='u-url' href='/folio_reporting_project_extracted_derived_tables/'></data>"\
+                        "<div class='wrapper'>"\
+                            "<h2 class='footer-heading'>folio_reporting_project_extracted_derived_tables</h2>"\
+                            "<div class='footer-col-wrapper'>"\
+                            "<div class='footer-col footer-col-1'>"\
+                                "<ul class='contact-list'>"\
+                                "<li class='p-name'>folio_reporting_project_extracted_derived_tables</li></ul>"\
+                            "</div>"\
+                            "<div class='footer-col footer-col-2'><ul class='social-media-list'></ul>"\
+                        "</div>"\
+                            "<div class='footer-col footer-col-3'>"\
+                                "<p>Project to document extracted and derived tables</p>"\
+                            "</div>"\
+                            "</div>"\
+                        "</div>"\
+                        "</footer>"\
+                        "</body></html>"
+
+    content += footer
 
     ###############################################################################
     #                                                                             #
