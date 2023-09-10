@@ -221,7 +221,7 @@ try:
     ###############################################################################
 
     # html
-    html.create_html_files(table_names, combined, desired_columns)
+    #html.create_html_files(table_names, combined, desired_columns)
    
     # markdown
     markdown.create_markdown_files(table_names, combined, desired_columns)
