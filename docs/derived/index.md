@@ -95,10 +95,12 @@ title: Derived Table Documentation
 |            17 | sa_reason_for_closure_label | text   |                   |                        |                         |                 |                            |               | Displayed name of reason for closure                                                                                                                                                                                                                     |         |
 |            18 | sa_custom_properties_id     | int8   |                   |                        |                         |                 |                            |               | ID used to link custom_properties                                                                                                                                                                                                                        |         |
 
-### ER diagram
+### ER-diagram:
 
-```mermaid
-erDiagram
+
+            <!-- ER-diagram with mermaid -->
+            <div class="mermaid">
+            erDiagram
     folio_agreements_subscription_agreement |o..o| folio_agreements_refdata_value : "renewal_priority"
     folio_agreements_subscription_agreement |o..o| folio_agreements_refdata_value : "is_perpetual"
     folio_agreements_subscription_agreement |o..o| folio_agreements_refdata_value : "status"
@@ -126,7 +128,11 @@ erDiagram
         varchar sa_reason_for_closure_label
     }
 
-```
+           </div>
+           <!-- Script to generate the diagram -->
+           <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+           <script>mermaid.initialize({startOnLoad:true});</script>
+           
 
 ## Documentation: [agreements_subscription_agreement_entitlement](agreements_subscription_agreement_entitlement.html)
 

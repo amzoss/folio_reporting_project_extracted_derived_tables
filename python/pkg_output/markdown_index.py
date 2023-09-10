@@ -41,11 +41,20 @@ def create_markdown_index_file(table_names, combined, desired_columns):
         # Section mermaid er diagram
         if mermaid.getMermaid_text(tbl) != '':
 
-            mermaid_diagram = """\n\n### ER diagram\n\n```mermaid\n"""
+            mermaid_diagram = """\n\n### ER-diagram:\n\n"""
 
+            mermaid_diagram += """
+            <!-- ER-diagram with mermaid -->
+            <div class="mermaid">
+            """
             mermaid_diagram += mermaid.getMermaid_text(tbl)
 
-            mermaid_diagram += """\n```"""
+            mermaid_diagram += """
+           </div>
+           <!-- Script to generate the diagram -->
+           <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+           <script>mermaid.initialize({startOnLoad:true});</script>
+           """
         
         else:
 
