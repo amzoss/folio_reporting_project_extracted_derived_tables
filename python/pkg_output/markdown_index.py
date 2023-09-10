@@ -32,7 +32,7 @@ def create_markdown_index_file(table_names, combined, desired_columns):
         ###############################################################################     
 
         # Section header
-        h2              = "## Documentation: " + "[" + tbl + "]" + "(" + tbl + ".md)" + "\n\n"
+        h2              = "## Documentation: " + "[" + tbl + "]" + "(" + tbl + ".html)" + "\n\n"
         
         # Section table
         h3              = "### Attributes:\n\n"
