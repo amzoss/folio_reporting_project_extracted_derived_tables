@@ -29,7 +29,7 @@ Interface: /patron-notice-policy-storage/patron-notice-pol...
 | loanNotices/format                              | string          | Notice format, send through email, sms etc.                                                        |
 | loanNotices/frequency                           | string          | Frequency, send it once or more                                                                    |
 | loanNotices/realTime                            | boolean         | Is this real time event                                                                            |
-| loanNotices/sendOptions                         | object          |                                                                                                    |
+| loanNotices/sendOptions                         | object          | Notice sending options                                                                             |
 | loanNotices/sendOptions/sendHow                 | string          | Defines how notice should be sent, before, after or upon                                           |
 | loanNotices/sendOptions/sendWhen                | string          | Triggering event                                                                                   |
 | loanNotices/sendOptions/sendBy                  | object          | Time interval                                                                                      |
@@ -45,7 +45,7 @@ Interface: /patron-notice-policy-storage/patron-notice-pol...
 | feeFineNotices/format                           | string          | Notice format, send through email, sms etc.                                                        |
 | feeFineNotices/frequency                        | string          | Frequency, send it once or more                                                                    |
 | feeFineNotices/realTime                         | boolean         | Is this real time event                                                                            |
-| feeFineNotices/sendOptions                      | object          |                                                                                                    |
+| feeFineNotices/sendOptions                      | object          | Notice sending options                                                                             |
 | feeFineNotices/sendOptions/sendHow              | string          | Defines how notice should be sent: after or upon                                                   |
 | feeFineNotices/sendOptions/sendWhen             | string          | Triggering event                                                                                   |
 | feeFineNotices/sendOptions/sendBy               | object          | Time interval                                                                                      |
@@ -61,7 +61,7 @@ Interface: /patron-notice-policy-storage/patron-notice-pol...
 | requestNotices/format                           | string          | Notice format, send through email, sms etc.                                                        |
 | requestNotices/frequency                        | string          | Frequency, send it once or more                                                                    |
 | requestNotices/realTime                         | boolean         | Is this real time event                                                                            |
-| requestNotices/sendOptions                      | object          |                                                                                                    |
+| requestNotices/sendOptions                      | object          | Notice sending options                                                                             |
 | requestNotices/sendOptions/sendHow              | string          | Defines how notice should be sent, before, after or upon                                           |
 | requestNotices/sendOptions/sendWhen             | string          | User initiated and time driven events for request related notices                                  |
 | requestNotices/sendOptions/sendBy               | object          | Time interval                                                                                      |

@@ -12,10 +12,10 @@ Interface: /cancellation-reason-storage/cancellation-reasons
 | Property Name                 | Property Type   | Property Description                                                                               |
 |:------------------------------|:----------------|:---------------------------------------------------------------------------------------------------|
 | id                            | string          |                                                                                                    |
-| name                          | string          |                                                                                                    |
-| description                   | string          |                                                                                                    |
-| publicDescription             | string          |                                                                                                    |
-| requiresAdditionalInformation | boolean         |                                                                                                    |
+| name                          | string          | Reason name                                                                                        |
+| description                   | string          | Internal reason description                                                                        |
+| publicDescription             | string          | Public reason description                                                                          |
+| requiresAdditionalInformation | boolean         | Flag that indicates whether reason requires additional information                                 |
 | source                        | string          | Origin of the cancellation reason record, e.g. 'System', 'User', 'Consortium' etc.                 |
 | metadata                      | object          | Metadata about creation and changes to records, provided by the server (client should not provide) |
 | metadata/createdDate          | string          | Date and time when the record was created                                                          |
