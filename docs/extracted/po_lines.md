@@ -44,6 +44,7 @@ Interface: /orders-storage/po-lines
 | details/subscriptionInterval  | integer            | the subscription interval in days                                                                                                           |
 | details/subscriptionTo        | ['string', 'null'] | the end date of the subscription                                                                                                            |
 | donor                         | string             | the donor contributing to this purchase order line                                                                                          |
+| donorOrganizationIds          | array              | donor organization ids associated with this fund                                                                                            |
 | eresource                     | object             | purchase order line e-resource details                                                                                                      |
 | eresource/activated           | boolean            | whether or not this resource is activated                                                                                                   |
 | eresource/activationDue       | integer            | number of days until activation, from date of order placement                                                                               |

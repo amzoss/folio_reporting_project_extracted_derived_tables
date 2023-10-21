@@ -23,6 +23,7 @@ Interface: /finance-storage/funds
 | ledgerId                   | string          | The UUID format string                                                                                                                                                 |
 | name                       | string          | The name of this fund                                                                                                                                                  |
 | acqUnitIds                 | array           | acquisition unit ids associated with this fund                                                                                                                         |
+| donorOrganizationIds       | array           | donor organization ids associated with this fund                                                                                                                       |
 | tags                       | object          | List of simple tags that can be added to an object                                                                                                                     |
 | tags/tagList               | array           | List of tags                                                                                                                                                           |
 | metadata                   | object          | Metadata about creation and changes to records, provided by the server (client should not provide)                                                                     |

@@ -1941,6 +1941,7 @@ Interface: /finance-storage/funds
 | ledgerId                   | string          | The UUID format string                                                                                                                                                 |
 | name                       | string          | The name of this fund                                                                                                                                                  |
 | acqUnitIds                 | array           | acquisition unit ids associated with this fund                                                                                                                         |
+| donorOrganizationIds       | array           | donor organization ids associated with this fund                                                                                                                       |
 | tags                       | object          | List of simple tags that can be added to an object                                                                                                                     |
 | tags/tagList               | array           | List of tags                                                                                                                                                           |
 | metadata                   | object          | Metadata about creation and changes to records, provided by the server (client should not provide)                                                                     |
@@ -3505,6 +3506,7 @@ Interface: /orders-storage/po-lines
 | details/subscriptionInterval  | integer            | the subscription interval in days                                                                                                           |
 | details/subscriptionTo        | ['string', 'null'] | the end date of the subscription                                                                                                            |
 | donor                         | string             | the donor contributing to this purchase order line                                                                                          |
+| donorOrganizationIds          | array              | donor organization ids associated with this fund                                                                                            |
 | eresource                     | object             | purchase order line e-resource details                                                                                                      |
 | eresource/activated           | boolean            | whether or not this resource is activated                                                                                                   |
 | eresource/activationDue       | integer            | number of days until activation, from date of order placement                                                                               |
