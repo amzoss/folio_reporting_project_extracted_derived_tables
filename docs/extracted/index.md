@@ -3801,6 +3801,7 @@ Interface: /organizations-storage/contacts
 | Property Name              | Property Type   | Property Description                                                                               |
 |:---------------------------|:----------------|:---------------------------------------------------------------------------------------------------|
 | id                         | string          | The UUID format string                                                                             |
+| _version                   | integer         | Record version for optimistic locking                                                              |
 | prefix                     | string          | The prefix for this contact person                                                                 |
 | firstName                  | string          | The first name of this contact person                                                              |
 | lastName                   | string          | The last name of this contact person                                                               |
