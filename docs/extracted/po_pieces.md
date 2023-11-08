@@ -29,4 +29,6 @@ Interface: /orders-storage/pieces
 | supplement        | boolean         | Whether or not this is supplementary material                                                                      |
 | receiptDate       | string          | Date that associated item is expected to arrive                                                                    |
 | receivedDate      | string          | The date associated item is actually received                                                                      |
+| statusUpdatedDate | string          | Date when the status of this piece was last updated                                                                |
+| claimingInterval  | integer         | Time interval (in days) for processing claims related to this piece                                                |
 

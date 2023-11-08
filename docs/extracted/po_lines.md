@@ -21,6 +21,8 @@ Interface: /orders-storage/po-lines
 | cancellationRestriction       | boolean            | whether or not there are cancellation restrictions for this purchase order line                                                             |
 | cancellationRestrictionNote   | string             | free-form notes related to cancellation restrictions                                                                                        |
 | claims                        | array              | list of claims                                                                                                                              |
+| claimingActive                | boolean            | Indicates if there is an active claim or dispute                                                                                            |
+| claimingInterval              | integer            | Specifies the time interval, in days, within which claims or disputes must be initiated                                                     |
 | collection                    | boolean            | whether or not this purchase order line is for a collection                                                                                 |
 | contributors                  | array              | list of contributors to the material                                                                                                        |
 | cost                          | object             | purchase order line cost record                                                                                                             |
