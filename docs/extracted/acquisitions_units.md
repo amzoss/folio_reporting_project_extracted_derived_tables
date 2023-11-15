@@ -13,6 +13,7 @@ Interface: /acquisitions-units-storage/units
 |:---------------------------|:----------------|:--------------------------------------------------------------------------------------------------------------|
 | id                         | string          | The UUID format string                                                                                        |
 | name                       | string          | a name for this acquisitions unit                                                                             |
+| description                | string          | The description of this acq unit                                                                              |
 | isDeleted                  | boolean         | If true, the record is marked for deletion at some point. This prevents it from being assigned to any record. |
 | protectCreate              | boolean         | if true, only members can create records associated with this acq unit.                                       |
 | protectRead                | boolean         | if true, only members can read/view records associated with this acq unit.                                    |
