@@ -24,6 +24,7 @@ Interface: /finance-storage/funds
 | name                       | string          | The name of this fund                                                                                                                                                  |
 | acqUnitIds                 | array           | acquisition unit ids associated with this fund                                                                                                                         |
 | donorOrganizationIds       | array           | donor organization ids associated with this fund                                                                                                                       |
+| restrictByLocations        | boolean         | restrict usage of this fund by locations                                                                                                                               |
 | locationIds                | array           | location ids associated with this fund                                                                                                                                 |
 | tags                       | object          | List of simple tags that can be added to an object                                                                                                                     |
 | tags/tagList               | array           | List of tags                                                                                                                                                           |
