@@ -2229,6 +2229,7 @@ Interface: /contributor-name-types
 | id                         | string          |                                                                                                    |
 | name                       | string          | label for the type of contributor name                                                             |
 | ordering                   | string          | used for ordering of contributor name types in displays, i.e. in select lists                      |
+| source                     | string          | origin of the contributor name type record, e.g. 'local', 'consortium' etc.                        |
 | metadata                   | object          | Metadata about creation and changes to records, provided by the server (client should not provide) |
 | metadata/createdDate       | string          | Date and time when the record was created                                                          |
 | metadata/createdByUserId   | string          | ID of the user who created the record (when available)                                             |
@@ -2271,18 +2272,18 @@ Interface: /electronic-access-relationships
 
 ### Attributes:
 
-| Property Name              | Property Type   | Property Description                                                                                            |
-|:---------------------------|:----------------|:----------------------------------------------------------------------------------------------------------------|
-| id                         | string          |                                                                                                                 |
-| name                       | string          | label for the type of relationship between a URL and an Instance                                                |
-| source                     | string          | Origin of the electronic access relationship record, e.g. 'System', 'User', 'Consortium', 'folio', 'local' etc. |
-| metadata                   | object          | Metadata about creation and changes to records, provided by the server (client should not provide)              |
-| metadata/createdDate       | string          | Date and time when the record was created                                                                       |
-| metadata/createdByUserId   | string          | ID of the user who created the record (when available)                                                          |
-| metadata/createdByUsername | string          | Username of the user who created the record (when available)                                                    |
-| metadata/updatedDate       | string          | Date and time when the record was last updated                                                                  |
-| metadata/updatedByUserId   | string          | ID of the user who last updated the record (when available)                                                     |
-| metadata/updatedByUsername | string          | Username of the user who last updated the record (when available)                                               |
+| Property Name              | Property Type   | Property Description                                                                               |
+|:---------------------------|:----------------|:---------------------------------------------------------------------------------------------------|
+| id                         | string          |                                                                                                    |
+| name                       | string          | label for the type of relationship between a URL and an Instance                                   |
+| source                     | string          | Origin of the electronic access relationship record, e.g. 'local', 'consortium' etc.               |
+| metadata                   | object          | Metadata about creation and changes to records, provided by the server (client should not provide) |
+| metadata/createdDate       | string          | Date and time when the record was created                                                          |
+| metadata/createdByUserId   | string          | ID of the user who created the record (when available)                                             |
+| metadata/createdByUsername | string          | Username of the user who created the record (when available)                                       |
+| metadata/updatedDate       | string          | Date and time when the record was last updated                                                     |
+| metadata/updatedByUserId   | string          | ID of the user who last updated the record (when available)                                        |
+| metadata/updatedByUsername | string          | Username of the user who last updated the record (when available)                                  |
 
 ## Documentation: [inventory_holdings](inventory_holdings.md)
 

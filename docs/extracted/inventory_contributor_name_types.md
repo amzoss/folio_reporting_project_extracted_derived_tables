@@ -14,6 +14,7 @@ Interface: /contributor-name-types
 | id                         | string          |                                                                                                    |
 | name                       | string          | label for the type of contributor name                                                             |
 | ordering                   | string          | used for ordering of contributor name types in displays, i.e. in select lists                      |
+| source                     | string          | origin of the contributor name type record, e.g. 'local', 'consortium' etc.                        |
 | metadata                   | object          | Metadata about creation and changes to records, provided by the server (client should not provide) |
 | metadata/createdDate       | string          | Date and time when the record was created                                                          |
 | metadata/createdByUserId   | string          | ID of the user who created the record (when available)                                             |
