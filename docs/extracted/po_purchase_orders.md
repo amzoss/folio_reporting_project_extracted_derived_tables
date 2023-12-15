@@ -44,6 +44,7 @@ Interface: /orders-storage/purchase-orders
 | nextPolNumber              | integer         | Number that will be used next time a purchase order line is created                                    |
 | tags                       | object          | List of simple tags that can be added to an object                                                     |
 | tags/tagList               | array           | List of tags                                                                                           |
+| customFields               | object          | Object that contains custom field                                                                      |
 | metadata                   | object          | Metadata about creation and changes to records, provided by the server (client should not provide)     |
 | metadata/createdDate       | string          | Date and time when the record was created                                                              |
 | metadata/createdByUserId   | string          | ID of the user who created the record (when available)                                                 |
