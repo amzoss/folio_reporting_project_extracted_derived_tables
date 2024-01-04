@@ -31,6 +31,8 @@ Interface: /orders-storage/pieces
 | receivedDate               | string          | The date associated item is actually received                                                                      |
 | statusUpdatedDate          | string          | Date when the status of this piece was last updated                                                                |
 | claimingInterval           | integer         | Time interval (in days) for processing claims related to this piece                                                |
+| internalNote               | string          | Internal note for Send Claim action                                                                                |
+| externalNote               | string          | External note for Send Claim action to share with Vendor                                                           |
 | metadata                   | object          | Metadata about creation and changes to records, provided by the server (client should not provide)                 |
 | metadata/createdDate       | string          | Date and time when the record was created                                                                          |
 | metadata/createdByUserId   | string          | ID of the user who created the record (when available)                                                             |
