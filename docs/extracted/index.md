@@ -3593,7 +3593,7 @@ Interface: /orders-storage/pieces
 | Property Name              | Property Type   | Property Description                                                                                                   |
 |:---------------------------|:----------------|:-----------------------------------------------------------------------------------------------------------------------|
 | id                         | string          | The UUID format string                                                                                                 |
-| caption                    | string          | Volume/enumeration information                                                                                         |
+| displaySummary             | string          | Display summary information                                                                                            |
 | comment                    | string          | Free form commentary                                                                                                   |
 | format                     | string          | The format of the piece                                                                                                |
 | itemId                     | string          | The UUID format string                                                                                                 |
