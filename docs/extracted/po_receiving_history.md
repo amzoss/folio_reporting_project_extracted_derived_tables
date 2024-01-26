@@ -12,7 +12,7 @@ Interface: /orders-storage/receiving-history
 | Property Name       | Property Type   | Property Description                                                                                               |
 |:--------------------|:----------------|:-------------------------------------------------------------------------------------------------------------------|
 | id                  | string          | The UUID format string                                                                                             |
-| caption             | string          | Volume/enumeration information                                                                                     |
+| displaySummary      | string          | Display summary information                                                                                        |
 | checkin             | boolean         | If true this piece is for the Check-in workflow                                                                    |
 | chronology          | string          | Chronology is the descriptive information for the dating scheme of a serial. Synchronized with inventory item.     |
 | comment             | string          | Free form commentary                                                                                               |
