@@ -33,9 +33,7 @@ Interface: /locations
 | primaryServicePointObject/description                          | string          | description of the service-point                                                                   |
 | primaryServicePointObject/shelvingLagTime                      | integer         | shelving lag time                                                                                  |
 | primaryServicePointObject/pickupLocation                       | boolean         | indicates whether or not the service point is a pickup location                                    |
-| primaryServicePointObject/holdShelfExpiryPeriod                | object          | schema for time-period, which contains time interval 'duration' and the time unit                  |
-| primaryServicePointObject/holdShelfExpiryPeriod/duration       | integer         | Duration interval                                                                                  |
-| primaryServicePointObject/holdShelfExpiryPeriod/intervalId     | string          | Unit of time for the duration                                                                      |
+| primaryServicePointObject/holdShelfExpiryPeriod                | object          | expiration period for items on the hold shelf at the service point                                 |
 | primaryServicePointObject/holdShelfClosedLibraryDateManagement | string          | enum for closedLibraryDateManagement associated with hold shelf                                    |
 | primaryServicePointObject/staffSlips                           | array           | List of staff slips for this service point                                                         |
 | primaryServicePointObject/staffSlips/id                        | string          | The ID of the staff slip                                                                           |

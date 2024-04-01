@@ -20,7 +20,9 @@ Interface: /orders-storage/pieces
 | poLineId                   | string          | The UUID format string                                                                                                 |
 | titleId                    | string          | The UUID format string                                                                                                 |
 | holdingId                  | string          | The UUID format string                                                                                                 |
+| receivingTenantId          | string          | Receiving tenant for ECS-enabled clusters                                                                              |
 | displayOnHolding           | boolean         | Whether or not receiving history should be displayed in holding record view                                            |
+| displayToPublic            | boolean         | Whether or not the piece data should display to patrons at point of receipt                                            |
 | enumeration                | string          | Enumeration is the descriptive information for the numbering scheme of a serial. Synchronized with inventory item.     |
 | chronology                 | string          | Chronology is the descriptive information for the dating scheme of a serial. Synchronized with inventory item.         |
 | barcode                    | string          | Barcode is the descriptive information for the barcode of a serial. Synchronized with inventory item.                  |
@@ -28,7 +30,7 @@ Interface: /orders-storage/pieces
 | callNumber                 | string          | CallNumber is the descriptive information for the call number of a serial. Synchronized with inventory item.           |
 | discoverySuppress          | boolean         | Records the fact that the record should not be displayed in a discovery system                                         |
 | copyNumber                 | string          | Copy number of the piece                                                                                               |
-| receivingStatus            | string          | the status of this piece                                                                                               |
+| receivingStatus            | string          | The status of this piece                                                                                               |
 | supplement                 | boolean         | Whether or not this is supplementary material                                                                          |
 | receiptDate                | string          | Date that associated item is expected to arrive                                                                        |
 | receivedDate               | string          | The date associated item is actually received                                                                          |
