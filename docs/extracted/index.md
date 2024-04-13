@@ -3506,6 +3506,7 @@ Interface: /orders-storage/po-lines
 | instanceId                    | string             | The UUID format string                                                                                                                      |
 | isPackage                     | boolean            | Indicates that this POL is for a package                                                                                                    |
 | locations                     | array              | Location records for this purchase order line                                                                                               |
+| searchLocationIds             | array              | location ids used for search                                                                                                                |
 | lastEDIExportDate             | string             | The last date when line was exported in the EDIFACT file                                                                                    |
 | orderFormat                   | string             | The purchase order line format                                                                                                              |
 | packagePoLineId               | string             | The UUID format string                                                                                                                      |
