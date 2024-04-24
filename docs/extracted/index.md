@@ -3482,6 +3482,7 @@ Interface: /orders-storage/po-lines
 | details                       | object             | purchase order line details                                                                                                                 |
 | details/receivingNote         | string             | notes regarding receiving instructions                                                                                                      |
 | details/isAcknowledged        | boolean            | Flag for acknowledge receiving note                                                                                                         |
+| details/isBindaryActive       | boolean            | Indicates that this POL is designated as required binding                                                                                   |
 | details/productIds            | array              | a list of product identifiers                                                                                                               |
 | details/subscriptionFrom      | ['string', 'null'] | the start date of the subscription                                                                                                          |
 | details/subscriptionInterval  | integer            | the subscription interval in days                                                                                                           |
