@@ -39,6 +39,7 @@ Interface: /finance-storage/ledgers
 | totalFunding               | number          | Summary of all related to this ledger budgets totalFunding                                         |
 | cashBalance                | number          | Summary of all related to this ledger budgets cashBalance                                          |
 | awaitingPayment            | number          | Summary of all related to this ledger budgets awaitingPayment                                      |
+| credits                    | number          | Summary of all related to this ledger budgets credits                                              |
 | encumbered                 | number          | Summary of all related to this ledger budgets encumbered                                           |
 | expenditures               | number          | Summary of all related to this ledger budgets expenditures                                         |
 | overEncumbrance            | number          | Summary of all related to this ledger budgets overEncumbrance                                      |

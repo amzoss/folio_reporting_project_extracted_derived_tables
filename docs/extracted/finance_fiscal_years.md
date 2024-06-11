@@ -31,6 +31,7 @@ Interface: /finance-storage/fiscal-years
 | financialSummary/totalFunding      | number          | Summary of all related to this fiscal year budgets totalFunding                                    |
 | financialSummary/cashBalance       | number          | Summary of all related to this fiscal year budgets cashBalance                                     |
 | financialSummary/awaitingPayment   | number          | Summary of all related to this fiscal year budgets awaitingPayment                                 |
+| financialSummary/credits           | number          | Summary of all related to this fiscal year budgets credits                                         |
 | financialSummary/encumbered        | number          | Summary of all related to this fiscal year budgets encumbered                                      |
 | financialSummary/expenditures      | number          | Summary of all related to this ledger budgets expenditures                                         |
 | financialSummary/overEncumbrance   | number          | Summary of all related to this ledger budgets overEncumbrance                                      |

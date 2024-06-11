@@ -20,6 +20,7 @@ Interface: /finance-storage/budgets
 | allocated                  | number          | The amount currently allocated to this budget                                                            |
 | awaitingPayment            | number          | The amount currently awaiting payment for this budget                                                    |
 | available                  | number          | The amount currently available for this budge                                                            |
+| credits                    | number          | The amount currently credited for this budget                                                            |
 | encumbered                 | number          | The amount currently encumbered for this budget                                                          |
 | expenditures               | number          | The amount currently expended for this budget                                                            |
 | netTransfers               | number          | Summing all the transfers on this budget                                                                 |

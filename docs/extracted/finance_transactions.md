@@ -21,6 +21,7 @@ Interface: /finance-storage/transactions
 | description                         | string          | Description of this transaction                                                                                              |
 | encumbrance                         | object          | The encumbrance associated with the payment/credit taking place                                                              |
 | encumbrance/amountAwaitingPayment   | number          | Deprecated! Going to be removed in next release. The amount of awaiting for payment                                          |
+| encumbrance/amountCredited          | number          | The amount currently credited to this encumbrance                                                                            |
 | encumbrance/amountExpended          | number          | The amount currently expended by this encumbrance                                                                            |
 | encumbrance/initialAmountEncumbered | number          | The initial amount of this encumbrance. Shouldn't change once create                                                         |
 | encumbrance/status                  | string          | The status of this encumbrance                                                                                               |

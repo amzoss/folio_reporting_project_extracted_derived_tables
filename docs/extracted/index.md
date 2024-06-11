@@ -1810,6 +1810,7 @@ Interface: /finance-storage/budgets
 | allocated                  | number          | The amount currently allocated to this budget                                                            |
 | awaitingPayment            | number          | The amount currently awaiting payment for this budget                                                    |
 | available                  | number          | The amount currently available for this budge                                                            |
+| credits                    | number          | The amount currently credited for this budget                                                            |
 | encumbered                 | number          | The amount currently encumbered for this budget                                                          |
 | expenditures               | number          | The amount currently expended for this budget                                                            |
 | netTransfers               | number          | Summing all the transfers on this budget                                                                 |
@@ -1891,6 +1892,7 @@ Interface: /finance-storage/fiscal-years
 | financialSummary/totalFunding      | number          | Summary of all related to this fiscal year budgets totalFunding                                    |
 | financialSummary/cashBalance       | number          | Summary of all related to this fiscal year budgets cashBalance                                     |
 | financialSummary/awaitingPayment   | number          | Summary of all related to this fiscal year budgets awaitingPayment                                 |
+| financialSummary/credits           | number          | Summary of all related to this fiscal year budgets credits                                         |
 | financialSummary/encumbered        | number          | Summary of all related to this fiscal year budgets encumbered                                      |
 | financialSummary/expenditures      | number          | Summary of all related to this ledger budgets expenditures                                         |
 | financialSummary/overEncumbrance   | number          | Summary of all related to this ledger budgets overEncumbrance                                      |
@@ -2044,6 +2046,7 @@ Interface: /finance-storage/ledgers
 | totalFunding               | number          | Summary of all related to this ledger budgets totalFunding                                         |
 | cashBalance                | number          | Summary of all related to this ledger budgets cashBalance                                          |
 | awaitingPayment            | number          | Summary of all related to this ledger budgets awaitingPayment                                      |
+| credits                    | number          | Summary of all related to this ledger budgets credits                                              |
 | encumbered                 | number          | Summary of all related to this ledger budgets encumbered                                           |
 | expenditures               | number          | Summary of all related to this ledger budgets expenditures                                         |
 | overEncumbrance            | number          | Summary of all related to this ledger budgets overEncumbrance                                      |
@@ -2071,6 +2074,7 @@ Interface: /finance-storage/transactions
 | description                         | string          | Description of this transaction                                                                                              |
 | encumbrance                         | object          | The encumbrance associated with the payment/credit taking place                                                              |
 | encumbrance/amountAwaitingPayment   | number          | Deprecated! Going to be removed in next release. The amount of awaiting for payment                                          |
+| encumbrance/amountCredited          | number          | The amount currently credited to this encumbrance                                                                            |
 | encumbrance/amountExpended          | number          | The amount currently expended by this encumbrance                                                                            |
 | encumbrance/initialAmountEncumbered | number          | The initial amount of this encumbrance. Shouldn't change once create                                                         |
 | encumbrance/status                  | string          | The status of this encumbrance                                                                                               |
