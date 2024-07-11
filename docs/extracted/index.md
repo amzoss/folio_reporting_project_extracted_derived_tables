@@ -3606,6 +3606,7 @@ Interface: /orders-storage/pieces
 | comment                    | string          | Free form commentary                                                                                                   |
 | format                     | string          | The format of the piece                                                                                                |
 | itemId                     | string          | The UUID format string                                                                                                 |
+| bindItemId                 | string          | The UUID format string                                                                                                 |
 | locationId                 | string          | The UUID format string                                                                                                 |
 | poLineId                   | string          | The UUID format string                                                                                                 |
 | titleId                    | string          | The UUID format string                                                                                                 |
