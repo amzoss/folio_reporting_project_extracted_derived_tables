@@ -17,6 +17,7 @@ Interface: /orders-storage/pieces
 | format                     | string          | The format of the piece                                                                                                |
 | itemId                     | string          | The UUID format string                                                                                                 |
 | bindItemId                 | string          | The UUID format string                                                                                                 |
+| bindItemTenantId           | string          | Bind item tenant for ECS-enabled clusters                                                                              |
 | locationId                 | string          | The UUID format string                                                                                                 |
 | poLineId                   | string          | The UUID format string                                                                                                 |
 | titleId                    | string          | The UUID format string                                                                                                 |
