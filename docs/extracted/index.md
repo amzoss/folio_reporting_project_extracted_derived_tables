@@ -2963,6 +2963,7 @@ Interface: /locations
 | primaryServicePointObject/staffSlips                           | array           | List of staff slips for this service point                                                           |
 | primaryServicePointObject/staffSlips/id                        | string          | The ID of the staff slip                                                                             |
 | primaryServicePointObject/staffSlips/printByDefault            | boolean         | Whether or not to print the staff slip by default                                                    |
+| primaryServicePointObject/ecsRequestRouting                    | boolean         | Indicates a service point used for the ECS functionality                                             |
 | primaryServicePointObject/metadata                             | object          | Metadata about creation and changes to records, provided by the server (client should not provide)   |
 | primaryServicePointObject/metadata/createdDate                 | string          | Date and time when the record was created                                                            |
 | primaryServicePointObject/metadata/createdByUserId             | string          | ID of the user who created the record (when available)                                               |
@@ -3076,6 +3077,7 @@ Interface: /service-points
 | staffSlips                           | array           | List of staff slips for this service point                                                         |
 | staffSlips/id                        | string          | The ID of the staff slip                                                                           |
 | staffSlips/printByDefault            | boolean         | Whether or not to print the staff slip by default                                                  |
+| ecsRequestRouting                    | boolean         | Indicates a service point used for the ECS functionality                                           |
 | metadata                             | object          | Metadata about creation and changes to records, provided by the server (client should not provide) |
 | metadata/createdDate                 | string          | Date and time when the record was created                                                          |
 | metadata/createdByUserId             | string          | ID of the user who created the record (when available)                                             |
