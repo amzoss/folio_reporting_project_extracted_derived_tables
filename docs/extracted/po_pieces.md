@@ -32,7 +32,7 @@ Interface: /orders-storage/pieces
 | callNumber                 | string          | CallNumber is the descriptive information for the call number of a serial. Synchronized with inventory item.           |
 | discoverySuppress          | boolean         | Records the fact that the record should not be displayed in a discovery system                                         |
 | copyNumber                 | string          | Copy number of the piece                                                                                               |
-| receivingStatus            | string          | The status of this piece                                                                                               |
+| receivingStatus            | string          | The status of a piece                                                                                                  |
 | supplement                 | boolean         | Whether or not this is supplementary material                                                                          |
 | isBound                    | boolean         | Whether or not piece has already been bound                                                                            |
 | receiptDate                | string          | Date that associated item is expected to arrive                                                                        |
