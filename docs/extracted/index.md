@@ -838,6 +838,7 @@ Interface: /request-storage/requests
 | searchIndex/shelvingOrder                   | string          | A system generated normalization of the call number that allows for call number sorting in reports and search results                                                                                                                                    |
 | searchIndex/pickupServicePointName          | string          | The name of the request pickup service point                                                                                                                                                                                                             |
 | itemLocationCode                            | string          | Allow specifying item location when creating title-level requests                                                                                                                                                                                        |
+| isDcbReRequestCancellation                  | boolean         | Indicates if the request was cancelled during a DCB transaction update. This determines whether the Kafka event will be handled and if an email notification will be sent                                                                                |
 
 ## Documentation: [circulation_scheduled_notices](circulation_scheduled_notices.md)
 
